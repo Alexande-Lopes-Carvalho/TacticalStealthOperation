@@ -1,0 +1,351 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.22f1 (e1a7f79fd887) revision 14788599'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19041.1348; Version 2004; 64bit' Language: 'fr' Physical Memory: 16309 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\Program Files\Unity\2020.3.22f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+58353
+Successfully changed project path to: D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
+D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 34.10 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.22f1 (e1a7f79fd887)
+[Subsystems] Discovering subsystems at path D:/Program Files/Unity/2020.3.22f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 970 (ID=0x13c2)
+    Vendor:   
+    VRAM:     4043 MB
+    Driver:   27.21.14.6109
+Initialize mono
+Mono path[0] = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56708
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Program Files/Unity/2020.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/Program Files/Unity/2020.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001924 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 33.50 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.148 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3149ms)
+		BeginReloadAssembly (102ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (501ms)
+			LoadAssemblies (102ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (176ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (178ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (34ms)
+				BeforeProcessingInitializeOnLoad (14ms)
+				ProcessInitializeOnLoadAttributes (91ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004918 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.31 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.155 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1156ms)
+		BeginReloadAssembly (181ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (22ms)
+		EndReloadAssembly (914ms)
+			LoadAssemblies (119ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (327ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (337ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (220ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.22 seconds
+Refreshing native plugins compatible for Editor in 0.35 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1490 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 67.9 MB.
+System memory in use after: 68.0 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1922.
+Total: 2.856100 ms (FindLiveObjects: 0.158500 ms CreateObjectMapping: 0.053600 ms MarkObjects: 2.577900 ms  DeleteObjects: 0.065200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Graphics/Enemy/rifle aiming idle.fbx
+  artifactKey: Guid(7711266271963774ea7bb29283e9cd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/rifle aiming idle.fbx using Guid(7711266271963774ea7bb29283e9cd9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b249effabff5ecdbdc91b743d1413f85') in 0.072481 seconds 
+  Import took 0.075389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 120.368965 seconds.
+  path: Assets/Graphics/Enemy/reloading.fbx
+  artifactKey: Guid(026188200614aec4faf96e1dffa355a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/reloading.fbx using Guid(026188200614aec4faf96e1dffa355a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a10027d7b25189998c3cdf17d00e868') in 0.009202 seconds 
+  Import took 0.012285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 466.057300 seconds.
+  path: Assets/Graphics/Enemy/Idle.anim
+  artifactKey: Guid(cf4683ca0a6039c4392f2536e52fa1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/Idle.anim using Guid(cf4683ca0a6039c4392f2536e52fa1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d2770a271414772f49fd0cc55196587') in 0.037789 seconds 
+  Import took 0.073613 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 111.604947 seconds.
+  path: Assets/Graphics/Enemy/rifle run.fbx
+  artifactKey: Guid(396561962f406934082c8bbf79e7770e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/rifle run.fbx using Guid(396561962f406934082c8bbf79e7770e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76470da3222a1a8ed69263d7d76f23ad') in 0.010835 seconds 
+  Import took 0.014157 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 921.371397 seconds.
+  path: Assets/Graphics/Enemy/Rifle Idle.fbx
+  artifactKey: Guid(130f52988fb98f2478dded6813515e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/Rifle Idle.fbx using Guid(130f52988fb98f2478dded6813515e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '597f35e7abde07c63bd3569e3d35be2e') in 0.134802 seconds 
+  Import took 0.138311 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 248.515884 seconds.
+  path: Assets/Graphics/Enemy/walking.fbx
+  artifactKey: Guid(5dfa3efa7b18af348a0b40737ff48157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/walking.fbx using Guid(5dfa3efa7b18af348a0b40737ff48157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a4288219fd7027d2f97d7850cda5f59') in 0.011284 seconds 
+  Import took 0.022282 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 731.337457 seconds.
+  path: Assets/Graphics/Enemy/hit reaction.fbx
+  artifactKey: Guid(f791f52fc9c71eb4e8aa263101eb9254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Enemy/hit reaction.fbx using Guid(f791f52fc9c71eb4e8aa263101eb9254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4eba4494fa9952b3e6d82ef4dae6e2fa') in 0.009405 seconds 
+  Import took 0.029399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 211.014617 seconds.
+  path: Assets/Graphics/FAL
+  artifactKey: Guid(4c24ed9f6b5e6344c89483f8a9953e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL using Guid(4c24ed9f6b5e6344c89483f8a9953e68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb781eba86ed2b8ccd0d1a277074d8a5') in 0.009503 seconds 
+  Import took 0.012547 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 69.454160 seconds.
+  path: Assets/Graphics/FAL/FAL.blend
+  artifactKey: Guid(4c2a241e741c2364da1fef595396a692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/FAL.blend using Guid(4c2a241e741c2364da1fef595396a692) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b44c2757df3a965a0c407fb723a4f906') in 0.128966 seconds 
+  Import took 0.133172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Graphics/FAL/WeaponMagazine_Texture.png
+  artifactKey: Guid(48ed36f3399a8fa43ae105968ba2016e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/WeaponMagazine_Texture.png using Guid(48ed36f3399a8fa43ae105968ba2016e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89db75ced133955aaeeff77901968853') in 0.039434 seconds 
+  Import took 0.041993 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000328 seconds.
+  path: Assets/Graphics/FAL/FAL_Texture.png
+  artifactKey: Guid(9bd6ee810682da04685909191a754c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/FAL_Texture.png using Guid(9bd6ee810682da04685909191a754c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33ddedf1e011ae31c811fba5f9c621a9') in 0.017108 seconds 
+  Import took 0.043077 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.537226 seconds.
+  path: Assets/Graphics/FAL/Weapon
+  artifactKey: Guid(7bb611de25b8d7045931422c08373784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon using Guid(7bb611de25b8d7045931422c08373784) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52a32f9755bb85d08010eb8e4c260f23') in 0.008013 seconds 
+  Import took 0.032529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.935234 seconds.
+  path: Assets/Graphics/FAL/Magazine
+  artifactKey: Guid(5f10152d24921324abee5e70d326b933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Magazine using Guid(5f10152d24921324abee5e70d326b933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '635d29c75ca86199b667b731fb2b1c48') in 0.007653 seconds 
+  Import took 0.010804 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 632.199409 seconds.
+  path: Assets/Graphics/FAL/Magazine/FAL_Magazine.blend
+  artifactKey: Guid(62cc37c76cebdd84b94d8b5948a27a15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Magazine/FAL_Magazine.blend using Guid(62cc37c76cebdd84b94d8b5948a27a15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fcaefac28b4b206cdd49195db514b64') in 0.032042 seconds 
+  Import took 0.036171 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000365 seconds.
+  path: Assets/Graphics/FAL/Magazine/WeaponMagazine_Texture.png
+  artifactKey: Guid(08516667b38cc9c4cb41d2127bdf1e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Magazine/WeaponMagazine_Texture.png using Guid(08516667b38cc9c4cb41d2127bdf1e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '18da0ff87a9207187076681d1df35b8e') in 0.008949 seconds 
+  Import took 0.012340 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.777927 seconds.
+  path: Assets/Graphics/FAL/Weapon/FAL.blend
+  artifactKey: Guid(506d3283947662946a33230b2b35dc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon/FAL.blend using Guid(506d3283947662946a33230b2b35dc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbee1cfcd5d1aa0a2e98f09c68cc1918') in 0.029226 seconds 
+  Import took 0.032351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000269 seconds.
+  path: Assets/Graphics/FAL/Weapon/FAL_Texture.png
+  artifactKey: Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon/FAL_Texture.png using Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ba0746255083ebd693d30ea0f114600') in 0.013754 seconds 
+  Import took 0.035147 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.899069 seconds.
+  path: Assets/Graphics/FAL/Weapon/FAL_Texture.png
+  artifactKey: Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon/FAL_Texture.png using Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5cf1bdde5f7c01282b6ec52c8718401') in 0.036448 seconds 
+  Import took 0.040713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.321497 seconds.
+  path: Assets/Graphics/FAL/Weapon/FAL_Texture.png
+  artifactKey: Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon/FAL_Texture.png using Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '429c7494598f3d47af8de7549b6e2d43') in 0.009769 seconds 
+  Import took 0.014095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.407407 seconds.
+  path: Assets/Graphics/FAL/Weapon/FAL_Texture.png
+  artifactKey: Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon/FAL_Texture.png using Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f45d7c85d3e2a3ee39a7bf55ebd8d052') in 0.008908 seconds 
+  Import took 0.012771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.862706 seconds.
+  path: Assets/Graphics/FAL/Weapon/FAL_Texture.png
+  artifactKey: Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Weapon/FAL_Texture.png using Guid(046dc488d15611f42bd796112abfd6b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80cb23788f99fa2f01433b23863bf206') in 0.016187 seconds 
+  Import took 0.020385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.072013 seconds.
+  path: Assets/Prefabs/FAL.prefab
+  artifactKey: Guid(fe1ef6f92bbf5fb43972c16a34181b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FAL.prefab using Guid(fe1ef6f92bbf5fb43972c16a34181b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '797f3f6a8f734c136b4ac17cfc521531') in 0.014204 seconds 
+  Import took 0.017719 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.881118 seconds.
+  path: Assets/Prefabs/FAL(Unloaded).prefab
+  artifactKey: Guid(fe1ef6f92bbf5fb43972c16a34181b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FAL(Unloaded).prefab using Guid(fe1ef6f92bbf5fb43972c16a34181b16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f3a25894a42538a8071dcfd5db5a7f7') in 0.014515 seconds 
+  Import took 0.030889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.731490 seconds.
+  path: Assets/Graphics/FAL/Magazine/WeaponMagazine_Texture.png
+  artifactKey: Guid(08516667b38cc9c4cb41d2127bdf1e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/FAL/Magazine/WeaponMagazine_Texture.png using Guid(08516667b38cc9c4cb41d2127bdf1e35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ad476a0e89eea1af26f33991b29c44b') in 0.014296 seconds 
+  Import took 0.017634 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.556846 seconds.
+  path: Assets/Prefabs/FAL_Magazine.prefab
+  artifactKey: Guid(6e7df05e4e9d45b4faf01761fe508d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FAL_Magazine.prefab using Guid(6e7df05e4e9d45b4faf01761fe508d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79cab894c65e364a64b1cd5647350db0') in 0.013506 seconds 
+  Import took 0.016733 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 323.864212 seconds.
+  path: Assets/Prefabs/FAL(Loaded).prefab
+  artifactKey: Guid(adc0a94d9d2969b48a2873eaaa293744) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FAL(Loaded).prefab using Guid(adc0a94d9d2969b48a2873eaaa293744) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adb9f23d056d5895e36bb39483744f4d') in 0.018816 seconds 
+  Import took 0.022322 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1016.597963 seconds.
+  path: Assets/Prefabs/Enemy.prefab
+  artifactKey: Guid(b929732ee733acd42842b30fa334d2a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy.prefab using Guid(b929732ee733acd42842b30fa334d2a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fe31664c6439ce087b58d4d6733d131') in 0.087279 seconds 
+  Import took 0.091183 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
