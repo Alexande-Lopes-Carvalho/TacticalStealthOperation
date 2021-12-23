@@ -9,9 +9,9 @@ AnimatorOverrideController:
   m_Name: FAL
   m_Controller: {fileID: 9100000, guid: 17dabf519966d5c42b48b800aa7df3de, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 69263c64f779c5b478696c858c68247d, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ba2732f87aab2e74790865dc6f6453e7, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 43e60328e9f6cc24b9665e26179f9fae, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 48cd5438db52a504690212144b719774, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: c2e7e9dbf0d4b3a44a870788d24317d6, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ba2732f87aab2e74790865dc6f6453e7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7b745c24419884f4da6998fd9653d5fc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 69263c64f779c5b478696c858c68247d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 96e38747efeaf2a4da27222fce25064f, type: 2}

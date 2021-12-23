@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1221572885447435266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2271340837970587528}
+  m_Layer: 0
+  m_Name: CartridgeSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2271340837970587528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221572885447435266}
+  m_LocalRotation: {x: 0.00000017881392, y: 0.11261512, z: -0.00000008568167, w: 0.9936387}
+  m_LocalPosition: {x: -0.0082, y: 0.1532, z: 0.0912}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1399603816197201864}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 12.932, z: 0}
 --- !u!1 &1898781648060734666
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,6 +144,7 @@ Transform:
   - {fileID: 2618054985645989048}
   - {fileID: 5998578365535509879}
   - {fileID: 1500899875852814707}
+  - {fileID: 2271340837970587528}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -169,6 +200,13 @@ MonoBehaviour:
   bulletsInMagazine: 25
   weaponAnimator: {fileID: 6832748286980559139}
   magazine: {fileID: 6373978381740279757}
+  cartridgeSpawn: {fileID: 1221572885447435266}
+  cartridgePool: {fileID: 0}
+  cartridgeDeltaY: 0.05
+  cartridgeDeltaZ: 0.05
+  cartridgeMinRotation: 30
+  cartridgeMaxRotation: 60
+  cartridgeStrength: 1.5
 --- !u!1 &3395401376554993154
 GameObject:
   m_ObjectHideFlags: 0

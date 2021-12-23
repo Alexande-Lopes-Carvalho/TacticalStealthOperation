@@ -26,10 +26,15 @@ public class Enemy : MonoBehaviour {
         
     }
 
+    /*
+        Shooting Rifle Animation Event function ...
+    */
+    public void OnStartFiringRifleAnimation(){
+        weapon.Shoot();
+    }
 
-
-    /**
-        Realoding Rifle Animation Event function ...
+    /*
+        Reloading Rifle Animation Event function ...
     */
     public void OnStartReloadingAnimation(){
         leftHand.SetActive(false);

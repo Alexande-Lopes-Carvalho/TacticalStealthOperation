@@ -20,7 +20,7 @@ public class ObjectPooler : MonoBehaviour {
         }
     }
 
-    public void SpawnAt(Vector3 position, Vector3 rotation, Vector3 scale){
+    public GameObject SpawnAt(Vector3 position, Vector3 rotation, Vector3 scale){
         //Debug.print("pass " + position);
         index = (++index)%pool.Count;
         GameObject obj = pool[index];
@@ -29,8 +29,9 @@ public class ObjectPooler : MonoBehaviour {
         obj.transform.position = position;
         obj.transform.eulerAngles = rotation;
         obj.transform.localScale = scale;
+        return obj;
     }
-    public void SpawnAt(Vector3 position, Vector3 rotation){
-        SpawnAt(position, rotation, new Vector3(1, 1, 1));
+    public GameObject SpawnAt(Vector3 position, Vector3 rotation){
+        return SpawnAt(position, rotation, new Vector3(1, 1, 1));
     }
 }
