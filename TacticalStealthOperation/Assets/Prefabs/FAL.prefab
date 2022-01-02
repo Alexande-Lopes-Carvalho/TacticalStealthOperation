@@ -195,10 +195,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6923413989eed544862a625908fe409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireMode: 0000000002000000
+  fireModeIndex: 1
+  fireRate: 250
+  reloadRate: 2900
+  category: 1
   damage: 15
   MaxBulletsInMagazine: 25
   bulletsInMagazine: 25
-  weaponAnimator: {fileID: 6832748286980559139}
   magazine: {fileID: 6373978381740279757}
   cartridgeSpawn: {fileID: 1221572885447435266}
   cartridgePool: {fileID: 0}

@@ -12,7 +12,7 @@ public class Debug : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if(Input.GetKeyDown(KeyCode.Space)){
-            Debug.print("pass");
+            //Debug.print("pass");
             objPool.SpawnAt(new Vector3(34.5f, 0.8f, 0), new Vector3(-90, 0, 0));
         }
     }
