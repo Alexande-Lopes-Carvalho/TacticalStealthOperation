@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Enemy_AssaultRifle
+  m_Controller: {fileID: 9100000, guid: a4ec79ced390b33468d1fbb4253bab0b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4688c6658be088a49946d6e52dddabc6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: adf04bff99a8dad4baf51dd22feb50ce, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 16a88584eeeec5c4bb98538ab80bce5a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3633130a2b8042841b5461ae7a17ab39, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c53e9de29e2b42644b2154437fd926b3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cf4683ca0a6039c4392f2536e52fa1ff, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ef8007ba09567eb439838124378402d8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81e5a485846c9104fb91187eb7cd07c3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 400603def4d84db458e8156621cda8be, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 485d149e7b7c34a4896d2e0c50912977, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 39be51c5cd219154fbb2a25accd40fa7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aab7fff1008dd8d44be2053347420e17, type: 2}

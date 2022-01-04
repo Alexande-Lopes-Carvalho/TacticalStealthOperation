@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,18 +19,25 @@ public class Weapon : MonoBehaviour {
 
     private Animator weaponAnimator;
     [SerializeField] private GameObject magazine;
-    [SerializeField] private GameObject cartridgeSpawn;
-    [SerializeField] private ObjectPooler cartridgePool;
-    [SerializeField] private float cartridgeDeltaY = 0.05f, cartridgeDeltaZ = 0.05f, cartridgeMinRotation = 0.05f, cartridgeMaxRotation = 0.05f, cartridgeStrength = 1;
     public GameObject Magazine{get => magazine;}
+    [SerializeField] private GameObject cartridgeSpawn;
+    [SerializeField] private Ammunition ammunitionType;
+    private ObjectPooler cartridgePool;
+    private ObjectPooler magazinePool;
+    public ObjectPooler MagazinePool{get => magazinePool;}
+    [SerializeField] private float cartridgeDeltaY = 0.05f, cartridgeDeltaZ = 0.05f, cartridgeMinRotation = 0.05f, cartridgeMaxRotation = 0.05f, cartridgeStrength = 1;
+    
 
     private int bulletBuffer = 0; // according to fire mode
 
     protected static readonly int shootSpeedAnimation = Animator.StringToHash("shootSpeed");
     protected static readonly int reloadSpeedAnimation = Animator.StringToHash("reloadSpeed");
 
+    private Rigidbody rbody;
+
     // Start is called before the first frame update
     void Start() {
+        rbody = GetComponent<Rigidbody>();
         weaponAnimator = GetComponent<Animator>();
         foreach (AnimationClip clip in weaponAnimator.runtimeAnimatorController.animationClips) {
             if (clip.name == "Shoot") {
@@ -40,16 +48,29 @@ public class Weapon : MonoBehaviour {
                 weaponAnimator.SetFloat(reloadSpeedAnimation, (clip.length*1000.0f)/reloadRate);
             }
         }
+        magazinePool = GameObject.Find(name+"MagazinePool").GetComponent<ObjectPooler>();
+        cartridgePool = GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool").GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
     void Update() {
     }
 
+    public void SetRigibody(bool b){
+        //Debug.print("pass rb " + b);
+        if(b && rbody == null){
+            gameObject.AddComponent<Rigidbody>();
+            rbody = GetComponent<Rigidbody>();
+        } else if(!b){
+            Destroy(rbody);
+            rbody = null;
+        }
+    }
+
     /* Trigger handling */
     public void PressTrigger(){
         bulletBuffer = (fireMode[fireModeIndex] == FireMode.SEMI)? 1 : (fireMode[fireModeIndex] == FireMode.BURST)? burstBullet : -1;
-        Debug.print(Time.frameCount + " buffer " + bulletBuffer);
+        //Debug.print(Time.frameCount + " buffer " + bulletBuffer);
     }
 
     public void ReleaseTigger(){
@@ -72,12 +93,13 @@ public class Weapon : MonoBehaviour {
     public void OnStartShoot(){
         GameObject o = cartridgePool.SpawnAt(cartridgeSpawn.transform.position, cartridgeSpawn.transform.eulerAngles);
         Vector3 origin = cartridgeSpawn.transform.position;
-        float angA = Mathf.PI+Random.Range(-cartridgeDeltaY/2, cartridgeDeltaY/2), angB = Random.Range(-cartridgeDeltaZ/2, cartridgeDeltaZ/2), angC = Random.Range(cartridgeMinRotation, cartridgeMaxRotation);
+        float angA = Mathf.PI+UnityEngine.Random.Range(-cartridgeDeltaY/2, cartridgeDeltaY/2), angB = UnityEngine.Random.Range(-cartridgeDeltaZ/2, cartridgeDeltaZ/2), angC = UnityEngine.Random.Range(cartridgeMinRotation, cartridgeMaxRotation);
         Vector3 m = new Vector3(Mathf.Cos(angA)*Mathf.Cos(angB), Mathf.Sin(angB), Mathf.Sin(angA)*Mathf.Cos(angB));
         m = m*(cartridgeStrength/m.magnitude);
         cartridgeSpawn.transform.Translate(m);
         //Debug.print(cartridgeSpawn.transform.position-origin);
         Rigidbody r = o.GetComponent<Rigidbody>();
+        Debug.print(cartridgeSpawn.transform.position-origin);
         r.AddForce(cartridgeSpawn.transform.position-origin, ForceMode.Impulse);
         r.AddTorque(cartridgeSpawn.transform.up*angC, ForceMode.Impulse);
 
