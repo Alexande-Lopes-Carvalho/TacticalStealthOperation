@@ -99,7 +99,7 @@ public class Weapon : MonoBehaviour {
         cartridgeSpawn.transform.Translate(m);
         //Debug.print(cartridgeSpawn.transform.position-origin);
         Rigidbody r = o.GetComponent<Rigidbody>();
-        Debug.print(cartridgeSpawn.transform.position-origin);
+        //Debug.print(cartridgeSpawn.transform.position-origin);
         r.AddForce(cartridgeSpawn.transform.position-origin, ForceMode.Impulse);
         r.AddTorque(cartridgeSpawn.transform.up*angC, ForceMode.Impulse);
 
