@@ -7,15 +7,16 @@ public class Human : MonoBehaviour {
     [SerializeField] private Weapon weapon;
     [SerializeField] private RuntimeAnimatorController gunAnimationController, assaultRifleAnimationController;
     private GameObject hiddenMagazine;
-    private Animator animator;
+    protected Animator animator;
     private bool isPressingWeaponTrigger = false;
 
     protected static readonly int shootSpeedAnimation = Animator.StringToHash("shootSpeed");
     protected static readonly int reloadSpeedAnimation = Animator.StringToHash("reloadSpeed");
     protected static readonly int doShootAnimation = Animator.StringToHash("doShoot");
+    protected static readonly int speedAnimation = Animator.StringToHash("speed");
 
     // Start is called before the first frame update
-    void Start() {
+    public virtual void Start() {
         leftHand.SetActive(false);
         animator = GetComponent<Animator>();
         EquipWeapon(weapon);
@@ -81,7 +82,7 @@ public class Human : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    public virtual void Update() {
         if(Input.GetKeyDown(KeyCode.Space)){
             PressWeaponTrigger();
         } else if(Input.GetKeyUp(KeyCode.Space)){

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour {
+    [SerializeField] private string weaponName; // to find magazine pool
     [SerializeField] private List<FireMode> fireMode;
     [SerializeField] private int fireModeIndex = 0;
     [SerializeField] private int burstBullet = 3;
@@ -48,7 +49,7 @@ public class Weapon : MonoBehaviour {
                 weaponAnimator.SetFloat(reloadSpeedAnimation, (clip.length*1000.0f)/reloadRate);
             }
         }
-        magazinePool = GameObject.Find(name+"MagazinePool").GetComponent<ObjectPooler>();
+        magazinePool = GameObject.Find(weaponName+"MagazinePool").GetComponent<ObjectPooler>();
         cartridgePool = GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool").GetComponent<ObjectPooler>();
     }
 

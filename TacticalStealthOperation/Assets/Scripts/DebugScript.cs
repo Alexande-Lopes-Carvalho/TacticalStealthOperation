@@ -1,15 +1,20 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Debug : MonoBehaviour {
+
+public class DebugScript : MonoBehaviour {
     [SerializeField] private ObjectPooler objPool;
-    [SerializeField] private Enemy enemy;
+    [SerializeField] private Guard enemy;
     [SerializeField] private List<Weapon> weapons;
+    [SerializeField] private Path path;
     private int weaponIndex;
     // Start is called before the first frame update
     void Start() {
         weaponIndex = 0;
+        for(int i = 0; i < 7; ++i){
+            //UnityEngine.Debug.Log(i + " : " + ((path.ComputeNextPosition())? ""+path.GetDestination() : "none"));
+        }
     }
 
     // Update is called once per frame
