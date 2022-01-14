@@ -89,6 +89,10 @@ public abstract class PathFollower : MonoBehaviour {
         
     }
 
+    void FixedUpdate(){
+        //Debug.Log(Time.time + " FixedUpdate");
+    }
+
     public virtual void SetDestination(Vector3 _destination) {
         destination = _destination;
     }
