@@ -124,7 +124,8 @@ public class Human : MonoBehaviour {
             animator.SetTrigger("doReload");
         } else if(Input.GetKeyDown(KeyCode.T)){
             animator.SetTrigger("gotHit");
-        }
+        } 
+        
     }
 
     /*

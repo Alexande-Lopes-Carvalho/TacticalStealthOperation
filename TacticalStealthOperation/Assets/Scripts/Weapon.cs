@@ -49,8 +49,8 @@ public class Weapon : MonoBehaviour {
                 weaponAnimator.SetFloat(reloadSpeedAnimation, (clip.length*1000.0f)/reloadRate);
             }
         }
-        magazinePool = GameObject.Find(weaponName+"MagazinePool").GetComponent<ObjectPooler>();
-        cartridgePool = GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool").GetComponent<ObjectPooler>();
+        magazinePool = PoolLinker.Get(weaponName+"MagazinePool");//GameObject.Find(weaponName+"MagazinePool").GetComponent<ObjectPooler>();
+        cartridgePool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool");//GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool").GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame

@@ -107,34 +107,38 @@ public class PathEditor : Editor {
 
             if(EditorGUI.EndChangeCheck() && handleDrag == i){
                 Debug.Log(Time.time + " move " + i);
-                Undo.RecordObject(path, "Move PathState n°" + i);
+                Undo.RegisterCompleteObjectUndo(path, "Move PathState n°" + i);
                 Vector3 computedPos = newPosition+offset;
                 //Debug.Log(Time.time + " " + computedPos + " " + newPosition + " " + (path.PathStates[i].destination-list[i]) + " " + (path.PathStates[i].destination-offset));
                 path.PathStates[i].destination =  new Vector3(SnapValue(computedPos.x, 0.01f), SnapValue(computedPos.y, 0.01f), SnapValue(computedPos.z, 0.01f));
+                EditorUtility.SetDirty(path);
             }
             Handles.color = Color.black;
             if(!path.PathStates[i].NoRotation){
                 EditorGUI.BeginChangeCheck();
                 Quaternion rot = Handles.Disc(Quaternion.Euler(path.PathStates[i].facingRotation), list[i]+q*new Vector3(0, 0.5f, 0), q*new Vector3(0, 1f, 0), 0.5f, false, 1);
                 if(EditorGUI.EndChangeCheck()){
-                    Undo.RecordObject(path, "Rotate PathState n°" + i);
+                    Undo.RegisterCompleteObjectUndo(path, "Rotate PathState n°" + i);
                     path.PathStates[i].facingRotation = new Vector3(SnapValue(rot.eulerAngles.x, 1f), SnapValue(rot.eulerAngles.y, 1f), SnapValue(rot.eulerAngles.z, 1f));
+                    EditorUtility.SetDirty(path);
                 }
             }
 
             EditorGUI.BeginChangeCheck();
             float newTime = Handles.ScaleSlider(Mathf.Max(path.PathStates[i].timeToWait, 0.25f), list[i]+q*new Vector3(0, 0.75f, 0), q*new Vector3(0, 0, 1) , Quaternion.identity, 0.5f, 1f);
             if(EditorGUI.EndChangeCheck()){
-                Undo.RecordObject(path, "Modify time PathState n°" + i);
+                Undo.RegisterCompleteObjectUndo(path, "Modify time PathState n°" + i);
                 path.PathStates[i].timeToWait = Mathf.Max(SnapValue(newTime, 0.01f), 0.0f);
+                EditorUtility.SetDirty(path);
             }
 
             Handles.Label(list[i]+new Vector3(0, 0.75f, 0), path.PathStates[i].timeToWait + " s", style);
 
 
             if(Handles.Button(list[i]+q*new Vector3(0, 0.75f, -0.25f), q*Quaternion.AngleAxis(90, Vector3.up), 0.07f, 0.07f, Handles.RectangleHandleCap)){
-                Undo.RecordObject(path, "Update NoRotation");
+                Undo.RegisterCompleteObjectUndo(path, "Update NoRotation");
                 path.PathStates[i].noRotation = !path.PathStates[i].noRotation;
+                EditorUtility.SetDirty(path);
             }
         }       
 
@@ -143,7 +147,7 @@ public class PathEditor : Editor {
             Handles.color = Color.HSVToRGB(0.6f, 1f, 0.5f);
 
             if(Handles.Button(list[i]+q*new Vector3(0, 1.15f, 0.25f), q*Quaternion.AngleAxis(90, Vector3.up), 0.07f, 0.07f, Handles.RectangleHandleCap)){
-                Undo.RecordObject(path, "Add PathState");
+                Undo.RegisterCompleteObjectUndo(path, "Add PathState");
                 Path.PathState res = new Path.PathState();
                 res.destination = path.PathStates[i].destination;
                 res.noRotation = path.PathStates[i].noRotation;
@@ -153,16 +157,18 @@ public class PathEditor : Editor {
                 list.Insert(i, new Vector3(0, 0, 0));
                 listQuat.Insert(i, new Quaternion(0, 0, 0, 0));
                 ++i;
+                EditorUtility.SetDirty(path);
             }
 
             Handles.color = Color.HSVToRGB(0.0f, 1f, 0.5f);
 
             if(Handles.Button(list[i]+q*new Vector3(0, 1.15f, -0.25f), q*Quaternion.AngleAxis(90, Vector3.up), 0.07f, 0.07f, Handles.RectangleHandleCap)){
-                Undo.RecordObject(path, "Remove PathState");
+                Undo.RegisterCompleteObjectUndo(path, "Remove PathState");
                 path.PathStates.RemoveAt(i);
                 list.RemoveAt(i);
                 listQuat.RemoveAt(i);
                 i--;
+                EditorUtility.SetDirty(path);
             }
         }
     }
