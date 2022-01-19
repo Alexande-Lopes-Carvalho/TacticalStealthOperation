@@ -72,7 +72,7 @@ public class Human : MonoBehaviour {
     } 
 
     public void PressWeaponTrigger(){
-        //Debug.print("Enemy : Press");
+        //Debug.Log("Enemy : Press");
         isPressingWeaponTrigger = true;
         weapon.PressTrigger();
         if(weapon.CanShootBullet()){
@@ -80,7 +80,7 @@ public class Human : MonoBehaviour {
         }
     }
     public void ReleaseWeaponTrigger(){
-        //Debug.print("Enemy : Release");
+        //Debug.Log("Enemy : Release");
         isPressingWeaponTrigger = false;
         animator.SetBool(doShootAnimation, false);
     }

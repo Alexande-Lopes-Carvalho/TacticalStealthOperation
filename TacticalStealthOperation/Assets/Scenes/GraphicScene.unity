@@ -675,7 +675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4550845683122612207, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
       propertyPath: pathStates.Array.data[0].timeToWait
-      value: 0
+      value: 72.29
       objectReference: {fileID: 0}
     - target: {fileID: 4550845683122612207, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
       propertyPath: pathStates.Array.data[1].noRotation

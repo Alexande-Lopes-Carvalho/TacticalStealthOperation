@@ -79,6 +79,7 @@ public class Weapon : MonoBehaviour {
     }
 
     public bool CanShootBullet(){
+        Debug.Log(fireMode[fireModeIndex] + " " + bulletBuffer + " " + bulletsInMagazine);
         return (bulletBuffer == -1 || bulletBuffer > 0) && bulletsInMagazine > 0;
     }
     
@@ -86,7 +87,9 @@ public class Weapon : MonoBehaviour {
     public void Shoot(){
         weaponAnimator.SetTrigger("doShoot");
         --bulletsInMagazine;
-        --bulletBuffer;
+        if(bulletBuffer != -1){
+            --bulletBuffer;
+        }
     }
     /*
         Shooting Animation Event function ...
