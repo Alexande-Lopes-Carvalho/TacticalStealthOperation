@@ -58,7 +58,7 @@ public class PathEditor : Editor {
 
         GUIStyle style = new GUIStyle();
         style.normal.textColor = Color.grey;
-        Debug.Log(Time.time + " startLoop");
+        //Debug.Log(Time.time + " startLoop");
         for(int i = 0 ; i < path.PathStates.Count; ++i){
             
             
@@ -106,7 +106,7 @@ public class PathEditor : Editor {
             GUI.changed |= temp;
 
             if(EditorGUI.EndChangeCheck() && handleDrag == i){
-                Debug.Log(Time.time + " move " + i);
+                //Debug.Log(Time.time + " move " + i);
                 Undo.RegisterCompleteObjectUndo(path, "Move PathState n°" + i);
                 Vector3 computedPos = newPosition+offset;
                 //Debug.Log(Time.time + " " + computedPos + " " + newPosition + " " + (path.PathStates[i].destination-list[i]) + " " + (path.PathStates[i].destination-offset));

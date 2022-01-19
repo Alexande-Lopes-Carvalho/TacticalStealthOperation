@@ -95,7 +95,7 @@ public class Human : MonoBehaviour {
     public virtual void FixedUpdate(){
         
 
-        Debug.Log(Mathf.Acos(Vector3.Dot(lastDirection, transform.forward)));
+        //Debug.Log(Mathf.Acos(Vector3.Dot(lastDirection, transform.forward)));
         turnBuffer += Mathf.Acos(Mathf.Min(Mathf.Max(Vector3.Dot(lastDirection, transform.forward), -1.0f), 1.0f))*(Vector3.Dot(Vector3.Cross(lastDirection, transform.forward), transform.up) > 0? 1 : -1);
         lastDirection = transform.forward;
         if(Time.time >= turnSamplingTime+0.05){

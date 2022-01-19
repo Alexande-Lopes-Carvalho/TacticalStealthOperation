@@ -79,7 +79,6 @@ public class Weapon : MonoBehaviour {
     }
 
     public bool CanShootBullet(){
-        Debug.Log(fireMode[fireModeIndex] + " " + bulletBuffer + " " + bulletsInMagazine);
         return (bulletBuffer == -1 || bulletBuffer > 0) && bulletsInMagazine > 0;
     }
     
