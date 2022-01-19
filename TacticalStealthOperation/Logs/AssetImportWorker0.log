@@ -15,11 +15,11 @@ D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalS
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62357
+54090
 Successfully changed project path to: D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
 D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 35.81 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 36.78 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.22f1 (e1a7f79fd887)
 [Subsystems] Discovering subsystems at path D:/Program Files/Unity/2020.3.22f1/Editor/Data/Resources/UnitySubsystems
@@ -35,92 +35,92 @@ Initialize mono
 Mono path[0] = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56872
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56792
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Program Files/Unity/2020.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Program Files/Unity/2020.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002048 seconds.
+Registered in 0.004133 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 39.67 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 42.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.177 seconds
+- Completed reload, in  3.525 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3177ms)
-		BeginReloadAssembly (82ms)
+	ReloadAssembly (3525ms)
+		BeginReloadAssembly (133ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (532ms)
-			LoadAssemblies (82ms)
+		EndReloadAssembly (557ms)
+			LoadAssemblies (135ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (181ms)
+			SetupTypeCache (191ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (34ms)
-			SetupLoadedEditorAssemblies (210ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (207ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (40ms)
-				BeforeProcessingInitializeOnLoad (16ms)
-				ProcessInitializeOnLoadAttributes (106ms)
-				ProcessInitializeOnLoadMethodAttributes (41ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (42ms)
+				BeforeProcessingInitializeOnLoad (17ms)
+				ProcessInitializeOnLoadAttributes (103ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006886 seconds.
+Registered in 0.015567 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.587 seconds
+- Completed reload, in  1.861 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1588ms)
-		BeginReloadAssembly (171ms)
+	ReloadAssembly (1864ms)
+		BeginReloadAssembly (187ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (19ms)
-		EndReloadAssembly (1356ms)
-			LoadAssemblies (475ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1608ms)
+			LoadAssemblies (633ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (314ms)
+			SetupTypeCache (394ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (436ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (401ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (131ms)
-				ProcessInitializeOnLoadAttributes (286ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (3ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (106ms)
+				ProcessInitializeOnLoadAttributes (267ms)
+				ProcessInitializeOnLoadMethodAttributes (14ms)
+				AfterProcessingInitializeOnLoad (4ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.36 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1539 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 70.5 MB.
 System memory in use after: 70.6 MB.
 
 Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1971.
-Total: 3.932800 ms (FindLiveObjects: 0.151300 ms CreateObjectMapping: 0.050500 ms MarkObjects: 3.639400 ms  DeleteObjects: 0.090300 ms)
+Total: 3.299000 ms (FindLiveObjects: 0.167400 ms CreateObjectMapping: 0.061300 ms MarkObjects: 2.973100 ms  DeleteObjects: 0.082800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -135,227 +135,65 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '778b4514bbc3ec503bea896a8677adaf') in 0.132823 seconds 
-  Import took 0.135898 seconds .
+  path: Assets/Graphics/Metal/MetalDoor
+  artifactKey: Guid(d9b2af3034ca48f49963f4449a22c626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor using Guid(d9b2af3034ca48f49963f4449a22c626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '810ca1d33760ad00f1a15871c01209cc') in 0.004605 seconds 
+  Import took 0.007047 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000407 seconds.
-  path: Assets/Graphics/MetalFence.blend
-  artifactKey: Guid(5643d4e991f7050449cc65cde3299521) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence.blend using Guid(5643d4e991f7050449cc65cde3299521) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1b15817517b92dfcd2eacdc2717cd17') in 0.169681 seconds 
-  Import took 0.173194 seconds .
+  Time since last request: 4.139232 seconds.
+  path: Assets/Graphics/Metal/MetalDoor/MetalDoor.blend
+  artifactKey: Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor.blend using Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efb19cca42e6cba2fe428c50120a9a62') in 0.180545 seconds 
+  Import took 0.183653 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 15.686925 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7837cd353d2cfd56f30f6e87d75acefc') in 0.022254 seconds 
-  Import took 0.024961 seconds .
+  Time since last request: 0.000316 seconds.
+  path: Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png
+  artifactKey: Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png using Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901bf4ffcce5a46cb54a821de21a1720') in 0.024385 seconds 
+  Import took 0.027028 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.695413 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a22aeee0109d5f741bc539d7e6b585d') in 0.015495 seconds 
-  Import took 0.018804 seconds .
+  Time since last request: 26.977044 seconds.
+  path: Assets/Graphics/Metal/MetalDoor/MetalDoor.blend
+  artifactKey: Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor.blend using Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce41b7577debe321e0935c0fbfa0db1f') in 0.059608 seconds 
+  Import took 0.063227 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.726774 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37745cc007f53060da342bb1e5a0f632') in 0.013968 seconds 
-  Import took 0.017348 seconds .
+  Time since last request: 42.840197 seconds.
+  path: Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png
+  artifactKey: Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png using Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc9abca7b8b552e9b7a443aaf5066c09') in 0.029478 seconds 
+  Import took 0.033019 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.924264 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '734d64ed9b795c6e25af6ecfc9d0d84e') in 0.017195 seconds 
-  Import took 0.039272 seconds .
+  Time since last request: 10.861136 seconds.
+  path: Assets/Graphics/Metal/MetalDoor/MetalDoor.blend
+  artifactKey: Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor.blend using Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53b500dfe40af6092632fefd796baaca') in 0.019748 seconds 
+  Import took 0.023539 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 30.982156 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9054df98d826b448c92a34c1225cf34') in 0.009912 seconds 
-  Import took 0.014127 seconds .
+  Time since last request: 0.000398 seconds.
+  path: Assets/Graphics/Metal/MetalDoor/MetalFence.mat
+  artifactKey: Guid(bba9e3e62877de24a8f5921bd371f1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Metal/MetalDoor/MetalFence.mat using Guid(bba9e3e62877de24a8f5921bd371f1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef6285d1a2262c5ee985bcf363c1a4e7') in 0.014201 seconds 
+  Import took 0.017229 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 3.660095 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e6e9cc159a56581090ba7ae14a83724') in 0.010024 seconds 
-  Import took 0.013183 seconds .
+  Time since last request: 39.186823 seconds.
+  path: Assets/Prefabs/MetalDoor.prefab
+  artifactKey: Guid(191563bbbb3160943a28741dbe210575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/MetalDoor.prefab using Guid(191563bbbb3160943a28741dbe210575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75a1308749a70bc575bb76f109cd871b') in 0.045117 seconds 
+  Import took 0.049410 seconds .
 
-========================================================================
-Received Import Request.
-  Time since last request: 2.127208 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a84a94f0aa2d29e56e59869e573e64bd') in 0.010481 seconds 
-  Import took 0.013540 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.814146 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6db6a3ac6fde594fcbf134924b67b45c') in 0.009924 seconds 
-  Import took 0.012948 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.816596 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31e160ec44d977390a348af1b861ebc4') in 0.012185 seconds 
-  Import took 0.015195 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.198188 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28b1502ac1578ed2c00f0c7a02ad18e9') in 0.011483 seconds 
-  Import took 0.014524 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.609727 seconds.
-  path: Assets/Graphics/MetalFence_Texture.png
-  artifactKey: Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/MetalFence_Texture.png using Guid(d40ac87e725599643bb9fc0beec15d88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecfd4bd7f9a190d8ec7487a90fa35e83') in 0.012684 seconds 
-  Import took 0.016406 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 71.858032 seconds.
-  path: Assets/Graphics/New Material.mat
-  artifactKey: Guid(050f3012e58d3884b84500014a2680cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/New Material.mat using Guid(050f3012e58d3884b84500014a2680cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1748f4a9ecaa2632cf718a4775af66cc') in 0.016860 seconds 
-  Import took 0.020877 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 45.303140 seconds.
-  path: Assets/Graphics/Human/Personnage
-  artifactKey: Guid(c6c70808b2f72e842bf496ac0d910e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/Personnage using Guid(c6c70808b2f72e842bf496ac0d910e32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7c11a58b1f4d4da0289065d925e75b9') in 0.002493 seconds 
-  Import took 0.005935 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.735930 seconds.
-  path: Assets/Graphics/Human/Enemy/Animation/Enemy.controller
-  artifactKey: Guid(a4ec79ced390b33468d1fbb4253bab0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/Enemy/Animation/Enemy.controller using Guid(a4ec79ced390b33468d1fbb4253bab0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03f7aacb6a449bc420efa6afff46e2ea') in 0.022026 seconds 
-  Import took 0.025163 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.214472 seconds.
-  path: Assets/Graphics/Human/Human.controller
-  artifactKey: Guid(b1ee1adf6b90a374199e8726fe015649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/Human.controller using Guid(b1ee1adf6b90a374199e8726fe015649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd09ab6a3542b7bf85537e7064ea5143a') in 0.038334 seconds 
-  Import took 0.041630 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1252.195139 seconds.
-  path: Assets/Graphics/Human/WalkingBackwards.anim
-  artifactKey: Guid(713600f6855a8a643853d533e9a64af9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/WalkingBackwards.anim using Guid(713600f6855a8a643853d533e9a64af9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e53fa39cbec36e583e90d06b26f3baf') in 0.033795 seconds 
-  Import took 0.037160 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.171840 seconds.
-  path: Assets/Graphics/Human/RunningBackwards.anim
-  artifactKey: Guid(4171968347239ff4dbf5e46cc271f1e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/RunningBackwards.anim using Guid(4171968347239ff4dbf5e46cc271f1e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37fa035cfd79df8bc1553a4682b70098') in 0.012018 seconds 
-  Import took 0.015415 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.946734 seconds.
-  path: Assets/Graphics/Human/Strafe.anim
-  artifactKey: Guid(3f619d820dadfa94baf8c13abbe48c19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/Strafe.anim using Guid(3f619d820dadfa94baf8c13abbe48c19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0d7f6e0a1224d4337baa307af6cff51') in 0.036795 seconds 
-  Import took 0.039966 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 358.611888 seconds.
-  path: Assets/Graphics/Human/Turn.anim
-  artifactKey: Guid(a33c3734432393f40bd0aa398406d197) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Human/Turn.anim using Guid(a33c3734432393f40bd0aa398406d197) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61bc9dfc8c4071010920540300693fca') in 0.034855 seconds 
-  Import took 0.038698 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005270 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.098 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1098ms)
-		BeginReloadAssembly (171ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (61ms)
-		EndReloadAssembly (867ms)
-			LoadAssemblies (120ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (297ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (43ms)
-			SetupLoadedEditorAssemblies (334ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (0ms)
-				BeforeProcessingInitializeOnLoad (91ms)
-				ProcessInitializeOnLoadAttributes (224ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (3ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (9ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1533 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 73.8 MB.
-System memory in use after: 73.9 MB.
-
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2018.
-Total: 3.321000 ms (FindLiveObjects: 0.161600 ms CreateObjectMapping: 0.045200 ms MarkObjects: 3.074900 ms  DeleteObjects: 0.038400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
