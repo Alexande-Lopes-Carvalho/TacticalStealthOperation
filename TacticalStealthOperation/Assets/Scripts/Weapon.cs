@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour {
     private Rigidbody rbody;
 
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         rbody = GetComponent<Rigidbody>();
         weaponAnimator = GetComponent<Animator>();
         foreach (AnimationClip clip in weaponAnimator.runtimeAnimatorController.animationClips) {
@@ -53,7 +53,7 @@ public class Weapon : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
     }
 
     public void SetRigibody(bool b){

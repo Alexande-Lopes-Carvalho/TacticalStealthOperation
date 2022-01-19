@@ -10,12 +10,14 @@ public class Human : MonoBehaviour {
     private Animator animator;
     private bool isPressingWeaponTrigger = false;
 
+    private ShootManager shootManager {get; set;}
+
     protected static readonly int shootSpeedAnimation = Animator.StringToHash("shootSpeed");
     protected static readonly int reloadSpeedAnimation = Animator.StringToHash("reloadSpeed");
     protected static readonly int doShootAnimation = Animator.StringToHash("doShoot");
 
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         leftHand.SetActive(false);
         animator = GetComponent<Animator>();
         EquipWeapon(weapon);
@@ -81,7 +83,7 @@ public class Human : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
         if(Input.GetKeyDown(KeyCode.Space)){
             PressWeaponTrigger();
         } else if(Input.GetKeyUp(KeyCode.Space)){
