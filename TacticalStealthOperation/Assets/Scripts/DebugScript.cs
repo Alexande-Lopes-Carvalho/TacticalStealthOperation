@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class DebugScript : MonoBehaviour {
     [SerializeField] private ObjectPooler objPool;
-    [SerializeField] private Guard enemy;
+    [SerializeField] private Human enemy;
     [SerializeField] private List<Weapon> weapons;
     [SerializeField] private Path path;
     private int weaponIndex;

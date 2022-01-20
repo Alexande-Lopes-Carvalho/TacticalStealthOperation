@@ -17,8 +17,12 @@ public class Guard : Human, IPathComponent {
 
     }
 
+    public override void FixedUpdate(){
+        RefreshTurnAnimation();
+    }
+
     public override void Update(){
         base.Update();
-        
+        RefreshMoveAnimation();
     }
 }

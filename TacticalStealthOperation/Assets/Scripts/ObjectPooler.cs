@@ -21,7 +21,6 @@ public class ObjectPooler : MonoBehaviour {
     }
 
     public GameObject SpawnAt(Vector3 position, Vector3 rotation, Vector3 scale){
-        //Debug.print("pass " + position);
         index = (++index)%pool.Count;
         GameObject obj = pool[index];
         obj.SetActive(true);

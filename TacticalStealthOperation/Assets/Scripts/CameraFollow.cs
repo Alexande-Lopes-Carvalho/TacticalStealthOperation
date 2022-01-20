@@ -3,14 +3,15 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CameraFollow : MonoBehaviour {
     [SerializeField] public Transform target;
-    public float smoothSpeed = 0.125f;
-    public float offset;
+    [SerializeField] private float smoothSpeed = 0.125f;
+    private Vector3 vec;
     void Start(){
-        offset = transform.position.y-target.position.y;
+        vec = new Vector3(0, 8.43f, -2.72f);
+        transform.eulerAngles = new Vector3(67.41f, 0, 0);
     }
     
     void FixedUpdate() {
-        Vector3 desiredPosition = new Vector3(target.position.x, target.position.y+offset, target.position.z);
+        Vector3 desiredPosition = target.position+vec;
         transform.position += (desiredPosition-transform.position)*0.125f;
     }
 }
