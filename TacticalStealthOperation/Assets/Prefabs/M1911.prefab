@@ -216,7 +216,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &2440323601645675424
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6923413989eed544862a625908fe409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: M1911
   fireMode: 00000000
   fireModeIndex: 0
   burstBullet: 3
