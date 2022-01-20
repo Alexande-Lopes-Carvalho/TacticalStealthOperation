@@ -12992,13 +12992,13 @@ Transform:
   - {fileID: 1602444005}
   - {fileID: 2072606687}
   - {fileID: 413873637}
+  - {fileID: 1515715530}
   - {fileID: 1025285704}
   - {fileID: 1516372454}
-  - {fileID: 1515715530}
-  - {fileID: 1903183596}
-  - {fileID: 78006111}
   - {fileID: 720044727}
   - {fileID: 2127693913}
+  - {fileID: 1903183596}
+  - {fileID: 78006111}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25578,6 +25578,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5860319037673514669, guid: 1ce6cf5b747876542a2d04fff17e9696, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9097568068485126938, guid: 1ce6cf5b747876542a2d04fff17e9696, type: 3}
       propertyPath: m_Name
       value: Bat1
