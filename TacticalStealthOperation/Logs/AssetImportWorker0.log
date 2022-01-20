@@ -15,11 +15,11 @@ D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalS
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54090
+59696
 Successfully changed project path to: D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
 D:/Alexandre/Pictures/Unity/TacticalStealthOperation/gameengineproject/TacticalStealthOperation
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 36.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 39.24 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.22f1 (e1a7f79fd887)
 [Subsystems] Discovering subsystems at path D:/Program Files/Unity/2020.3.22f1/Editor/Data/Resources/UnitySubsystems
@@ -35,92 +35,92 @@ Initialize mono
 Mono path[0] = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Program Files/Unity/2020.3.22f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56792
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56416
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Program Files/Unity/2020.3.22f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Program Files/Unity/2020.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004133 seconds.
+Registered in 0.003170 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 42.33 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 41.84 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.525 seconds
+- Completed reload, in  3.343 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3525ms)
-		BeginReloadAssembly (133ms)
+	ReloadAssembly (3343ms)
+		BeginReloadAssembly (91ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (557ms)
-			LoadAssemblies (135ms)
+		EndReloadAssembly (547ms)
+			LoadAssemblies (91ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (191ms)
+			SetupTypeCache (186ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (39ms)
-			SetupLoadedEditorAssemblies (207ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (194ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (42ms)
-				BeforeProcessingInitializeOnLoad (17ms)
-				ProcessInitializeOnLoadAttributes (103ms)
-				ProcessInitializeOnLoadMethodAttributes (38ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (97ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.015567 seconds.
+Registered in 0.005398 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.861 seconds
+- Completed reload, in  1.203 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1864ms)
-		BeginReloadAssembly (187ms)
+	ReloadAssembly (1204ms)
+		BeginReloadAssembly (178ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (21ms)
-		EndReloadAssembly (1608ms)
-			LoadAssemblies (633ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (962ms)
+			LoadAssemblies (121ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (394ms)
+			SetupTypeCache (368ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (401ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (335ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (9ms)
-				SetLoadedEditorAssemblies (0ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (0ms)
-				BeforeProcessingInitializeOnLoad (106ms)
-				ProcessInitializeOnLoadAttributes (267ms)
-				ProcessInitializeOnLoadMethodAttributes (14ms)
-				AfterProcessingInitializeOnLoad (4ms)
+				BeforeProcessingInitializeOnLoad (95ms)
+				ProcessInitializeOnLoadAttributes (216ms)
+				ProcessInitializeOnLoadMethodAttributes (10ms)
+				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (8ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
-Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1539 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 70.5 MB.
-System memory in use after: 70.6 MB.
+System memory in use before: 70.8 MB.
+System memory in use after: 70.9 MB.
 
-Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1971.
-Total: 3.299000 ms (FindLiveObjects: 0.167400 ms CreateObjectMapping: 0.061300 ms MarkObjects: 2.973100 ms  DeleteObjects: 0.082800 ms)
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1972.
+Total: 4.572300 ms (FindLiveObjects: 0.169600 ms CreateObjectMapping: 0.053800 ms MarkObjects: 4.245800 ms  DeleteObjects: 0.101500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -135,65 +135,113 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/Graphics/Metal/MetalDoor
-  artifactKey: Guid(d9b2af3034ca48f49963f4449a22c626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor using Guid(d9b2af3034ca48f49963f4449a22c626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '810ca1d33760ad00f1a15871c01209cc') in 0.004605 seconds 
-  Import took 0.007047 seconds .
+  path: Assets/Editor
+  artifactKey: Guid(a10ed4a653fc3244a913f798fdc05ca8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Editor using Guid(a10ed4a653fc3244a913f798fdc05ca8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c27a848eccc01042b36e9a3dd9dcfc6') in 0.004284 seconds 
+  Import took 0.020580 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.139232 seconds.
-  path: Assets/Graphics/Metal/MetalDoor/MetalDoor.blend
-  artifactKey: Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor.blend using Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efb19cca42e6cba2fe428c50120a9a62') in 0.180545 seconds 
-  Import took 0.183653 seconds .
+  Time since last request: 11.250594 seconds.
+  path: Assets/Graphics/Human/Enemy/Animation/pistol strafe.fbx
+  artifactKey: Guid(47bb45dade3a0dc408c985315ce95f9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Human/Enemy/Animation/pistol strafe.fbx using Guid(47bb45dade3a0dc408c985315ce95f9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf2ee4c8514af5e5ef4ef219379720fc') in 0.360083 seconds 
+  Import took 0.380801 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000316 seconds.
-  path: Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png
-  artifactKey: Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png using Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901bf4ffcce5a46cb54a821de21a1720') in 0.024385 seconds 
-  Import took 0.027028 seconds .
+  Time since last request: 0.343472 seconds.
+  path: Assets/Graphics/Human/Enemy/Animation/Gun/Enemy_Gun.overrideController
+  artifactKey: Guid(65617c86371d3b1448c74a20f4055c8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Human/Enemy/Animation/Gun/Enemy_Gun.overrideController using Guid(65617c86371d3b1448c74a20f4055c8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21c36101131ea6139896ad8d78ac6ad3') in 0.114420 seconds 
+  Import took 0.143625 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 26.977044 seconds.
-  path: Assets/Graphics/Metal/MetalDoor/MetalDoor.blend
-  artifactKey: Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor.blend using Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce41b7577debe321e0935c0fbfa0db1f') in 0.059608 seconds 
-  Import took 0.063227 seconds .
+  Time since last request: 78.874943 seconds.
+  path: Assets/Graphics/Weapon/Ammunition/7.62x51NATO/cartridge/7.62x51NATO_Cartridge.blend
+  artifactKey: Guid(01d58b830b5a86c4398064a1966c3bd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Weapon/Ammunition/7.62x51NATO/cartridge/7.62x51NATO_Cartridge.blend using Guid(01d58b830b5a86c4398064a1966c3bd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0c8de52278f363f15295f65452df2a6') in 0.051482 seconds 
+  Import took 0.071006 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 42.840197 seconds.
-  path: Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png
-  artifactKey: Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor_Texture.png using Guid(aa6228b9105b6e44796effa500223606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc9abca7b8b552e9b7a443aaf5066c09') in 0.029478 seconds 
-  Import took 0.033019 seconds .
+  Time since last request: 0.000406 seconds.
+  path: Assets/Graphics/Weapon/Ammunition/45ACP/cartridge/45ACP_Cartridge.blend
+  artifactKey: Guid(62286cf813825174ba5bfd1aac554f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Weapon/Ammunition/45ACP/cartridge/45ACP_Cartridge.blend using Guid(62286cf813825174ba5bfd1aac554f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '862694393997ab908cf8cd09d11c5ae3') in 0.076174 seconds 
+  Import took 0.079385 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 10.861136 seconds.
-  path: Assets/Graphics/Metal/MetalDoor/MetalDoor.blend
-  artifactKey: Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor/MetalDoor.blend using Guid(645e4b92898379f4ebca4ebe019755f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53b500dfe40af6092632fefd796baaca') in 0.019748 seconds 
-  Import took 0.023539 seconds .
+  Time since last request: 0.000353 seconds.
+  path: Assets/NavMesh/Examples/Prefabs/BanyanTree.fbx
+  artifactKey: Guid(0015d5d487e6b4c51b6be43a47511ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NavMesh/Examples/Prefabs/BanyanTree.fbx using Guid(0015d5d487e6b4c51b6be43a47511ed9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7d0da3e7a88943a3d0c74a64d30696f') in 0.031342 seconds 
+  Import took 0.034646 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000398 seconds.
-  path: Assets/Graphics/Metal/MetalDoor/MetalFence.mat
-  artifactKey: Guid(bba9e3e62877de24a8f5921bd371f1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Metal/MetalDoor/MetalFence.mat using Guid(bba9e3e62877de24a8f5921bd371f1ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef6285d1a2262c5ee985bcf363c1a4e7') in 0.014201 seconds 
-  Import took 0.017229 seconds .
+  Time since last request: 0.000345 seconds.
+  path: Assets/Graphics/Weapon/Ammunition/45ACP/bullet/45ACP_Bullet.blend
+  artifactKey: Guid(f7e87bb36ade75142aa9c28138c8d356) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Weapon/Ammunition/45ACP/bullet/45ACP_Bullet.blend using Guid(f7e87bb36ade75142aa9c28138c8d356) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '669f2b7c5eea218c65e40fa890bb225b') in 0.062990 seconds 
+  Import took 0.066462 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 39.186823 seconds.
-  path: Assets/Prefabs/MetalDoor.prefab
-  artifactKey: Guid(191563bbbb3160943a28741dbe210575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/MetalDoor.prefab using Guid(191563bbbb3160943a28741dbe210575) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75a1308749a70bc575bb76f109cd871b') in 0.045117 seconds 
-  Import took 0.049410 seconds .
+  Time since last request: 0.000427 seconds.
+  path: Assets/NavMesh/Examples/Prefabs/BanyanTree.prefab
+  artifactKey: Guid(46d69f622d1354ee0820b7921e262b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NavMesh/Examples/Prefabs/BanyanTree.prefab using Guid(46d69f622d1354ee0820b7921e262b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c142c1fde5c7d87c84de1158474ba07f') in 0.214494 seconds 
+  Import took 0.256062 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.009683 seconds.
+  path: Assets/Graphics/Bed/Bed.blend
+  artifactKey: Guid(bc5fa4bd2babafb4cbc4d6950655c4fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Bed/Bed.blend using Guid(bc5fa4bd2babafb4cbc4d6950655c4fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52da1a0dd089ab4d01afb31b182a48d3') in 0.022928 seconds 
+  Import took 0.027141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.678415 seconds.
+  path: Assets/NavMesh/Examples/Cube.prefab
+  artifactKey: Guid(86232f43ed7fd4fc5a9098ccda13d2ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NavMesh/Examples/Cube.prefab using Guid(86232f43ed7fd4fc5a9098ccda13d2ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c562188446cc152d0f60b1d2abe9c0d1') in 0.014174 seconds 
+  Import took 0.041714 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.387084 seconds.
+  path: Assets/Graphics/Weapon/FAL/Weapon/FAL.blend
+  artifactKey: Guid(506d3283947662946a33230b2b35dc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Weapon/FAL/Weapon/FAL.blend using Guid(506d3283947662946a33230b2b35dc6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1160f2651cb02f8f365d4369deaeb01') in 0.035269 seconds 
+  Import took 0.038369 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.421586 seconds.
+  path: Assets/NavMesh/Examples/Prefabs/GroundTile.prefab
+  artifactKey: Guid(c1f4492f15da844ebae2767c08ef4aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NavMesh/Examples/Prefabs/GroundTile.prefab using Guid(c1f4492f15da844ebae2767c08ef4aab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef23e8a1b6d08eed2c4cdab9f8f22309') in 0.013182 seconds 
+  Import took 0.052968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 47.769036 seconds.
+  path: Assets/Graphics/Human/Enemy/Animation/Enemy.controller
+  artifactKey: Guid(a4ec79ced390b33468d1fbb4253bab0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Human/Enemy/Animation/Enemy.controller using Guid(a4ec79ced390b33468d1fbb4253bab0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e869ccb8326df38acec1dfa8cd7cc946') in 0.047037 seconds 
+  Import took 0.079935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1284.661098 seconds.
+  path: Assets/Graphics/Human/Enemy/Animation/AssaultRifle/Enemy_AssaultRifle.overrideController
+  artifactKey: Guid(8a0a1421b110c764babc021af6b3f25a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Graphics/Human/Enemy/Animation/AssaultRifle/Enemy_AssaultRifle.overrideController using Guid(8a0a1421b110c764babc021af6b3f25a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ece26bc8faa5537dd1acf86c0762abd7') in 0.103950 seconds 
+  Import took 0.128200 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
