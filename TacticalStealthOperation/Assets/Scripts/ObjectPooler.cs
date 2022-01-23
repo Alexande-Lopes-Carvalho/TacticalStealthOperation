@@ -22,10 +22,14 @@ public class ObjectPooler : MonoBehaviour {
 
     public GameObject SpawnAt(Vector3 position, Vector3 rotation, Vector3 scale){
         //Debug.print("pass " + position);
+        Rigidbody r;
         index = (++index)%pool.Count;
+       // Debug.print(index);
         GameObject obj = pool[index];
         obj.SetActive(true);
-
+        r = obj.GetComponent<Rigidbody>();
+        r.velocity = Vector3.zero;
+        r.angularVelocity = Vector3.zero;
         obj.transform.position = position;
         obj.transform.eulerAngles = rotation;
         obj.transform.localScale = scale;

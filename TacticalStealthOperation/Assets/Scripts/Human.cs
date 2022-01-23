@@ -10,7 +10,7 @@ public class Human : MonoBehaviour {
     private Animator animator;
     private bool isPressingWeaponTrigger = false;
 
-    private ShootManager shootManager {get; set;}
+    private Shoot shoot {get; set;}
 
     protected static readonly int shootSpeedAnimation = Animator.StringToHash("shootSpeed");
     protected static readonly int reloadSpeedAnimation = Animator.StringToHash("reloadSpeed");

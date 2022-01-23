@@ -16,24 +16,22 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private float damage;
     [SerializeField] private int MaxBulletsInMagazine;
     [SerializeField] private int bulletsInMagazine; // bullets in magazine plus the one in the chamber
-
     private Animator weaponAnimator;
     [SerializeField] private GameObject magazine;
     public GameObject Magazine{get => magazine;}
     [SerializeField] private GameObject cartridgeSpawn;
     [SerializeField] private Ammunition ammunitionType;
     private ObjectPooler cartridgePool;
+    private ObjectPooler bulletPool {get; set;}
     private ObjectPooler magazinePool;
     public ObjectPooler MagazinePool{get => magazinePool;}
     [SerializeField] private float cartridgeDeltaY = 0.05f, cartridgeDeltaZ = 0.05f, cartridgeMinRotation = 0.05f, cartridgeMaxRotation = 0.05f, cartridgeStrength = 1;
-    
-
     private int bulletBuffer = 0; // according to fire mode
-
     protected static readonly int shootSpeedAnimation = Animator.StringToHash("shootSpeed");
     protected static readonly int reloadSpeedAnimation = Animator.StringToHash("reloadSpeed");
-
     private Rigidbody rbody;
+    [SerializeField] private Shoot shoot;
+    [SerializeField] private Transform spawnTransform;
 
     // Start is called before the first frame update
     private void Start() {
@@ -48,8 +46,10 @@ public class Weapon : MonoBehaviour {
                 weaponAnimator.SetFloat(reloadSpeedAnimation, (clip.length*1000.0f)/reloadRate);
             }
         }
+        Debug.print(name+"MagazinePool");
         magazinePool = GameObject.Find(name+"MagazinePool").GetComponent<ObjectPooler>();
         cartridgePool = GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool").GetComponent<ObjectPooler>();
+        bulletPool = GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"BulletPool").GetComponent<ObjectPooler>();
     }
 
     // Update is called once per frame
@@ -85,7 +85,13 @@ public class Weapon : MonoBehaviour {
     public void Shoot(){
         weaponAnimator.SetTrigger("doShoot");
         --bulletsInMagazine;
-        --bulletBuffer;
+        if (bulletBuffer != -1){
+            --bulletBuffer;
+        }
+        if (CanShootBullet()){
+            Quaternion q = Quaternion.FromToRotation(Vector3.forward,transform.forward);
+            shoot.ApplyShoot(bulletPool.SpawnAt(spawnTransform.position,q.eulerAngles));
+        }
     }
     /*
         Shooting Animation Event function ...
@@ -112,10 +118,10 @@ public class Weapon : MonoBehaviour {
         weaponAnimator.SetTrigger("doReload");
     }
     public void OnExtractEmptyMagazine(){
-        Magazine.SetActive(false);
+        magazine.SetActive(false);
     }
     public void OnPutNewMagazine(){
-        Magazine.SetActive(true);
+        magazine.SetActive(true);
         bulletsInMagazine = MaxBulletsInMagazine + ((bulletsInMagazine > 0)? 1 : 0); // when reloading, if the previous magazine wasn't empty, a bullet will stay in the chamber
     }
 }
