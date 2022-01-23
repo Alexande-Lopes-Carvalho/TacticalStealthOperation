@@ -10,8 +10,8 @@ public class NavMeshAgentPathFollower : PathFollower {
     private Quaternion startRotation;
 
     // Start is called before the first frame update
-    public override void Start() {
-        base.Start();
+    public override void Awake() {
+        base.Awake();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         lastPosition = transform.position;
         angularSpeed = (float)(agent.angularSpeed);

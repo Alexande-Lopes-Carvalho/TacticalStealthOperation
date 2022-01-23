@@ -72,7 +72,7 @@ public class Human : MonoBehaviour {
     } 
 
     public void PressWeaponTrigger(){
-        //Debug.print("Enemy : Press");
+        //Debug.Log("Enemy : Press");
         isPressingWeaponTrigger = true;
         weapon.PressTrigger();
         if(weapon.CanShootBullet()){
@@ -80,7 +80,7 @@ public class Human : MonoBehaviour {
         }
     }
     public void ReleaseWeaponTrigger(){
-        //Debug.print("Enemy : Release");
+        //Debug.Log("Enemy : Release");
         isPressingWeaponTrigger = false;
         animator.SetBool(doShootAnimation, false);
     }
@@ -95,24 +95,13 @@ public class Human : MonoBehaviour {
     public virtual void FixedUpdate(){
         
 
-        Debug.Log(Mathf.Acos(Vector3.Dot(lastDirection, transform.forward)));
-        turnBuffer += Mathf.Acos(Mathf.Min(Mathf.Max(Vector3.Dot(lastDirection, transform.forward), -1.0f), 1.0f))*(Vector3.Dot(Vector3.Cross(lastDirection, transform.forward), transform.up) > 0? 1 : -1);
-        lastDirection = transform.forward;
-        if(Time.time >= turnSamplingTime+0.05){
-            animator.SetFloat(turnAnimation, Mathf.Min(Mathf.Max( (turnBuffer/(Time.time-turnSamplingTime)), -1.0f), 1.0f));
-            turnBuffer = 0;
-            turnSamplingTime = Time.time;
-        }
+        //Debug.Log(Mathf.Acos(Vector3.Dot(lastDirection, transform.forward)));
+        
     }
 
     // Update is called once per frame
     public virtual void Update() {
-        Vector3 move = (transform.position-lastPosition)/Time.deltaTime;
-
-        animator.SetFloat(forwardSpeedAnimation, Mathf.Max(Mathf.Min(Vector3.Dot(move, transform.forward)/maxSpeedAnimation, 1.0f), -1.0f));
-        animator.SetFloat(rightSpeedAnimation, Mathf.Max(Mathf.Min(Vector3.Dot(move, transform.right)/maxSpeedAnimation, 0.5f), -0.5f));
-        animator.SetBool(isMovingAnimation, move.magnitude > 0.1);
-        lastPosition = transform.position;
+        
         
 
         /* __ Debug __ */
@@ -128,11 +117,28 @@ public class Human : MonoBehaviour {
         
     }
 
+    protected void RefreshMoveAnimation(){
+        Vector3 move = (transform.position-lastPosition)/Time.deltaTime;
+
+        animator.SetFloat(forwardSpeedAnimation, Mathf.Max(Mathf.Min(Vector3.Dot(move, transform.forward)/maxSpeedAnimation, 1.0f), -1.0f));
+        animator.SetFloat(rightSpeedAnimation, Mathf.Max(Mathf.Min(Vector3.Dot(move, transform.right)/maxSpeedAnimation, 0.5f), -0.5f));
+        animator.SetBool(isMovingAnimation, move.magnitude > 0.1);
+        lastPosition = transform.position;
+    }
+    protected void RefreshTurnAnimation(){
+        turnBuffer += Mathf.Acos(Mathf.Min(Mathf.Max(Vector3.Dot(lastDirection, transform.forward), -1.0f), 1.0f))*(Vector3.Dot(Vector3.Cross(lastDirection, transform.forward), transform.up) > 0? 1 : -1);
+        lastDirection = transform.forward;
+        if(Time.time >= turnSamplingTime+0.05){
+            animator.SetFloat(turnAnimation, Mathf.Min(Mathf.Max( (turnBuffer/(Time.time-turnSamplingTime)), -1.0f), 1.0f));
+            turnBuffer = 0;
+            turnSamplingTime = Time.time;
+        }
+    }
+
     /*
         Shooting Rifle Animation Event function ...
     */
     public void OnStartFiringAnimation(){
-        //Debug.print(Time.frameCount + " startFiring");
         if(isPressingWeaponTrigger && weapon.CanShootBullet()){
             weapon.Shoot();
         }

@@ -35,10 +35,15 @@ public class Weapon : MonoBehaviour {
     protected static readonly int reloadSpeedAnimation = Animator.StringToHash("reloadSpeed");
 
     private Rigidbody rbody;
-
+    private Collider coll;
+    void Awake(){
+        coll = GetComponent<Collider>();
+    }
     // Start is called before the first frame update
     void Start() {
         rbody = GetComponent<Rigidbody>();
+        
+
         weaponAnimator = GetComponent<Animator>();
         foreach (AnimationClip clip in weaponAnimator.runtimeAnimatorController.animationClips) {
             if (clip.name == "Shoot") {
@@ -62,9 +67,11 @@ public class Weapon : MonoBehaviour {
         if(b && rbody == null){
             gameObject.AddComponent<Rigidbody>();
             rbody = GetComponent<Rigidbody>();
+            coll.isTrigger = false;
         } else if(!b){
             Destroy(rbody);
             rbody = null;
+            coll.isTrigger = true;
         }
     }
 
@@ -86,7 +93,9 @@ public class Weapon : MonoBehaviour {
     public void Shoot(){
         weaponAnimator.SetTrigger("doShoot");
         --bulletsInMagazine;
-        --bulletBuffer;
+        if(bulletBuffer != -1){
+            --bulletBuffer;
+        }
     }
     /*
         Shooting Animation Event function ...
