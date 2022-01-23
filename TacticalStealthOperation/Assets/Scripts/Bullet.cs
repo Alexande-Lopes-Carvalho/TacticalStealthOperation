@@ -8,13 +8,12 @@ public class Bullet : MonoBehaviour
     // TODO : multiple shoot mods
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.print(other.transform.name);
+        Debug.print(other.transform.tag);
         if (other.transform.tag == "Human"){
             gameObject.SetActive(false);
             Debug.print("Touched !");
         }
-     //   Destroy(gameObject);
-        // TODO : pool management
+        // TODO : Check if it's a correct behaviour or not (or make sure tue bullet stays on the ground / disappear after hit)
     }
 
 
@@ -24,8 +23,8 @@ public class Bullet : MonoBehaviour
     }
     public bool CheckHumanCollision(){
         RaycastHit hit;
-        if (Physics.Raycast(gameObject.transform.position,gameObject.transform.up,out hit, 1)){
-            Debug.print(hit.transform.tag);
+        if (Physics.Raycast(gameObject.transform.position,gameObject.transform.up,out hit, 5)){
+            Debug.print($"{hit.transform.tag} / {hit.transform.name}");
             if (hit.transform.tag == "Human"){
                 Debug.print("Bullet hit the target.");
             }

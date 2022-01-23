@@ -26,6 +26,11 @@ public class ObjectPooler : MonoBehaviour {
         index = (++index)%pool.Count;
        // Debug.print(index);
         GameObject obj = pool[index];
+        TrailRenderer tr;
+        // TODO : fix trail renderer clear
+        if (tr = obj.GetComponent<TrailRenderer>()){
+            tr.Clear();
+        }
         obj.SetActive(true);
         r = obj.GetComponent<Rigidbody>();
         r.velocity = Vector3.zero;

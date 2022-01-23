@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO : Change so it's suitable for every human object and not a global thing for only one human
 public class Shoot : MonoBehaviour
 {
     [SerializeField] private Transform spawnTransform; // TO REMOVE (only used to draw gizmos)
