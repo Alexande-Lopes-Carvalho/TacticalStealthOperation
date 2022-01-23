@@ -5,7 +5,7 @@ using UnityEngine;
 public class Character : Human {
     [SerializeField] private Camera cam;
     private Rigidbody rb;
-    private float speed = 3.9f*10000f;
+    [SerializeField] private float speed = 3f*100000f;
 
     // Start is called before the first frame update
     public override void Start() {

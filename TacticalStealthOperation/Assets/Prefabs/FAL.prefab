@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 4541723343479461691}
   - component: {fileID: 6832748286980559139}
   - component: {fileID: 4560023096868485497}
+  - component: {fileID: 8578724404479835620}
   m_Layer: 0
   m_Name: FAL
   m_TagString: Untagged
@@ -213,6 +214,20 @@ MonoBehaviour:
   cartridgeMinRotation: 30
   cartridgeMaxRotation: 60
   cartridgeStrength: 1.5
+  coll: []
+--- !u!65 &8578724404479835620
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3199328940584800735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05135704, y: 1.0190521, z: 0.16474207}
+  m_Center: {x: 0.0033855196, y: 0.20420063, z: 0.02796359}
 --- !u!1 &3395401376554993154
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +239,6 @@ GameObject:
   - component: {fileID: 2618054985645989048}
   - component: {fileID: 1439718900015141661}
   - component: {fileID: 3755474322601371607}
-  - component: {fileID: 5885645730095850367}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -295,19 +309,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5885645730095850367
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395401376554993154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05135704, y: 1.0190521, z: 0.16474207}
-  m_Center: {x: 0.0033855196, y: 0.20420063, z: 0.02796359}
 --- !u!1 &6373978381740279757
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +320,6 @@ GameObject:
   - component: {fileID: 5998578365535509879}
   - component: {fileID: 7246538815233938130}
   - component: {fileID: 4860536154971809304}
-  - component: {fileID: 800314246849533273}
   m_Layer: 0
   m_Name: Magazine
   m_TagString: Untagged
@@ -390,16 +390,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &800314246849533273
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6373978381740279757}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.017864, y: 0.07361902, z: 0.13252294}
-  m_Center: {x: 0, y: 0.000000029802322, z: -0.0032335639}
