@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour {
     public float ReloadRate{get => reloadRate;}
     [SerializeField] private WeaponCategory category;
     public WeaponCategory Category{get => category;}
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [SerializeField] private int MaxBulletsInMagazine;
     [SerializeField] private int bulletsInMagazine; // bullets in magazine plus the one in the chamber
 
@@ -22,8 +22,9 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private GameObject magazine;
     public GameObject Magazine{get => magazine;}
     [SerializeField] private GameObject cartridgeSpawn;
+    [SerializeField] private Transform bulletSpawn;
     [SerializeField] private Ammunition ammunitionType;
-    private ObjectPooler cartridgePool;
+    private ObjectPooler cartridgePool, bulletPool;
     private ObjectPooler magazinePool;
     public ObjectPooler MagazinePool{get => magazinePool;}
     [SerializeField] private float cartridgeDeltaY = 0.05f, cartridgeDeltaZ = 0.05f, cartridgeMinRotation = 0.05f, cartridgeMaxRotation = 0.05f, cartridgeStrength = 1;
@@ -36,11 +37,11 @@ public class Weapon : MonoBehaviour {
 
     private Rigidbody rbody;
     private Collider coll;
-    void Awake(){
+    private void Awake(){
         coll = GetComponent<Collider>();
     }
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         rbody = GetComponent<Rigidbody>();
         
 
@@ -54,12 +55,13 @@ public class Weapon : MonoBehaviour {
                 weaponAnimator.SetFloat(reloadSpeedAnimation, (clip.length*1000.0f)/reloadRate);
             }
         }
-        magazinePool = PoolLinker.Get(weaponName+"MagazinePool");//GameObject.Find(weaponName+"MagazinePool").GetComponent<ObjectPooler>();
-        cartridgePool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool");//GameObject.Find(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"Pool").GetComponent<ObjectPooler>();
+        magazinePool = PoolLinker.Get(weaponName+"MagazinePool");
+        cartridgePool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"CartridgePool");
+        bulletPool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"BulletPool");
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
     }
 
     public void SetRigibody(bool b){
@@ -101,6 +103,11 @@ public class Weapon : MonoBehaviour {
         Shooting Animation Event function ...
     */
     public void OnStartShoot(){
+        SpawnCartridge();
+        SpawnBullet();
+    }
+
+    private void SpawnCartridge(){
         GameObject o = cartridgePool.SpawnAt(cartridgeSpawn.transform.position, cartridgeSpawn.transform.eulerAngles);
         Vector3 origin = cartridgeSpawn.transform.position;
         float angA = Mathf.PI+UnityEngine.Random.Range(-cartridgeDeltaY/2, cartridgeDeltaY/2), angB = UnityEngine.Random.Range(-cartridgeDeltaZ/2, cartridgeDeltaZ/2), angC = UnityEngine.Random.Range(cartridgeMinRotation, cartridgeMaxRotation);
@@ -114,6 +121,12 @@ public class Weapon : MonoBehaviour {
         r.AddTorque(cartridgeSpawn.transform.up*angC, ForceMode.Impulse);
 
         cartridgeSpawn.transform.position = origin;
+    }
+
+    private void SpawnBullet(){
+        GameObject o = bulletPool.SpawnAt(bulletSpawn.position, bulletSpawn.transform.eulerAngles);
+        Projectile p = o.GetComponent<Projectile>();
+        p.Set(transform, damage);
     }
 
 

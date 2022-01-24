@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &62955784423578270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8912469224251832055}
+  m_Layer: 0
+  m_Name: BulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8912469224251832055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62955784423578270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1208, z: 0.0738}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1399603816197201864}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1221572885447435266
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +176,7 @@ Transform:
   - {fileID: 5998578365535509879}
   - {fileID: 1500899875852814707}
   - {fileID: 2271340837970587528}
+  - {fileID: 8912469224251832055}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -203,18 +234,18 @@ MonoBehaviour:
   fireRate: 250
   reloadRate: 2900
   category: 1
-  damage: 15
+  damage: 2
   MaxBulletsInMagazine: 25
   bulletsInMagazine: 25
   magazine: {fileID: 6373978381740279757}
   cartridgeSpawn: {fileID: 1221572885447435266}
+  bulletSpawn: {fileID: 8912469224251832055}
   ammunitionType: 0
   cartridgeDeltaY: 0.05
   cartridgeDeltaZ: 0.05
   cartridgeMinRotation: 30
   cartridgeMaxRotation: 60
   cartridgeStrength: 1.5
-  coll: []
 --- !u!65 &8578724404479835620
 BoxCollider:
   m_ObjectHideFlags: 0

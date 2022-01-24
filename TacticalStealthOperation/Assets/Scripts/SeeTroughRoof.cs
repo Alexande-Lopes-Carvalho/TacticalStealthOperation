@@ -10,12 +10,12 @@ public class SeeTroughRoof : MonoBehaviour {
     private Transform obstruction;
     private List<MeshRenderer> obstructionMesh = new List<MeshRenderer>();
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
         RaycastHit hit;
         Vector3 direction = (target.position+offset)-transform.position;
         if(Physics.Raycast(transform.position, direction, out hit, direction.magnitude, 1 << layerMask)){

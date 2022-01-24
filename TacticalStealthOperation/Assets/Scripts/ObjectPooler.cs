@@ -7,7 +7,7 @@ public class ObjectPooler : MonoBehaviour {
     private List<GameObject> pool = new List<GameObject>();
     private int index;
     // Start is called before the first frame update
-    public void Start() {
+    private void Start() {
         index = -1;
         foreach(Transform k in transform){
             pool.Add(k.gameObject);

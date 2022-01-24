@@ -6,7 +6,7 @@ public class PoolLinker : MonoBehaviour {
     [SerializeField] private Transform pools;
     private static Dictionary<string, ObjectPooler> dictonary;
     // Start is called before the first frame update
-    void Awake() {
+    private void Awake() {
         dictonary = new Dictionary<string, ObjectPooler>();
         foreach(Transform k in pools){
             dictonary[k.name] = k.GetComponent<ObjectPooler>();
@@ -14,7 +14,7 @@ public class PoolLinker : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
         
     }
 

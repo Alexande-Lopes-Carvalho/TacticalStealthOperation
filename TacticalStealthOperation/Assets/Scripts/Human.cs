@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Human : MonoBehaviour {
+public class Human : Entity {
     [SerializeField] private GameObject leftHand, rightHand;
+    public GameObject LeftHand{get=>leftHand;}
+    public GameObject RightHand{get=>rightHand;}
     [SerializeField] private Weapon weapon;
     [SerializeField] private RuntimeAnimatorController gunAnimationController, assaultRifleAnimationController;
+    [SerializeField] private Transform eyes;
     private GameObject hiddenMagazine;
     protected Animator animator;
     private bool isPressingWeaponTrigger = false;
@@ -23,7 +26,8 @@ public class Human : MonoBehaviour {
     private float turnSamplingTime, turnBuffer;
 
     // Start is called before the first frame update
-    public virtual void Start() {
+    public override void Start() {
+        base.Start();
         leftHand.SetActive(false);
         animator = GetComponent<Animator>();
         EquipWeapon(weapon);
@@ -92,29 +96,28 @@ public class Human : MonoBehaviour {
         hiddenMagazine.transform.localEulerAngles = new Vector3(0, 0, 0);
     }
 
-    public virtual void FixedUpdate(){
-        
+    public override void FixedUpdate(){
+        base.FixedUpdate();
 
         //Debug.Log(Mathf.Acos(Vector3.Dot(lastDirection, transform.forward)));
         
     }
 
     // Update is called once per frame
-    public virtual void Update() {
-        
-        
+    public override void Update() {
+        base.Update();
+    }
 
-        /* __ Debug __ */
-        if(Input.GetKeyDown(KeyCode.Space)){
-            PressWeaponTrigger();
-        } else if(Input.GetKeyUp(KeyCode.Space)){
-            ReleaseWeaponTrigger();
-        } else if(Input.GetKeyDown(KeyCode.R)){
-            animator.SetTrigger("doReload");
-        } else if(Input.GetKeyDown(KeyCode.T)){
-            animator.SetTrigger("gotHit");
-        } 
-        
+    public override void Damage(int damage){
+        base.Damage(damage);
+        animator.SetTrigger("gotHit");
+    }
+    public override void Heal(int heal){
+        base.Heal(heal);
+    }
+
+    public override void Kill(){
+        base.Kill();
     }
 
     protected void RefreshMoveAnimation(){
