@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 4060793041081024053}
   - component: {fileID: 2287303630041369343}
   - component: {fileID: 2149980141689496454}
+  - component: {fileID: 42157046198809352}
   m_Layer: 0
   m_Name: MetalDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1149841037125759376
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1705633, y: 1.0861077, z: 2.0500002}
   m_Center: {x: -0.0000009909272, y: 0.51805377, z: 1.0249999}
+--- !u!208 &42157046198809352
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341955780015844138}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.085, y: 0.54300004, z: 1.0250001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.518, z: 1.0250001}
+  m_TimeToStationary: 0.5

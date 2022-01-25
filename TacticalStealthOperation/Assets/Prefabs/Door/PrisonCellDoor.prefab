@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 2974502774818513699}
   - component: {fileID: 1054820648211732457}
   - component: {fileID: 7180782712294716427}
+  - component: {fileID: 1162462807477191904}
   m_Layer: 0
   m_Name: PrisonCellDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2227123572377627782
@@ -95,3 +96,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10000001, y: 1, z: 2.0499997}
   m_Center: {x: 0, y: 0.5, z: 1.0249999}
+--- !u!208 &1162462807477191904
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559236930997581372}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.05, y: 0.5, z: 1.0250001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 1.0250001}
+  m_TimeToStationary: 0.5
