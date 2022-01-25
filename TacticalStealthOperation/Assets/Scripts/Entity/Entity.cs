@@ -6,14 +6,20 @@ using UnityEngine;
 public class Entity : MonoBehaviour {
     [SerializeField] private int maxHealth;
     [SerializeField] [Min(-1)] private int currentHealth = -1;
-
+    private Transform earTransform;
+    public Transform EarTransform{get => earTransform; set => earTransform = value;}
+    public virtual void Awake(){
+        earTransform = transform;
+    }
 
     // Start is called before the first frame update
     public virtual void Start() {
         if(currentHealth == -1){
             currentHealth = maxHealth;
         }
+        EarLinker.Register(this);
         //Debug.Log("Start health " + currentHealth + " "+ name);
+        
     }
 
     public virtual void FixedUpdate(){
@@ -44,5 +50,13 @@ public class Entity : MonoBehaviour {
 
     public virtual void Kill(){
         Destroy(gameObject);
+    }
+
+    public virtual void OnDestroy(){
+        EarLinker.Remove(this);
+    }
+
+    public virtual void Ear(Transform t){
+
     }
 }

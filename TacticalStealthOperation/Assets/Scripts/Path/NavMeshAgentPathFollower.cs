@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class NavMeshAgentPathFollower : PathFollower {
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -29,7 +29,13 @@ public class NavMeshAgentPathFollower : PathFollower {
 
     public override void SetDestination(Vector3 _destination) {
         base.SetDestination(_destination);
-        agent.destination = _destination;
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(_destination, path);
+        if(path.status == NavMeshPathStatus.PathPartial){
+            agent.SetPath(path);
+            Debug.Log("Found path");
+        }
+        Debug.Log("Set Destination " + _destination);
     }
 
     public override void MoveToDestination(){

@@ -10,7 +10,6 @@ public class Guard : Human, IPathComponent {
         base.Start();
         nvPathFollower = GetComponent<NavMeshAgentPathFollower>();
         nvPathFollower.FollowPath(patrolPath);
-        
     }
     
     public void OnPathEnd(){
@@ -25,5 +24,9 @@ public class Guard : Human, IPathComponent {
     public override void Update(){
         base.Update();
         RefreshMoveAnimation();
+    }
+
+    public override void Ear(Transform t){
+        Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
     }
 }

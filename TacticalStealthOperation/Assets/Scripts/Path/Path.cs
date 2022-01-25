@@ -9,10 +9,15 @@ public class Path : MonoBehaviour {
     public int Lap{get => lap;}
     [SerializeField] private List<PathState> pathStates; // should contains time and facing
     public List<PathState> PathStates{get=> pathStates;}
+    [SerializeField] private Vector3 offset = new Vector3(0, 0.1f, 0); // Offset in order to make pathfinding work
     // Start is called before the first frame update
     void Start() {
         if(type == PathType.DoOnce){
            lap = 0;
+        }
+        for(int i = 0; i < pathStates.Count; ++i){
+            pathStates[i].destination += offset;
+            //Debug.Log(" i : " + i + " " + pathStates[i].Destination + " " + pathStates[i].timeToWait + " " + pathStates[i].facingRotation);
         }
     }
 

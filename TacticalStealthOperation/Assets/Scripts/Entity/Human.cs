@@ -35,22 +35,26 @@ public class Human : Entity {
         lastDirection = transform.forward;
         turnSamplingTime = Time.time;
         turnBuffer = 0;
+        EarTransform = eyes;
+    }
+
+    private void UnequipWeapon(){
+        weapon.Unequipped();
+        foreach(Transform k in leftHand.transform){
+            Destroy(k.gameObject);
+        }
     }
 
     public void EquipWeapon(Weapon _weapon){
         if(weapon != null){
-            weapon.transform.parent = null;
-            weapon.SetRigibody(true);
-            foreach(Transform k in leftHand.transform){
-                Destroy(k.gameObject);
-            }
+            UnequipWeapon();
         }
 
         weapon = _weapon;
-        weapon.SetRigibody(false);
-        weapon.transform.SetParent(rightHand.transform);
-        weapon.transform.localPosition = new Vector3(0, 0, 0);
-        weapon.transform.localEulerAngles = new Vector3(0, 0, 0);
+        if(weapon.User != null){
+            weapon.User.UnequipWeapon();
+        }
+        weapon.EquippedBy(this);
         //Debug.print("category " + ((int)weapon.Category));
         string shoot, reload;
         if(weapon.Category == WeaponCategory.AssaultRifle){

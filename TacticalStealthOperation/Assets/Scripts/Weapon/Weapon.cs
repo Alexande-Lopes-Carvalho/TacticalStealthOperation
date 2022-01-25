@@ -37,6 +37,14 @@ public class Weapon : MonoBehaviour {
 
     private Rigidbody rbody;
     private Collider coll;
+
+    private Human user;
+    public Human User{get => user;}
+
+    [SerializeField] private float earRange = 1f;
+    public float EarRange{get=> earRange; set => earRange = value;}
+    private float sqrEarRange;
+
     private void Awake(){
         coll = GetComponent<Collider>();
     }
@@ -58,6 +66,20 @@ public class Weapon : MonoBehaviour {
         magazinePool = PoolLinker.Get(weaponName+"MagazinePool");
         cartridgePool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"CartridgePool");
         bulletPool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"BulletPool");
+        sqrEarRange = earRange*earRange;
+    }
+
+    public void EquippedBy(Human _user){
+        user = _user;
+        SetRigibody(false);
+        transform.SetParent(user.RightHand.transform);
+        transform.localPosition = new Vector3(0, 0, 0);
+        transform.localEulerAngles = new Vector3(0, 0, 0);
+    }
+    public void Unequipped(){
+        user = null;
+        transform.parent = null;
+        SetRigibody(true);
     }
 
     // Update is called once per frame
@@ -105,6 +127,7 @@ public class Weapon : MonoBehaviour {
     public void OnStartShoot(){
         SpawnCartridge();
         SpawnBullet();
+        EarLinker.NoiseAt(transform.position, user.transform, sqrEarRange);
     }
 
     private void SpawnCartridge(){
@@ -126,7 +149,7 @@ public class Weapon : MonoBehaviour {
     private void SpawnBullet(){
         GameObject o = bulletPool.SpawnAt(bulletSpawn.position, bulletSpawn.transform.eulerAngles);
         Projectile p = o.GetComponent<Projectile>();
-        p.Set(transform, damage);
+        p.Set(User.transform, damage);
     }
 
 
