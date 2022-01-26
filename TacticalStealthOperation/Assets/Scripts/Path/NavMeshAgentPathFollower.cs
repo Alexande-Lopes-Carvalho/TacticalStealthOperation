@@ -33,9 +33,12 @@ public class NavMeshAgentPathFollower : PathFollower {
         agent.CalculatePath(_destination, path);
         if(path.status == NavMeshPathStatus.PathPartial){
             agent.SetPath(path);
-            Debug.Log("Found path");
+            //Debug.Log("Found path");
+        } else {
+            endPath();
+            //Debug.Log("Didn't found path to " + _destination + " for " + transform.name);
         }
-        Debug.Log("Set Destination " + _destination);
+        //Debug.Log("Set Destination " + _destination);
     }
 
     public override void MoveToDestination(){

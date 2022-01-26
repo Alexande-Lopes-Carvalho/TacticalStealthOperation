@@ -9,6 +9,8 @@ public class Human : Entity {
     [SerializeField] private Weapon weapon;
     [SerializeField] private RuntimeAnimatorController gunAnimationController, assaultRifleAnimationController;
     [SerializeField] private Transform eyes;
+    public Transform Eyes {get => eyes;}
+    public Transform Feet {get => transform;}
     private GameObject hiddenMagazine;
     protected Animator animator;
     private bool isPressingWeaponTrigger = false;

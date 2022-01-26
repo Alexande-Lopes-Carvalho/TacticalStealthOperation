@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class DebugScript : MonoBehaviour {
     [SerializeField] private ObjectPooler objPool;
-    [SerializeField] private Human enemy;
+    [SerializeField] private Human character;
+    [SerializeField] private Guard guard;
     [SerializeField] private List<Weapon> weapons;
     [SerializeField] private Path path;
     private int weaponIndex;
@@ -24,7 +25,9 @@ public class DebugScript : MonoBehaviour {
             objPool.SpawnAt(new Vector3(34.5f, 0.8f, 0), new Vector3(-90, 0, 0));
         } else if(Input.GetKeyDown(KeyCode.P)){
             weaponIndex = ++weaponIndex%weapons.Count;
-            enemy.EquipWeapon(weapons[weaponIndex]);
+            character.EquipWeapon(weapons[weaponIndex]);
+        } else if(Input.GetKeyDown(KeyCode.O)){
+            guard.Attack(character);
         }
     }
 }

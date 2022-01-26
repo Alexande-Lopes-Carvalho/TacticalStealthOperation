@@ -687,6 +687,8 @@ MonoBehaviour:
   assaultRifleAnimationController: {fileID: 22100000, guid: 8a0a1421b110c764babc021af6b3f25a, type: 2}
   eyes: {fileID: 2208427074709059848}
   patrolPath: {fileID: 4550845683122612207}
+  visualAcuity: 13.5
+  targetAcquiredDist: 4
 --- !u!195 &4039063910860916073
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -708,7 +710,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3304113090942133933
 GameObject:
   m_ObjectHideFlags: 0

@@ -63,6 +63,10 @@ public abstract class PathFollower : MonoBehaviour {
             StartCoroutine(moveToDestination);
             return ;
         }
+        endPath();
+    }
+
+    protected void endPath(){
         pathComponent.OnPathEnd();
     }
 
