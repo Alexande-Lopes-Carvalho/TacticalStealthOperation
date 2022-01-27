@@ -9,6 +9,7 @@ public class Human : Entity {
     [SerializeField] private Weapon weapon;
     [SerializeField] private RuntimeAnimatorController gunAnimationController, assaultRifleAnimationController;
     [SerializeField] private Transform eyes;
+
     public Transform Eyes {get => eyes;}
     public Transform Feet {get => transform;}
     private GameObject hiddenMagazine;
@@ -22,6 +23,7 @@ public class Human : Entity {
     protected static readonly int rightSpeedAnimation = Animator.StringToHash("rightSpeed");
     protected static readonly int turnAnimation = Animator.StringToHash("turn");
     protected static readonly int isMovingAnimation = Animator.StringToHash("isMoving");
+    protected static readonly int isDead = Animator.StringToHash("isDead");
 
     private float maxSpeedAnimation = 7f;
     private Vector3 lastPosition, lastDirection;
@@ -41,16 +43,16 @@ public class Human : Entity {
     }
 
     private void UnequipWeapon(){
-        weapon.Unequipped();
-        foreach(Transform k in leftHand.transform){
-            Destroy(k.gameObject);
+        if(weapon != null){
+            weapon.Unequipped();
+            foreach(Transform k in leftHand.transform){
+                Destroy(k.gameObject);
+            }
         }
     }
 
     public void EquipWeapon(Weapon _weapon){
-        if(weapon != null){
-            UnequipWeapon();
-        }
+        UnequipWeapon();
 
         weapon = _weapon;
         if(weapon.User != null){
@@ -123,7 +125,14 @@ public class Human : Entity {
     }
 
     public override void Kill(){
-        base.Kill();
+        Weapon w = weapon;
+        UnequipWeapon();
+        animator.SetBool(isDead, true);
+        if(w != null){
+            PoolLinker.GetDestroyer("WeaponPool").Add(w.gameObject);
+        }
+        enabled = false;
+        PoolLinker.GetDestroyer("HumanPool").Add(this.gameObject);
     }
 
     protected void RefreshMoveAnimation(){

@@ -37,6 +37,12 @@ public class Character : Human {
         }
     }
 
+    public override void Kill(){
+        Destroy(rb);
+        Destroy(GetComponent<CapsuleCollider>());
+        base.Kill();
+    }
+
     public void SetDirection(){
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 

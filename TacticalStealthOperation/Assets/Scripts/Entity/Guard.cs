@@ -61,10 +61,10 @@ public class Guard : Human, IPathComponent {
     public override void FixedUpdate(){
         base.FixedUpdate();
         if(currentState == GuardState.ATTACK){
-            Vector3 toTarget = (target.Eyes.position-Eyes.position);
+            Vector3 toTarget = (target.transform.position-transform.position);
             Vector3 toWalk = (transform.position-lastGuardPosition);
             transitionAttack = (canSeeTarget)? Mathf.Min(transitionAttack+Time.deltaTime*1, 1) : Mathf.Max(transitionAttack-Time.deltaTime*1, 0);
-            Debug.Log(Vector3.SignedAngle(toWalk, toTarget, transform.up) + " " + toWalk);
+            //Debug.Log(Vector3.SignedAngle(toWalk, toTarget, transform.up) + " " + toWalk);
             transform.LookAt(transform.position+Quaternion.AngleAxis(transitionAttack*Vector3.SignedAngle(toWalk, toTarget, transform.up), transform.up)*toWalk);
         }
         RefreshTurnAnimation();
@@ -77,7 +77,7 @@ public class Guard : Human, IPathComponent {
         base.Update();
         RefreshMoveAnimation();
         if(currentState == GuardState.ATTACK){
-            if(target == null){
+            if(target.IsDead()){
                 Patrol();
             } else {
                 
@@ -98,25 +98,31 @@ public class Guard : Human, IPathComponent {
                     agent.isStopped = true;
                     agent.ResetPath();
                 }
+
                 Debug.DrawLine(Eyes.position, target.Eyes.position, (canSeeTarget)? Color.red : Color.blue);
             }
         }
-        
+    }
+
+    public override void Kill(){
+        Destroy(agent);
+        Destroy(GetComponent<CapsuleCollider>());
+        base.Kill();
     }
 
     private bool CanSeeTarget(){
         Vector3 direction = target.Eyes.position-Eyes.position;
         RaycastHit hit;
         if(Physics.Raycast(Eyes.position, direction, out hit, visualAcuity)){
-            Debug.Log(Time.time + " " + hit.transform.name);
+            //Debug.Log(Time.time + " " + hit.transform.name);
             return hit.transform == target.transform;
         }
-        Debug.Log(Time.time + " NOTHING");
+        //Debug.Log(Time.time + " NOTHING");
         return false;
     }
 
     public override void Ear(Transform t){
-        Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
+        //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
     }
 
     enum GuardState {

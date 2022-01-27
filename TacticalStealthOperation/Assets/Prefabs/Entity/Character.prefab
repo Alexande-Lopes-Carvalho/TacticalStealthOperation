@@ -786,6 +786,7 @@ MonoBehaviour:
   gunAnimationController: {fileID: 22100000, guid: c232b21f8b60abd4fa94d7acd258927a, type: 2}
   assaultRifleAnimationController: {fileID: 22100000, guid: 37c8079227e28fe4b98c563370ec7984, type: 2}
   eyes: {fileID: 7532294805232702568}
+  deadBody: {fileID: 4786915420892691661, guid: cd7422500e6ff1a409ed2e69b287d0e2, type: 3}
   cam: {fileID: 0}
   speed: 300000
 --- !u!54 &7552217566508186887
