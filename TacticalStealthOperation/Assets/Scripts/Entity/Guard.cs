@@ -20,6 +20,7 @@ public class Guard : Human, IPathComponent {
     private float lastPathToTarget; // time
     private bool canSeeTarget = false;
     private Vector3 lastGuardPosition;
+    private float transitionAttack = 0; // 0 : look where walking | 1 : look to target
     public override void Start(){
         base.Start();
         nvPathFollower = GetComponent<NavMeshAgentPathFollower>();
@@ -60,16 +61,16 @@ public class Guard : Human, IPathComponent {
     public override void FixedUpdate(){
         base.FixedUpdate();
         if(currentState == GuardState.ATTACK){
-            if(canSeeTarget){
-                //float v = Vector3.SignedAngle(Eyes.forward, target.Eyes.position-Eyes.position, Eyes.up);
-                //transform.rotation *= Quaternion.AngleAxis(v, Eyes.up);
-                transform.LookAt(transform.position+(target.Eyes.position-Eyes.position));
-            } else {
-                transform.LookAt(transform.position+(transform.position-lastGuardPosition));
-            }
+            Vector3 toTarget = (target.Eyes.position-Eyes.position);
+            Vector3 toWalk = (transform.position-lastGuardPosition);
+            transitionAttack = (canSeeTarget)? Mathf.Min(transitionAttack+Time.deltaTime*1, 1) : Mathf.Max(transitionAttack-Time.deltaTime*1, 0);
+            Debug.Log(Vector3.SignedAngle(toWalk, toTarget, transform.up) + " " + toWalk);
+            transform.LookAt(transform.position+Quaternion.AngleAxis(transitionAttack*Vector3.SignedAngle(toWalk, toTarget, transform.up), transform.up)*toWalk);
         }
         RefreshTurnAnimation();
-        lastGuardPosition = transform.position;
+        if((transform.position-lastGuardPosition).sqrMagnitude > 0.01f){
+            lastGuardPosition = transform.position;
+        }
     }
 
     public override void Update(){

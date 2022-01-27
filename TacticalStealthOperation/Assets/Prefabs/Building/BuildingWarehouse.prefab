@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2844809387034968593
 Transform:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   m_Name: RoofWarehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1687724727515620863
@@ -172,7 +172,7 @@ GameObject:
   m_Name: RoofBuilding0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8355008733267768223
@@ -292,6 +292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2066161120266468402}
     m_Modifications:
+    - target: {fileID: 498145352043574870, guid: 2e85c33fbe96a7a40aff9723975ea333, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7418504132326280674, guid: 2e85c33fbe96a7a40aff9723975ea333, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -354,6 +358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2066161120266468402}
     m_Modifications:
+    - target: {fileID: 1590024749616498686, guid: 68ebc85cda2ff8a4d871f1dee8be300d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7378360083713209267, guid: 68ebc85cda2ff8a4d871f1dee8be300d, type: 3}
       propertyPath: m_RootOrder
       value: 0
