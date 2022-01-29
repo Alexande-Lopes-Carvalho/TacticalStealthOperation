@@ -10067,6 +10067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Guard
       objectReference: {fileID: 0}
+    - target: {fileID: 3282607069014241999, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3682901196912252789, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -4.6815844
@@ -22201,6 +22205,10 @@ PrefabInstance:
     - target: {fileID: 3282607069014241999, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
       propertyPath: m_Name
       value: Guard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282607069014241999, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4550845683122612207, guid: b929732ee733acd42842b30fa334d2a0, type: 3}
       propertyPath: pathStates.Array.size

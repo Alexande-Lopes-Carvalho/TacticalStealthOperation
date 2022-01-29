@@ -67,6 +67,7 @@ public abstract class PathFollower : MonoBehaviour {
     }
 
     protected void endPath(){
+        StopFollowingPath();
         pathComponent.OnPathEnd();
     }
 

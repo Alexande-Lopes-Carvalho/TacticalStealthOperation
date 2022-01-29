@@ -31,7 +31,7 @@ public class NavMeshAgentPathFollower : PathFollower {
         base.SetDestination(_destination);
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(_destination, path);
-        if(path.status == NavMeshPathStatus.PathPartial){
+        if((_destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
             agent.SetPath(path);
             //Debug.Log("Found path");
         } else {
