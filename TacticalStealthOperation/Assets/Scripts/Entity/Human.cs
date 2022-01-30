@@ -7,6 +7,7 @@ public class Human : Entity {
     public GameObject LeftHand{get=>leftHand;}
     public GameObject RightHand{get=>rightHand;}
     [SerializeField] private Weapon weapon;
+    public Weapon Weapon{get => weapon;}
     [SerializeField] private RuntimeAnimatorController gunAnimationController, assaultRifleAnimationController;
     [SerializeField] private Transform eyes;
 
@@ -40,6 +41,7 @@ public class Human : Entity {
         turnSamplingTime = Time.time;
         turnBuffer = 0;
         EarTransform = eyes;
+        HumanLinker.Register(this);
     }
 
     private void UnequipWeapon(){
@@ -125,14 +127,21 @@ public class Human : Entity {
     }
 
     public override void Kill(){
+        //Debug.Log(Time.time + " Kill");
         Weapon w = weapon;
         UnequipWeapon();
+        
         animator.SetBool(isDead, true);
         if(w != null){
             PoolLinker.GetDestroyer("WeaponPool").Add(w.gameObject);
         }
         enabled = false;
         PoolLinker.GetDestroyer("HumanPool").Add(this.gameObject);
+    }
+
+    public override void OnDestroy() {
+        HumanLinker.Remove(this);
+        base.OnDestroy();
     }
 
     protected void RefreshMoveAnimation(){
@@ -157,7 +166,7 @@ public class Human : Entity {
         Shooting Rifle Animation Event function ...
     */
     public void OnStartFiringAnimation(){
-        if(isPressingWeaponTrigger && weapon.CanShootBullet()){
+        if(isPressingWeaponTrigger && weapon != null && weapon.CanShootBullet()){
             weapon.Shoot();
         }
     }

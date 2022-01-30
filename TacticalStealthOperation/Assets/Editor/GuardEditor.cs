@@ -23,5 +23,10 @@ public class GuardEditor : Editor {
             Undo.RecordObject(target, "Update Target Acquired Distance");
             linkedObject.TargetAcquiredDist = ((int)(newRange/0.01f))*0.01f;
         }
+        Handles.color = Color.green;
+        Handles.DrawDottedLine(linkedObject.Eyes.position, linkedObject.Eyes.position+Quaternion.AngleAxis(-linkedObject.VisualAngle, linkedObject.transform.up)*linkedObject.transform.forward*linkedObject.VisualAcuity, 1);
+        Handles.DrawDottedLine(linkedObject.Eyes.position, linkedObject.Eyes.position+Quaternion.AngleAxis(linkedObject.VisualAngle, linkedObject.transform.up)*linkedObject.transform.forward*linkedObject.VisualAcuity, 1);
+        Handles.DrawWireArc(linkedObject.Eyes.position, linkedObject.transform.up, linkedObject.transform.forward, linkedObject.VisualAngle, linkedObject.VisualAcuity, 1);
+        Handles.DrawWireArc(linkedObject.Eyes.position, linkedObject.transform.up, linkedObject.transform.forward, -linkedObject.VisualAngle, linkedObject.VisualAcuity, 1);
     }
 }

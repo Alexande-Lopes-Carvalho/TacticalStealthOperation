@@ -686,9 +686,9 @@ MonoBehaviour:
   gunAnimationController: {fileID: 22100000, guid: 65617c86371d3b1448c74a20f4055c8f, type: 2}
   assaultRifleAnimationController: {fileID: 22100000, guid: 8a0a1421b110c764babc021af6b3f25a, type: 2}
   eyes: {fileID: 2208427074709059848}
-  deadBody: {fileID: 7656138712663252702, guid: ac068409d56da4e44ac607064fb65c65, type: 3}
   patrolPath: {fileID: 4550845683122612207}
-  visualAcuity: 13.5
+  visualAcuity: 5.25
+  visualAngle: 45
   targetAcquiredDist: 4
 --- !u!195 &4039063910860916073
 NavMeshAgent:

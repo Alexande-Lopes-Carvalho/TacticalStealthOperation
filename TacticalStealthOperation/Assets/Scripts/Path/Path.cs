@@ -11,7 +11,7 @@ public class Path : MonoBehaviour {
     public List<PathState> PathStates{get=> pathStates;}
     [SerializeField] private Vector3 offset = new Vector3(0, 0.1f, 0); // Offset in order to make pathfinding work
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         if(type == PathType.DoOnce){
            lap = 0;
         }
@@ -22,7 +22,7 @@ public class Path : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    private void Update() {
         
     }
 
@@ -43,5 +43,13 @@ public class Path : MonoBehaviour {
         [SerializeField] public float timeToWait;
         public float TimeToWait {get => timeToWait;}
 
+        public PathState(){
+        }
+        public PathState(Vector3 _destination, bool _noRotation, Vector3 _facingRotation, float _timeToWait){
+            destination = _destination;
+            noRotation = _noRotation;
+            facingRotation = _facingRotation;
+            timeToWait = _timeToWait;
+        }
     }
 }

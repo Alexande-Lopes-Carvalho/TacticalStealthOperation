@@ -15,14 +15,19 @@ public abstract class PathFollower : MonoBehaviour {
     private PathStateProvider pathStateProvider;
 
     private IPathComponent pathComponent;
+    private bool end;
 
     // Start is called before the first frame update
     public virtual void Awake() {
         pathComponent = GetComponent<IPathComponent>();
+        end = false;
     }
 
     public IEnumerator MoveToDestinationCoroutine(){
         SetDestination(pathStateProvider.GetDestination());
+        if(end){
+            yield break;
+        }
         while(!IsDestinationAcquired()){
             MoveToDestination();
             yield return new WaitForFixedUpdate();
@@ -66,18 +71,33 @@ public abstract class PathFollower : MonoBehaviour {
         endPath();
     }
 
-    protected void endPath(){
+    protected PathStateProvider endPath(){
         StopFollowingPath();
         pathComponent.OnPathEnd();
+        return pathStateProvider;
     }
 
     public void FollowPath(Path path){
         StopFollowingPath();
         pathStateProvider = new PathStateProvider(path);
+        end = false;
         ComputeNextPathState();
     }
 
-    public virtual void StopFollowingPath(){
+    public void FollowPath(Path path, PathStateProvider _pathProvider){
+        if(_pathProvider == null){
+            FollowPath(path);
+            return;
+        }
+        StopFollowingPath();
+        pathStateProvider = _pathProvider;
+        pathStateProvider.Reset();
+        end = false;
+        ComputeNextPathState();
+    }
+
+    public virtual PathStateProvider StopFollowingPath(){
+        end = true;
         if(moveToDestination != null){
             StopCoroutine(moveToDestination);
         }
@@ -87,6 +107,7 @@ public abstract class PathFollower : MonoBehaviour {
         if(waitUntil != null){
             StopCoroutine(waitUntil);
         }
+        return pathStateProvider;
     }
 
     // Update is called once per frame
@@ -121,16 +142,20 @@ public abstract class PathFollower : MonoBehaviour {
         timeToWait = _timeToWait;
     }
 
-    private class PathStateProvider {
+    public class PathStateProvider {
         private Path path;
         private int currentLap = 0;
-        private int currentIndex = -1, gain = 1;
+        private int currentIndex = -1, gain = 1, lastIndex = -1;
         private bool isFinished = false;
         public PathStateProvider(Path _path){
             path = _path;
         }
+        public void Reset(){
+            currentIndex = lastIndex;
+        }
 
         public bool ComputeNextPosition(){
+            lastIndex = currentIndex;
             if(isFinished || path.PathStates.Count == 0 || (currentIndex == path.PathStates.Count-1 && path.Type == Path.PathType.DoOnce)){
                 currentIndex = -1;
                 isFinished = true;

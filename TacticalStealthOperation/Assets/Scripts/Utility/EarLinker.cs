@@ -27,8 +27,9 @@ public class EarLinker : MonoBehaviour {
     }
 
     public static void NoiseAt(Vector3 noisePosition, Transform noiseMaker, float sqrRange){
+        InspectionPathLinker.SetPath(noiseMaker.position);
         foreach(Entity k in entities){
-            if(Vector3.SqrMagnitude(k.EarTransform.position-noisePosition) < sqrRange){
+            if(k.transform != noiseMaker && Vector3.SqrMagnitude(k.EarTransform.position-noisePosition) < sqrRange){
                 k.Ear(noiseMaker);
             }
         }

@@ -8,38 +8,59 @@ public class Guard : Human, IPathComponent {
     [SerializeField] private float visualAcuity = 1;
     public float VisualAcuity{get => visualAcuity; set => visualAcuity = value;}
     private float sqrVisualAcuity;
+    [SerializeField][Min(0)] private float visualAngle;
+    private float visualAngleRadians;
+    public float VisualAngle{get => visualAngle;}
 
     [SerializeField] private float targetAcquiredDist = 1;
     public float TargetAcquiredDist{get => targetAcquiredDist; set => targetAcquiredDist = value;}
     private float sqrTargetAcquiredDist;
+    
     private UnityEngine.AI.NavMeshAgent agent;
     private GuardState currentState;
     private NavMeshAgentPathFollower nvPathFollower;
+    private PathFollower.PathStateProvider patrolSave;
 
     private Human target;
     private float lastPathToTarget; // time
     private bool canSeeTarget = false;
     private Vector3 lastGuardPosition;
     private float transitionAttack = 0; // 0 : look where walking | 1 : look to target
+    private float timeCheck = 0;
     public override void Start(){
         base.Start();
         nvPathFollower = GetComponent<NavMeshAgentPathFollower>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         sqrVisualAcuity = visualAcuity*visualAcuity;
         sqrTargetAcquiredDist = targetAcquiredDist*targetAcquiredDist;
+        visualAngleRadians = Mathf.Deg2Rad*visualAngle;
         lastGuardPosition = transform.position;
+        currentState = GuardState.NO_STATE;
         Patrol();
     }
 
     private void SetState(GuardState s){
+        if(currentState == GuardState.ATTACK){
+            ReleaseWeaponTrigger();
+        }
+        if(currentState == GuardState.PATROL){
+            patrolSave = nvPathFollower.StopFollowingPath();;
+        } else {
+            nvPathFollower.StopFollowingPath();
+        }
         currentState = s;
         target = null;
-        nvPathFollower.StopFollowingPath();
+    }
+
+    private void NoState(){
+        SetState(GuardState.NO_STATE);
     }
 
     private void Patrol(){
-        SetState(GuardState.PATROL);
-        nvPathFollower.FollowPath(patrolPath);
+        if(currentState != GuardState.PATROL){
+            SetState(GuardState.PATROL);
+            nvPathFollower.FollowPath(patrolPath, patrolSave);
+        }
     }
 
     private void Inspect(Path inspectPath){
@@ -56,6 +77,11 @@ public class Guard : Human, IPathComponent {
     
     public void OnPathEnd(){
         Patrol();
+    }
+
+    public override void Damage(int damage){
+        base.Damage(((currentState == GuardState.ATTACK)? 1 : 2)*damage);
+        
     }
 
     public override void FixedUpdate(){
@@ -99,33 +125,73 @@ public class Guard : Human, IPathComponent {
                     agent.ResetPath();
                 }
 
+                if(canSeeTarget){
+                    if(Weapon.HasBulletLeft()){
+                        PressWeaponTrigger();
+                    } else {
+                        ReleaseWeaponTrigger();
+                        animator.SetTrigger("doReload");
+                    }
+                } else {
+                    ReleaseWeaponTrigger();
+                }
+
                 Debug.DrawLine(Eyes.position, target.Eyes.position, (canSeeTarget)? Color.red : Color.blue);
             }
+        } else if((currentState == GuardState.PATROL || currentState == GuardState.INSPECT) && (Time.time-timeCheck >= 0.15)) {
+            foreach(Character k in HumanLinker.Characters){
+                canSeeTarget = CanSeeTarget(k);
+                if(canSeeTarget){
+                    Attack(k);
+                    break;
+                }
+            }
+            timeCheck = Time.time;
         }
     }
 
     public override void Kill(){
+        base.Kill();
+        Destroy(nvPathFollower);
         Destroy(agent);
         Destroy(GetComponent<CapsuleCollider>());
-        base.Kill();
     }
 
-    private bool CanSeeTarget(){
+    private bool CanSeeTarget(Human target){
         Vector3 direction = target.Eyes.position-Eyes.position;
+        //Debug.Log(Time.time + " " + Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) + " " + (Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) < visualAngleRadians));
+        if(Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) > visualAngleRadians){
+            return false;
+        }
+
         RaycastHit hit;
         if(Physics.Raycast(Eyes.position, direction, out hit, visualAcuity)){
-            //Debug.Log(Time.time + " " + hit.transform.name);
+            //Debug.Log(Time.time + " Ray : " + (hit.transform == target.transform));
             return hit.transform == target.transform;
         }
         //Debug.Log(Time.time + " NOTHING");
         return false;
     }
 
+    private bool CanSeeTarget(){
+        return CanSeeTarget(target);
+    }
+
     public override void Ear(Transform t){
-        //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
+        if(!IsAlive() || currentState == GuardState.ATTACK){
+            return;
+        }
+        Guard e = t.GetComponent<Guard>();
+        if(e != null && e.currentState == GuardState.ATTACK){
+            Attack(e.target);
+        } else {
+            //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
+            Inspect(InspectionPathLinker.CurrentPath);
+        }
     }
 
     enum GuardState {
+        NO_STATE = -1,
         PATROL = 0,
         INSPECT = 1,
         ATTACK = 2

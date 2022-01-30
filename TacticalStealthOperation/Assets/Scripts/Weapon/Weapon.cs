@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour {
     [SerializeField] private int damage;
     [SerializeField] private int MaxBulletsInMagazine;
     [SerializeField] private int bulletsInMagazine; // bullets in magazine plus the one in the chamber
+    public int BulletsInMagazine {get => bulletsInMagazine;}
 
     private Animator weaponAnimator;
     [SerializeField] private GameObject magazine;
@@ -86,6 +87,10 @@ public class Weapon : MonoBehaviour {
     private void Update() {
     }
 
+    public bool HasBulletLeft(){
+        return bulletsInMagazine != 0;
+    }
+
     public void SetRigibody(bool b){
         //Debug.print("pass rb " + b);
         if(b && rbody == null){
@@ -125,9 +130,11 @@ public class Weapon : MonoBehaviour {
         Shooting Animation Event function ...
     */
     public void OnStartShoot(){
-        SpawnCartridge();
-        SpawnBullet();
-        EarLinker.NoiseAt(transform.position, user.transform, sqrEarRange);
+        if(user != null){
+            SpawnCartridge();
+            SpawnBullet();
+            EarLinker.NoiseAt(transform.position, user.transform, sqrEarRange);
+        }
     }
 
     private void SpawnCartridge(){
@@ -148,6 +155,7 @@ public class Weapon : MonoBehaviour {
 
     private void SpawnBullet(){
         GameObject o = bulletPool.SpawnAt(bulletSpawn.position, bulletSpawn.transform.eulerAngles);
+        //Debug.Log(Time.time + " " + bulletPool + " " + o);
         Projectile p = o.GetComponent<Projectile>();
         p.Set(User.transform, damage);
     }

@@ -20,7 +20,7 @@ public class LockedDoor : MonoBehaviour, ITriggerListener {
     private void Update() {
         if(opened != -1 && currentRotation != 90){
             currentRotation = Mathf.Min((Time.time-opened)*speed, 90);
-            Debug.Log(Time.time + " " + (currentRotation*(rotForward? -1 : 1)));
+            //Debug.Log(Time.time + " " + (currentRotation*(rotForward? -1 : 1)));
             transform.localEulerAngles  = new Vector3(0, 0, rotationStart+currentRotation*(rotForward? -1 : 1));
         }
     }

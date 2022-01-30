@@ -21,10 +21,10 @@ public class NavMeshAgentPathFollower : PathFollower {
     void Update() {
         
     }
-    public override void StopFollowingPath(){
+    public override PathStateProvider StopFollowingPath(){
         agent.isStopped = true;
         agent.ResetPath();
-        base.StopFollowingPath();
+        return base.StopFollowingPath();
     }
 
     public override void SetDestination(Vector3 _destination) {
@@ -36,8 +36,8 @@ public class NavMeshAgentPathFollower : PathFollower {
             //Debug.Log("Found path");
         } else {
             endPath();
-            //Debug.Log("Didn't found path to " + _destination + " for " + transform.name);
         }
+        //Debug.Log("Didn't found path to " + _destination + " for " + transform.name);
         //Debug.Log("Set Destination " + _destination);
     }
 
