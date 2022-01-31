@@ -4,7 +4,7 @@ using UnityEngine;
 public class Path : MonoBehaviour {
     
     [SerializeField] private PathType type;
-    [SerializeField] private bool addTransform = false;
+
     public PathType Type {get=> type;}
     [SerializeField] private int lap = 0;
     public int Lap{get => lap;}
@@ -16,11 +16,19 @@ public class Path : MonoBehaviour {
         if(type == PathType.DoOnce){
            lap = 0;
         }
-        Vector3 v = offset+((addTransform)? new Vector3(transform.position.x, 0,transform.position.z) : Vector3.zero);
+        //Debug.Log(transform.right + " " + transform.forward + " " + transform.parent.gameObject.name);
+        for(int i = 0; i < pathStates.Count; ++i){
+            pathStates[i].destination = offset+new Vector3(transform.position.x, 0,transform.position.z)+pathStates[i].destination.x*transform.right + pathStates[i].destination.z*transform.forward;
+            if(!pathStates[i].NoRotation){
+                pathStates[i].facingRotation = new Vector3(pathStates[i].facingRotation.x, pathStates[i].facingRotation.y+transform.eulerAngles.y, pathStates[i].facingRotation.z);
+            }
+        }
+
+        /*Vector3 v = offset+((addTransform)? new Vector3(transform.position.x, 0,transform.position.z) : Vector3.zero);
         for(int i = 0; i < pathStates.Count; ++i){
             pathStates[i].destination += v;
             //Debug.Log(" i : " + i + " " + pathStates[i].Destination + " " + pathStates[i].timeToWait + " " + pathStates[i].facingRotation);
-        }
+        }*/
     }
 
     // Update is called once per frame

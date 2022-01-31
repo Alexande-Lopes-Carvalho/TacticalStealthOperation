@@ -121,7 +121,7 @@ public class Guard : Human, IPathComponent {
                         //Debug.Log(Time.time + " Refresh Moving");
                         lastPathToTarget = Time.time;
                         NavMeshPath path = new UnityEngine.AI.NavMeshPath();
-                        agent.CalculatePath(target.Eyes.position, path);
+                        agent.CalculatePath(target.transform.position, path);
                         agent.SetPath(path);
                     }
                 } else { // stop moving
@@ -206,8 +206,8 @@ public class Guard : Human, IPathComponent {
                 foreach(Path k in InspectionPathLinker.CurrentPathList){
                     NavMeshPath path = new UnityEngine.AI.NavMeshPath();
                     agent.CalculatePath(k.PathStates[0].destination, path);
-                    //Debug.Log(Time.time + "from " + transform.position + " to " + k.PathStates[0].destination + " " + EvaluateSqrDistance(path, transform.position) + " " + (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude);
-                    if((k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
+                    //Debug.Log(Time.time + "from " + (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude + " " + EvaluateSqrDistance(path, transform.position) + " " + k.PathStates[0].destination);
+                    if(path.corners.Length > 0 && (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
                         //Debug.Log(Time.time + " can go");
                         float evDist = EvaluateSqrDistance(path, transform.position);
                         if(dist == -1 || evDist < dist){
