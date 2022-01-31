@@ -30,6 +30,12 @@ public class Human : Entity {
     private Vector3 lastPosition, lastDirection;
     private float turnSamplingTime, turnBuffer;
 
+    // Light 
+    private bool isInLight = true;
+    public bool IsInLight{get => isInLight;}
+    private List<LightShadow> lightShadowList;
+    private List<GameLight> lightList;
+
     // Start is called before the first frame update
     public override void Start() {
         base.Start();
@@ -42,6 +48,9 @@ public class Human : Entity {
         turnBuffer = 0;
         EarTransform = eyes;
         HumanLinker.Register(this);
+        lightShadowList = new List<LightShadow>();
+        lightList = new List<GameLight>();
+        ComputeIsInLight();
     }
 
     private void UnequipWeapon(){
@@ -159,6 +168,52 @@ public class Human : Entity {
             animator.SetFloat(turnAnimation, Mathf.Min(Mathf.Max( (turnBuffer/(Time.time-turnSamplingTime)), -1.0f), 1.0f));
             turnBuffer = 0;
             turnSamplingTime = Time.time;
+        }
+    }
+
+    protected void ComputeIsInLight(){
+        //Debug.Log(Time.time + " " + lightList.Count + " " + lightShadowList.Count);
+        foreach(GameLight k in lightList){
+            if(!k.IsEnabled){
+                lightList.Remove(k);
+            }
+        }
+        if(lightShadowList.Count == 0){
+            isInLight = true;
+            return;
+        }
+        isInLight = false;
+        foreach(LightShadow k in lightShadowList){
+            isInLight |= k.Contains(lightList);
+        }
+    }
+
+    protected virtual void OnTriggerEnter(Collider coll){
+        LightShadow ls = coll.GetComponent<LightShadow>();
+        if(ls != null && !lightShadowList.Contains(ls)){
+            Debug.Log(Time.time + " Add " + ls.gameObject.name);
+            lightShadowList.Add(ls);
+            return;
+        }
+        GameLight l = coll.GetComponent<GameLight>();
+        if(l != null && !lightList.Contains(l)){
+            //Debug.Log(Time.time + " Add " + l.gameObject.name);
+            lightList.Add(l);
+            return;
+        }
+    }
+    protected virtual void OnTriggerExit(Collider coll){
+        LightShadow ls = coll.GetComponent<LightShadow>();
+        if(ls != null){
+            Debug.Log(Time.time + " Remove " + ls.gameObject.name);
+            lightShadowList.Remove(ls);
+            return;
+        }
+        GameLight l = coll.GetComponent<GameLight>();
+        if(l != null){
+            //Debug.Log(Time.time + " Remove " + l.gameObject.name);
+            lightList.Remove(l);
+            return;
         }
     }
 

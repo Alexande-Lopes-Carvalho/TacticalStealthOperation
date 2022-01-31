@@ -233,6 +233,13 @@ public class Guard : Human, IPathComponent {
         return res;
     }
 
+    protected override void OnTriggerEnter(Collider coll){
+        // don't call base method (don't need data about guard visibility)
+    }
+    protected override void OnTriggerExit(Collider coll){
+        // don't call base method (don't need data about guard visibility)
+    }
+
     enum GuardState {
         NO_STATE = -1,
         PATROL = 0,

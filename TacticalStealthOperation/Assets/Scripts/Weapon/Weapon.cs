@@ -96,11 +96,11 @@ public class Weapon : MonoBehaviour {
         if(b && rbody == null){
             gameObject.AddComponent<Rigidbody>();
             rbody = GetComponent<Rigidbody>();
-            coll.isTrigger = false;
+            coll.enabled = true;
         } else if(!b){
             Destroy(rbody);
             rbody = null;
-            coll.isTrigger = true;
+            coll.enabled = false;
         }
     }
 
