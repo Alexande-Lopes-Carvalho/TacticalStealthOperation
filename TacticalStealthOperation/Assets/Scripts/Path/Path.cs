@@ -4,6 +4,7 @@ using UnityEngine;
 public class Path : MonoBehaviour {
     
     [SerializeField] private PathType type;
+    [SerializeField] private bool addTransform = false;
     public PathType Type {get=> type;}
     [SerializeField] private int lap = 0;
     public int Lap{get => lap;}
@@ -15,8 +16,9 @@ public class Path : MonoBehaviour {
         if(type == PathType.DoOnce){
            lap = 0;
         }
+        Vector3 v = offset+((addTransform)? new Vector3(transform.position.x, 0,transform.position.z) : Vector3.zero);
         for(int i = 0; i < pathStates.Count; ++i){
-            pathStates[i].destination += offset;
+            pathStates[i].destination += v;
             //Debug.Log(" i : " + i + " " + pathStates[i].Destination + " " + pathStates[i].timeToWait + " " + pathStates[i].facingRotation);
         }
     }

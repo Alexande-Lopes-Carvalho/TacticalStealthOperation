@@ -13,6 +13,7 @@ public class HumanLinker : MonoBehaviour {
         humans = new List<Human>();
         guards = new List<Guard>();
         characters = new List<Character>();
+        Guard.PriorityCount = 50;
     }
 
     public static void Register(Human h){

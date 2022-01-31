@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Guard : Human, IPathComponent {
+    private static int priorityCount; // initialized in HumanLinker
+    public static int PriorityCount{get => priorityCount; set => priorityCount = value;}
     [SerializeField] private Path patrolPath;
     [SerializeField] private float visualAcuity = 1;
     public float VisualAcuity{get => visualAcuity; set => visualAcuity = value;}
@@ -27,6 +29,8 @@ public class Guard : Human, IPathComponent {
     private Vector3 lastGuardPosition;
     private float transitionAttack = 0; // 0 : look where walking | 1 : look to target
     private float timeCheck = 0;
+
+    private Path generatedInspectionPath;
     public override void Start(){
         base.Start();
         nvPathFollower = GetComponent<NavMeshAgentPathFollower>();
@@ -36,6 +40,7 @@ public class Guard : Human, IPathComponent {
         visualAngleRadians = Mathf.Deg2Rad*visualAngle;
         lastGuardPosition = transform.position;
         currentState = GuardState.NO_STATE;
+        agent.avoidancePriority = priorityCount++;
         Patrol();
     }
 
@@ -185,9 +190,47 @@ public class Guard : Human, IPathComponent {
         if(e != null && e.currentState == GuardState.ATTACK){
             Attack(e.target);
         } else {
-            //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
-            Inspect(InspectionPathLinker.CurrentPath);
+            Path inspect = null;
+            if(generatedInspectionPath != null){
+                Destroy(generatedInspectionPath.gameObject);
+                generatedInspectionPath = null;
+            }
+            if(InspectionPathLinker.CurrentPathList == null || InspectionPathLinker.IsInsideCurrent(transform)){
+                generatedInspectionPath = InspectionPathLinker.GenerateDefaultPath();
+                generatedInspectionPath.transform.parent = transform;
+                inspect = generatedInspectionPath;
+            } else {
+                //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
+                
+                float dist = -1;
+                foreach(Path k in InspectionPathLinker.CurrentPathList){
+                    NavMeshPath path = new UnityEngine.AI.NavMeshPath();
+                    agent.CalculatePath(k.PathStates[0].destination, path);
+                    //Debug.Log(Time.time + "from " + transform.position + " to " + k.PathStates[0].destination + " " + EvaluateSqrDistance(path, transform.position) + " " + (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude);
+                    if((k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
+                        //Debug.Log(Time.time + " can go");
+                        float evDist = EvaluateSqrDistance(path, transform.position);
+                        if(dist == -1 || evDist < dist){
+                            dist = evDist;
+                            inspect = k;
+                        }
+                    }
+                }
+            }
+            //Debug.Log(Time.time + " " + inspect);
+            if(inspect != null){
+                Inspect(inspect);
+            }
         }
+    }
+    private float EvaluateSqrDistance(NavMeshPath path, Vector3 position){
+        Vector3 p = position;
+        float res = 0;
+        foreach(Vector3 v in path.corners){
+            res += Vector3.SqrMagnitude(p-v);
+            p = v;
+        }
+        return res;
     }
 
     enum GuardState {

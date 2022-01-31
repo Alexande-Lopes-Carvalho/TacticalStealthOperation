@@ -34,6 +34,8 @@ public class Character : Human {
             ReleaseWeaponTrigger();
         } else if(Input.GetKeyDown(KeyCode.R)){
             animator.SetTrigger("doReload");
+        } else if(Input.GetKeyDown(KeyCode.L)){
+            animator.SetTrigger("gotHit");
         }
     }
 

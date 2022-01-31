@@ -42,7 +42,9 @@ public class NavMeshAgentPathFollower : PathFollower {
     }
 
     public override void MoveToDestination(){
-        transform.LookAt(transform.position+(transform.position-lastPosition));
+        if((transform.position-lastPosition).sqrMagnitude > 0.0625){
+            transform.LookAt(transform.position+(transform.position-lastPosition));
+        }
         lastPosition = transform.position;
     }
 

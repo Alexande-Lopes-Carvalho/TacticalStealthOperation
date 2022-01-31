@@ -166,11 +166,13 @@ public class Human : Entity {
         Shooting Rifle Animation Event function ...
     */
     public void OnStartFiringAnimation(){
+        Debug.Log(Time.time + " startFiring");
         if(isPressingWeaponTrigger && weapon != null && weapon.CanShootBullet()){
             weapon.Shoot();
         }
     }
     public void OnEndFiringAnimation(){ // called 1 ms before end of the animation (for state update to be effective)
+        Debug.Log(Time.time + " endFiring");
         animator.SetBool(doShootAnimation, isPressingWeaponTrigger && weapon.CanShootBullet());
     }
 

@@ -281,7 +281,7 @@ MonoBehaviour:
   cartridgeMinRotation: 30
   cartridgeMaxRotation: 60
   cartridgeStrength: 1.5
-  earRange: 3.15
+  earRange: 8
 --- !u!1 &2260901714695786548
 GameObject:
   m_ObjectHideFlags: 0

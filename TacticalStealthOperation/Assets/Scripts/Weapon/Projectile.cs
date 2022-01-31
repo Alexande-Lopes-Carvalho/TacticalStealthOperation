@@ -25,6 +25,7 @@ public class Projectile : MonoBehaviour {
         Vector3 direction = transform.up*velocity*Time.deltaTime;
         float magnitude = direction.magnitude;
         RaycastHit hit;
+        //if(ignoreTransform == GameObject.Find("Character").transform){Debug.Log(Time.time + " " + transform.position + " to " + (transform.position+direction));}
         if(Physics.Raycast(transform.position, direction, out hit, magnitude)){
             if(hit.transform != ignoreTransform){
                 Entity e = hit.transform.gameObject.GetComponent<Entity>();

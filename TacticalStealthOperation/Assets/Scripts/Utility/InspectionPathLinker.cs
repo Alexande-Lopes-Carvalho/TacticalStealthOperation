@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class InspectionPathLinker : MonoBehaviour {
     private static List<InspectionPath> inspectionPathList;
-    private static Path currentPath;
-    public static Path CurrentPath{get => currentPath;}
+    private static List<Path> currentPathList;
+    public static List<Path> CurrentPathList{get => currentPathList;}
 
     private static Path prefab;
     private static Transform t;
+    private static Collider currentCollider;
+
+    private static Vector3 offset = new Vector3(0, 0.1f, 0), position;
     private void Awake(){
         inspectionPathList = new List<InspectionPath>();
         t = transform;
@@ -24,26 +27,36 @@ public class InspectionPathLinker : MonoBehaviour {
         
     }
 
-    public static void SetPath(Vector3 position){
+    public static void SetPath(Vector3 _position){
+        currentCollider = null;
+        currentPathList = null;
+        position = _position;
         for(int i = 0; i < inspectionPathList.Count; ++i){
-            if(inspectionPathList[i].IsInside(position)){
-                currentPath = inspectionPathList[i].Path;
+            //Debug.Log("is Inside " + inspectionPathList[i].gameObject.transform.position + " " + position);
+            if(inspectionPathList[i].IsInside(position+offset)){
+                //Debug.Log("yes");
+                currentPathList = inspectionPathList[i].PathList;
+                currentCollider = inspectionPathList[i].Coll;
                 return;
             }
         }
-        if(currentPath != null){
-            Destroy(currentPath);
-        }
+    }
 
-        currentPath = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+    public static Path GenerateDefaultPath(){
+        Path res = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         Path.PathState a = new Path.PathState(position, false, new Vector3(0, -90, 0), 1);
         Path.PathState b = new Path.PathState(position, false, new Vector3(0, 90, 0), 1);
-        currentPath.PathStates.Add(a);
-        currentPath.PathStates.Add(b);
-        currentPath.transform.parent = t;
+        res.PathStates.Add(a);
+        res.PathStates.Add(b);
+        return res;
+    }
+
+    public static bool IsInsideCurrent(Transform t){
+        return currentCollider.bounds.Contains(t.position+offset);
     }
 
     public static void Add(InspectionPath p){
+        //Debug.Log("InspectionPathLinker Add " + p);
         inspectionPathList.Add(p);
     }
 }
