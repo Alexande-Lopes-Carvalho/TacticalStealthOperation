@@ -188,7 +188,11 @@ public class Guard : Human, IPathComponent {
         }
         Guard e = t.GetComponent<Guard>();
         if(e != null && e.currentState == GuardState.ATTACK){
-            Attack(e.target);
+            NavMeshPath path = new UnityEngine.AI.NavMeshPath();
+            agent.CalculatePath(e.target.transform.position, path);
+            if(path.corners.Length > 0 && (e.target.transform.position-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
+                Attack(e.target);
+            }
         } else {
             Path inspect = null;
             if(generatedInspectionPath != null){
