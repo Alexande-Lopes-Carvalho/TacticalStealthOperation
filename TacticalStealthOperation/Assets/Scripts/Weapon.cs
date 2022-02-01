@@ -128,4 +128,30 @@ public class Weapon : MonoBehaviour {
         Magazine.SetActive(true);
         bulletsInMagazine = MaxBulletsInMagazine + ((bulletsInMagazine > 0)? 1 : 0); // when reloading, if the previous magazine wasn't empty, a bullet will stay in the chamber
     }
+    
+    /* Getters */
+    public int GetNbBulletsInMagazine() {
+        return bulletsInMagazine;
+    }
+
+    public string GetWeaponName()
+    {
+        return weaponName;
+    }
+    
+    public List<FireMode> GetFireModeList()
+    {
+        return fireMode;
+    }
+
+    public string GetFireMode()
+    {
+        return fireMode[fireModeIndex].ToString();
+    }
+    
+    /* Setters */
+    public void SetFireMode(int _fireModeIndex)
+    {
+        fireModeIndex = _fireModeIndex;
+    }
 }
