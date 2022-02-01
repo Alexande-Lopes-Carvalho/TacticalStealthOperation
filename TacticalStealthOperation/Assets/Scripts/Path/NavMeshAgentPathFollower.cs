@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class NavMeshAgentPathFollower : PathFollower {
     private UnityEngine.AI.NavMeshAgent agent;
 
@@ -21,19 +21,30 @@ public class NavMeshAgentPathFollower : PathFollower {
     void Update() {
         
     }
-    public override void StopFollowingPath(){
+    public override PathStateProvider StopFollowingPath(){
         agent.isStopped = true;
         agent.ResetPath();
-        base.StopFollowingPath();
+        return base.StopFollowingPath();
     }
 
     public override void SetDestination(Vector3 _destination) {
         base.SetDestination(_destination);
-        agent.destination = _destination;
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(_destination, path);
+        if(path.corners.Length > 0 && (_destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
+            agent.SetPath(path);
+            //Debug.Log("Found path");
+        } else {
+            endPath();
+        }
+        //Debug.Log("Didn't found path to " + _destination + " for " + transform.name);
+        //Debug.Log("Set Destination " + _destination);
     }
 
     public override void MoveToDestination(){
-        transform.LookAt(transform.position+(transform.position-lastPosition));
+        if((transform.position-lastPosition).sqrMagnitude > 0.0625){
+            transform.LookAt(transform.position+(transform.position-lastPosition));
+        }
         lastPosition = transform.position;
     }
 
