@@ -23,4 +23,8 @@ public class ItemHolder : MonoBehaviour {
         }
         return false;
     }
+
+    public void Add(Item item){
+        itemList.Add(item);
+    }
 }
