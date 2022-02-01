@@ -10,6 +10,9 @@ public class Guard : Human, IPathComponent {
     [SerializeField] private float visualAcuity = 1;
     public float VisualAcuity{get => visualAcuity; set => visualAcuity = value;}
     private float sqrVisualAcuity;
+    [SerializeField] private float visualAcuityInDarkness = 1;
+    public float VisualAcuityInDarkness{get => visualAcuityInDarkness; set => visualAcuityInDarkness = value;}
+    private float sqrVisualAcuityInDarkness;
     [SerializeField][Min(0)] private float visualAngle;
     private float visualAngleRadians;
     public float VisualAngle{get => visualAngle;}
@@ -170,7 +173,7 @@ public class Guard : Human, IPathComponent {
         }
 
         RaycastHit hit;
-        if(Physics.Raycast(Eyes.position, direction, out hit, visualAcuity)){
+        if(Physics.Raycast(Eyes.position, direction, out hit, (target.IsInLight)? visualAcuity : visualAcuityInDarkness)){
             //Debug.Log(Time.time + " Ray : " + (hit.transform == target.transform));
             return hit.transform == target.transform;
         }

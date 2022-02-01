@@ -9,11 +9,17 @@ public class HumanLinker : MonoBehaviour {
     public static List<Guard> Guards{get=> guards;}
     private static List<Character> characters;
     public static List<Character> Characters{get=> characters;}
+    //private float activationDist = 30f, activationSqrDist;
     private void Awake(){
         humans = new List<Human>();
         guards = new List<Guard>();
         characters = new List<Character>();
         Guard.PriorityCount = 50;
+        //activationSqrDist = activationDist*activationDist;
+    }
+
+    private void Update(){
+
     }
 
     public static void Register(Human h){

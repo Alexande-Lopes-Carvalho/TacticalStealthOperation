@@ -125,16 +125,17 @@ public class Weapon : MonoBehaviour {
         if(bulletBuffer != -1){
             --bulletBuffer;
         }
-    }
-    /*
-        Shooting Animation Event function ...
-    */
-    public void OnStartShoot(){
         if(user != null){
             SpawnCartridge();
             SpawnBullet();
             EarLinker.NoiseAt(transform.position, user.transform, sqrEarRange);
         }
+    }
+    /*
+        Shooting Animation Event function ...
+    */
+    public void OnStartShoot(){
+        
     }
 
     private void SpawnCartridge(){

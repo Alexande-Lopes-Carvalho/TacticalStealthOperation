@@ -15,6 +15,14 @@ public class GuardEditor : Editor {
             Undo.RecordObject(target, "Update Visual Acuity");
             linkedObject.VisualAcuity = ((int)(newRange/0.01f))*0.01f;
         }
+        
+        EditorGUI.BeginChangeCheck();
+        Handles.color = new Vector4(0, 0, 100/255.0f, 1.0f);
+        newRange = Handles.RadiusHandle(Quaternion.identity, linkedObject.Eyes.position, linkedObject.VisualAcuityInDarkness, false);
+        if(EditorGUI.EndChangeCheck()){
+            Undo.RecordObject(target, "Update Visual Acuity");
+            linkedObject.VisualAcuityInDarkness = ((int)(newRange/0.01f))*0.01f;
+        }
 
         EditorGUI.BeginChangeCheck();
         Handles.color = Color.red;

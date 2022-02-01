@@ -688,6 +688,7 @@ MonoBehaviour:
   eyes: {fileID: 2208427074709059848}
   patrolPath: {fileID: 0}
   visualAcuity: 5.25
+  visualAcuityInDarkness: 2
   visualAngle: 45
   targetAcquiredDist: 4
 --- !u!195 &4039063910860916073

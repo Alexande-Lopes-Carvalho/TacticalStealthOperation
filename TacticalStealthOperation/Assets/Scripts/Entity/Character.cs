@@ -39,12 +39,7 @@ public class Character : Human {
             animator.SetTrigger("gotHit");
         }
 
-        /*Debug.DrawLine(transform.position, transform.position+new Vector3(0, 5, 0), (IsInLight)? Color.blue : Color.red, 0);
-        float f = 30f;
-        Debug.DrawLine(transform.position, transform.position+new Vector3(f, 0, 0), Color.green, 0);
-        Debug.DrawLine(transform.position, transform.position+new Vector3(-f, 0, 0), Color.green, 0);
-        Debug.DrawLine(transform.position, transform.position+new Vector3(0, 0, f), Color.green, 0);
-        Debug.DrawLine(transform.position, transform.position+new Vector3(0, 0, -f), Color.green, 0);*/
+        Debug.DrawLine(transform.position, transform.position+new Vector3(0, 5, 0), (IsInLight)? Color.blue : Color.red, 0);
     }
 
     public override void Kill(){

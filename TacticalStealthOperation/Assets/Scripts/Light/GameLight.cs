@@ -20,7 +20,7 @@ public class GameLight : MonoBehaviour {
     private void Update() {
         if(isEnabled){
             gameLight.enabled = false;
-            foreach(Character k in HumanLinker.Humans){
+            foreach(Character k in HumanLinker.Characters){
                 if((k.transform.position-transform.position).sqrMagnitude < activationSqrDist){
                     gameLight.enabled = true;
                 }
