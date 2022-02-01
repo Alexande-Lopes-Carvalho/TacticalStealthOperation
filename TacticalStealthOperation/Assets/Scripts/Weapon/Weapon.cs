@@ -48,10 +48,11 @@ public class Weapon : MonoBehaviour {
 
     private void Awake(){
         coll = GetComponent<Collider>();
+        rbody = GetComponent<Rigidbody>();
     }
     // Start is called before the first frame update
     private void Start() {
-        rbody = GetComponent<Rigidbody>();
+        
         
 
         weaponAnimator = GetComponent<Animator>();

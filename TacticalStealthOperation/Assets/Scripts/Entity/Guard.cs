@@ -44,6 +44,10 @@ public class Guard : Human, IPathComponent {
         lastGuardPosition = transform.position;
         currentState = GuardState.NO_STATE;
         agent.avoidancePriority = priorityCount++;
+        if(patrolPath == null){
+            patrolPath = InspectionPathLinker.GenerateStayPath(transform.position, transform.eulerAngles.y);
+            patrolPath.transform.parent = transform;
+        }
         Patrol();
     }
 

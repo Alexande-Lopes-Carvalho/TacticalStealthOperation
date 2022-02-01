@@ -5,9 +5,9 @@ public class Path : MonoBehaviour {
     
     [SerializeField] private PathType type;
 
-    public PathType Type {get=> type;}
+    public PathType Type {get=> type; set => type = value;}
     [SerializeField] private int lap = 0;
-    public int Lap{get => lap;}
+    public int Lap{get => lap; set => lap = value;}
     [SerializeField] private List<PathState> pathStates; // should contains time and facing
     public List<PathState> PathStates{get=> pathStates;}
     [SerializeField] private Vector3 offset = new Vector3(0, 0.1f, 0); // Offset in order to make pathfinding work

@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 0.125
+  offsetY: 8.43
+  offsetZ: -2.62
+  inclinaison: 67.41
 --- !u!114 &1461331378495703030
 MonoBehaviour:
   m_ObjectHideFlags: 0

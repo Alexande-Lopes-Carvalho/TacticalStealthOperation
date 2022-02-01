@@ -16,11 +16,12 @@ public class InspectionPathLinker : MonoBehaviour {
     private void Awake(){
         inspectionPathList = new List<InspectionPath>();
         t = transform;
+        prefab = transform.GetChild(0).GetComponent<Path>();
     }
 
     // Start is called before the first frame update
     private void Start() {
-        prefab = transform.GetChild(0).GetComponent<Path>();
+        
     }
 
     // Update is called once per frame
@@ -49,6 +50,14 @@ public class InspectionPathLinker : MonoBehaviour {
         Path.PathState b = new Path.PathState(position, false, new Vector3(0, 90, 0), 1);
         res.PathStates.Add(a);
         res.PathStates.Add(b);
+        return res;
+    }
+
+    public static Path GenerateStayPath(Vector3 position, float euler){
+        Path res = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+        res.Type = Path.PathType.Loop;
+        Path.PathState a = new Path.PathState(position, false, new Vector3(0, euler, 0), 3600);
+        res.PathStates.Add(a);
         return res;
     }
 
