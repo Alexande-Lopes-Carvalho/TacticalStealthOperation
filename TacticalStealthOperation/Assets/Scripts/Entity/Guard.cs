@@ -87,11 +87,24 @@ public class Guard : Human, IPathComponent {
         Patrol();
     }
 
+    public override void Damage(int damage){
+        if(IsDead()){
+            return;
+        }
+        base.Damage(damage);
+    }
+
     public override void Damage(int damage, Transform origin){
+        if(IsDead()){
+            return;
+        }
         if(currentState == GuardState.ATTACK){
             base.Damage(damage);
         } else {
             base.Damage(damage*2);
+            if(IsDead()){
+                return;
+            }
             SetGeneratedPath(InspectionPathLinker.GeneratePathTo(origin.position));
             if(!IsPathValid(origin.position)){
                 SetGeneratedPath(InspectionPathLinker.GeneratePathTo(transform.position));

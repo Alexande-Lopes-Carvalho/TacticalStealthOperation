@@ -35,6 +35,8 @@ public class Character : Human {
             ReleaseWeaponTrigger();
         } else if(Input.GetKeyDown(KeyCode.R)){
             animator.SetTrigger("doReload");
+        } else if(Input.GetKeyDown(KeyCode.E)){
+            PickNearbyWeapon();
         }
 
         //Debug.DrawLine(transform.position, transform.position+new Vector3(0, 5, 0), (IsInLight)? Color.blue : Color.red, 0);

@@ -217,6 +217,23 @@ public class Human : Entity {
         }
     }
 
+    protected void PickNearbyWeapon(){
+        foreach(GameObject o in PoolLinker.GetDestroyer("WeaponPool").Pool){
+            if((o.transform.position-transform.position).sqrMagnitude < 2.25){ // dist : 1.5
+                Weapon w = o.GetComponent<Weapon>();
+                if(w != null){
+                    PoolLinker.GetDestroyer("WeaponPool").Remove(o);
+                    Weapon oldWeapon = weapon;
+                    EquipWeapon(w);
+                    if(oldWeapon != null){
+                        PoolLinker.GetDestroyer("WeaponPool").Add(oldWeapon.gameObject);
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
     /*
         Shooting Rifle Animation Event function ...
     */

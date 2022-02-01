@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectPoolDestroyer : MonoBehaviour {
     [SerializeField] private int numberOfElement = 10;
     private List<GameObject> pool = new List<GameObject>();
+    public List<GameObject> Pool{get=> pool;}
     
     public void Add(GameObject g){
         pool.Add(g);
@@ -13,5 +14,9 @@ public class ObjectPoolDestroyer : MonoBehaviour {
             pool.RemoveAt(0);
         }
         g.transform.parent = this.transform;
+    }
+
+    public void Remove(GameObject g){
+        pool.Remove(g);
     }
 }

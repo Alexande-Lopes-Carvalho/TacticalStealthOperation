@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour {
         if(Physics.Raycast(transform.position, direction, out hit, magnitude)){
             if(hit.transform != projectileUser){
                 Entity e = hit.transform.gameObject.GetComponent<Entity>();
-                if(e != null){
+                if(e != null && e.IsAlive()){
                     e.Damage(damage, projectileUser);
                 }
                 End();
