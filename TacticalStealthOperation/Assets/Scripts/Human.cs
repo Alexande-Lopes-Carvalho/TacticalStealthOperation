@@ -176,4 +176,9 @@ public class Human : MonoBehaviour {
     public void OnEndReloadingAnimation(){
 
     }
+    
+    /* Getter for weapon and ammunition display on UI */
+    public Weapon GetWeapon() {
+        return weapon;
+    }
 }
