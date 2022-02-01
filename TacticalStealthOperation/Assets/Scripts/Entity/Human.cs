@@ -191,7 +191,7 @@ public class Human : Entity {
     protected virtual void OnTriggerEnter(Collider coll){
         LightShadow ls = coll.GetComponent<LightShadow>();
         if(ls != null && !lightShadowList.Contains(ls)){
-            Debug.Log(Time.time + " Add " + ls.gameObject.name);
+            //Debug.Log(Time.time + " Add " + ls.gameObject.name);
             lightShadowList.Add(ls);
             return;
         }
@@ -205,7 +205,7 @@ public class Human : Entity {
     protected virtual void OnTriggerExit(Collider coll){
         LightShadow ls = coll.GetComponent<LightShadow>();
         if(ls != null){
-            Debug.Log(Time.time + " Remove " + ls.gameObject.name);
+            //Debug.Log(Time.time + " Remove " + ls.gameObject.name);
             lightShadowList.Remove(ls);
             return;
         }

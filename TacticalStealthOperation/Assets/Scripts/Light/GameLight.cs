@@ -35,6 +35,6 @@ public class GameLight : MonoBehaviour {
     }
 
     public void OnTriggerEnter(Collider c){
-        Debug.Log(c);
+        //Debug.Log(c);
     }
 }

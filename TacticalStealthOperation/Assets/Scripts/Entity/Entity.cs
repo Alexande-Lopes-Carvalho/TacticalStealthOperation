@@ -46,8 +46,16 @@ public class Entity : MonoBehaviour {
         
     }
 
+    public virtual void Damage(int damage, Transform origin){
+        Damage(damage);
+    }
+
     public virtual void Heal(int heal){
         AddHealth(heal);
+    }
+
+    public virtual void Heal(int heal, Transform origin){
+        Heal(heal);
     }
 
     public virtual void Kill(){

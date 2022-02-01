@@ -87,8 +87,17 @@ public class Guard : Human, IPathComponent {
         Patrol();
     }
 
-    public override void Damage(int damage){
-        base.Damage(((currentState == GuardState.ATTACK)? 1 : 2)*damage);
+    public override void Damage(int damage, Transform origin){
+        if(currentState == GuardState.ATTACK){
+            base.Damage(damage);
+        } else {
+            base.Damage(damage*2);
+            SetGeneratedPath(InspectionPathLinker.GeneratePathTo(origin.position));
+            if(!IsPathValid(origin.position)){
+                SetGeneratedPath(InspectionPathLinker.GeneratePathTo(transform.position));
+            }
+            Inspect(generatedInspectionPath);
+        }
         
     }
 
@@ -185,27 +194,40 @@ public class Guard : Human, IPathComponent {
         return CanSeeTarget(target);
     }
 
+    private void ResetGeneratedPath(){
+        if(generatedInspectionPath != null){
+            Destroy(generatedInspectionPath.gameObject);
+            generatedInspectionPath = null;
+        }
+    }
+    private void SetGeneratedPath(Path p){
+        ResetGeneratedPath();
+        generatedInspectionPath = p;
+        generatedInspectionPath.transform.parent = transform;
+    }
+
+    private bool IsPathValid(Vector3 destination){
+        NavMeshPath path = new UnityEngine.AI.NavMeshPath();
+        agent.CalculatePath(destination, path);
+        return path.corners.Length > 0 && (destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1;
+    }
+
     public override void Ear(Transform t){
         if(!IsAlive() || currentState == GuardState.ATTACK){
             return;
         }
         Guard e = t.GetComponent<Guard>();
         if(e != null && e.currentState == GuardState.ATTACK){
-            NavMeshPath path = new UnityEngine.AI.NavMeshPath();
-            agent.CalculatePath(e.target.transform.position, path);
-            if(path.corners.Length > 0 && (e.target.transform.position-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
+            if(IsPathValid(e.target.transform.position)){
                 Attack(e.target);
             }
         } else {
             Path inspect = null;
-            if(generatedInspectionPath != null){
-                Destroy(generatedInspectionPath.gameObject);
-                generatedInspectionPath = null;
-            }
             if(InspectionPathLinker.CurrentPathList == null || InspectionPathLinker.IsInsideCurrent(transform)){
-                generatedInspectionPath = InspectionPathLinker.GenerateDefaultPath();
-                generatedInspectionPath.transform.parent = transform;
-                inspect = generatedInspectionPath;
+                SetGeneratedPath(InspectionPathLinker.GenerateDefaultPath());
+                if(IsPathValid(InspectionPathLinker.Position)){
+                    inspect = generatedInspectionPath;
+                }
             } else {
                 //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
                 
@@ -213,10 +235,8 @@ public class Guard : Human, IPathComponent {
                 foreach(Path k in InspectionPathLinker.CurrentPathList){
                     NavMeshPath path = new UnityEngine.AI.NavMeshPath();
                     agent.CalculatePath(k.PathStates[0].destination, path);
-                    //Debug.Log(Time.time + "from " + (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude + " " + EvaluateSqrDistance(path, transform.position) + " " + k.PathStates[0].destination);
                     if(path.corners.Length > 0 && (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){
-                        //Debug.Log(Time.time + " can go");
-                        float evDist = EvaluateSqrDistance(path, transform.position);
+                        float evDist = EvaluateDistance(path, transform.position);
                         if(dist == -1 || evDist < dist){
                             dist = evDist;
                             inspect = k;
@@ -235,6 +255,15 @@ public class Guard : Human, IPathComponent {
         float res = 0;
         foreach(Vector3 v in path.corners){
             res += Vector3.SqrMagnitude(p-v);
+            p = v;
+        }
+        return res;
+    }
+    private float EvaluateDistance(NavMeshPath path, Vector3 position){
+        Vector3 p = position;
+        float res = 0;
+        foreach(Vector3 v in path.corners){
+            res += Vector3.Magnitude(p-v);
             p = v;
         }
         return res;

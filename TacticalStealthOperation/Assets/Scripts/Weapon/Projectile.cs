@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
     private int damage;
     private Vector3 origin;
     private float currentDist;
-    private Transform ignoreTransform;
+    private Transform projectileUser;
     // Start is called before the first frame update
     private void Start() {
         
@@ -27,10 +27,10 @@ public class Projectile : MonoBehaviour {
         RaycastHit hit;
         //if(ignoreTransform == GameObject.Find("Character").transform){Debug.Log(Time.time + " " + transform.position + " to " + (transform.position+direction));}
         if(Physics.Raycast(transform.position, direction, out hit, magnitude)){
-            if(hit.transform != ignoreTransform){
+            if(hit.transform != projectileUser){
                 Entity e = hit.transform.gameObject.GetComponent<Entity>();
                 if(e != null){
-                    e.Damage(damage);
+                    e.Damage(damage, projectileUser);
                 }
                 End();
             }
@@ -43,10 +43,10 @@ public class Projectile : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    public void Set(Transform _ignoreTransform, int _damage){
+    public void Set(Transform _projectileUser, int _damage){
         currentDist = 0;
         damage = _damage;
-        ignoreTransform = _ignoreTransform;
+        projectileUser = _projectileUser;
         trail.Clear();
     }
 }

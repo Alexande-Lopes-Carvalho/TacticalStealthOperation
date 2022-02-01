@@ -37430,7 +37430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436612528567713734, guid: 8e2eab528257aaa4293b29e8beabe113, type: 3}
       propertyPath: earRange
-      value: 2500
+      value: 80000
       objectReference: {fileID: 0}
     - target: {fileID: 6599613801558445843, guid: 8e2eab528257aaa4293b29e8beabe113, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

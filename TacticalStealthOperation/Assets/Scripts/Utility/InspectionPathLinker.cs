@@ -12,6 +12,7 @@ public class InspectionPathLinker : MonoBehaviour {
     private static Collider currentCollider;
 
     private static Vector3 offset = new Vector3(0, 0.1f, 0), position;
+    public static Vector3 Position{get => position;}
     private void Awake(){
         inspectionPathList = new List<InspectionPath>();
         t = transform;
@@ -42,13 +43,17 @@ public class InspectionPathLinker : MonoBehaviour {
         }
     }
 
-    public static Path GenerateDefaultPath(){
+    public static Path GeneratePathTo(Vector3 position){
         Path res = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         Path.PathState a = new Path.PathState(position, false, new Vector3(0, -90, 0), 1);
         Path.PathState b = new Path.PathState(position, false, new Vector3(0, 90, 0), 1);
         res.PathStates.Add(a);
         res.PathStates.Add(b);
         return res;
+    }
+
+    public static Path GenerateDefaultPath(){
+        return GeneratePathTo(position);
     }
 
     public static bool IsInsideCurrent(Transform t){
