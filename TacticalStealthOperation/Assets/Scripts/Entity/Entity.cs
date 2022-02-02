@@ -77,4 +77,14 @@ public class Entity : MonoBehaviour {
     public virtual bool IsAlive(){
         return currentHealth > 0;
     }
+    
+    /* Getters */
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
 }

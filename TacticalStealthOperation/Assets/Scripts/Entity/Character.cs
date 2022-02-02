@@ -6,11 +6,13 @@ public class Character : Human {
     [SerializeField] private Camera cam;
     private Rigidbody rb;
     [SerializeField] private float speed = 3f*100000f;
+    public DisplayHealth healthBar;
 
     // Start is called before the first frame update
     public override void Start() {
         base.Start();
         rb = GetComponent<Rigidbody>();
+        healthBar.SetMaxHealth(GetMaxHealth());
     }
 
     // Update is called once per frame
@@ -62,6 +64,16 @@ public class Character : Human {
         }
         Vector3 collision = ray.origin+ray.direction*k;
         transform.LookAt(collision-offset);   
+    }
+
+    public override void Damage(int damage, Transform origin){
+        Damage(damage);
+        healthBar.SetCurrentHealth(GetCurrentHealth());
+    }
+
+    public override void Heal(int heal, Transform origin){
+        Heal(heal);
+        healthBar.SetCurrentHealth(GetCurrentHealth());
     }
 
     //  PERFECT DIRECTION TO SHOOT TOWARD MOUSE (CAUSE JITTER DUE TO ANIMATION)
