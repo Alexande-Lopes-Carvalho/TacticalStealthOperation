@@ -34,6 +34,8 @@ public class Guard : Human, IPathComponent {
     private float timeCheck = 0;
 
     private Path generatedInspectionPath;
+
+    [SerializeField] private Item dropOnKill;
     public override void Start(){
         base.Start();
         nvPathFollower = GetComponent<NavMeshAgentPathFollower>();
@@ -189,6 +191,7 @@ public class Guard : Human, IPathComponent {
         Destroy(nvPathFollower);
         Destroy(agent);
         Destroy(GetComponent<CapsuleCollider>());
+        ItemSpawner.Instance.SpawnAt(dropOnKill, transform.position);
     }
 
     private bool CanSeeTarget(Human target){
