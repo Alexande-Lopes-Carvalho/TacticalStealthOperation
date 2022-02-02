@@ -4674,6 +4674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockedDoorKey1_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6921430664788701998, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
 --- !u!4 &7882041273314465225 stripped
@@ -5346,6 +5350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockedDoorKey1_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6921430664788701998, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
 --- !u!4 &2024842769512338238 stripped
@@ -5613,6 +5621,10 @@ PrefabInstance:
     - target: {fileID: 6921430664788701998, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
       propertyPath: m_Name
       value: LockedDoorKey1_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6921430664788701998, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97be3da13804f741b615d8c79a823ee, type: 3}
@@ -7044,7 +7056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469843546904810043, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 994988324071737473, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_RootOrder
@@ -7110,7 +7122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469843546904810043, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 994988324071737473, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_RootOrder
@@ -7440,7 +7452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469843546904810043, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 994988324071737473, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_RootOrder

@@ -1096,6 +1096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockedDoorKey2_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5582139500922424466, guid: 9d6aba08ff6f1b4468b33c28a7b1a0cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8583276593732345748, guid: 9d6aba08ff6f1b4468b33c28a7b1a0cc, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1226,7 +1230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469843546904810043, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 994988324071737473, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_RootOrder
@@ -3206,6 +3210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LockedDoorKey2_0
       objectReference: {fileID: 0}
+    - target: {fileID: 5582139500922424466, guid: 9d6aba08ff6f1b4468b33c28a7b1a0cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8583276593732345748, guid: 9d6aba08ff6f1b4468b33c28a7b1a0cc, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4218,7 +4226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 469843546904810043, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 994988324071737473, guid: d11dc568f27a19e46b1ca7b2f13aee4e, type: 3}
       propertyPath: m_RootOrder
