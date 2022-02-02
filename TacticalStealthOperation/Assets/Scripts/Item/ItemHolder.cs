@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemHolder : MonoBehaviour {
 
     [SerializeField] private List<Item> itemList;
+    [SerializeField] private DisplayInventory inventory;
+    
     // Start is called before the first frame update
     private void Start() {
         
@@ -26,5 +28,6 @@ public class ItemHolder : MonoBehaviour {
 
     public void Add(Item item){
         itemList.Add(item);
+        inventory.DisplayNewElement(item);
     }
 }
