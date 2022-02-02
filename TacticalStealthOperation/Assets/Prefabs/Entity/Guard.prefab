@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71285ee9841b9b54d8529baff38694e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 80
   currentHealth: -1
   leftHand: {fileID: 6297269125969385017}
   rightHand: {fileID: 4032953975591086830}
@@ -691,6 +691,7 @@ MonoBehaviour:
   visualAcuityInDarkness: 2
   visualAngle: 45
   targetAcquiredDist: 4
+  dropOnKill: 0
 --- !u!195 &4039063910860916073
 NavMeshAgent:
   m_ObjectHideFlags: 0

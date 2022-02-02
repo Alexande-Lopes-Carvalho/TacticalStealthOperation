@@ -56,6 +56,7 @@ public class Human : Entity {
     private void UnequipWeapon(){
         if(weapon != null){
             weapon.Unequipped();
+            weapon = null;
             foreach(Transform k in leftHand.transform){
                 Destroy(k.gameObject);
             }
@@ -245,7 +246,9 @@ public class Human : Entity {
     }
     public void OnEndFiringAnimation(){ // called 1 ms before end of the animation (for state update to be effective)
         //Debug.Log(Time.time + " endFiring");
-        animator.SetBool(doShootAnimation, isPressingWeaponTrigger && weapon.CanShootBullet());
+        if(weapon != null){
+            animator.SetBool(doShootAnimation, isPressingWeaponTrigger && weapon.CanShootBullet());
+        }
     }
 
     /*
