@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Item {
-    Key1 = 0,
-    Key2 = 1,
-    Key3 = 2
+    None = 0,
+    Key1 = 1,
+    Key2 = 2,
+    Key3 = 3
 }
