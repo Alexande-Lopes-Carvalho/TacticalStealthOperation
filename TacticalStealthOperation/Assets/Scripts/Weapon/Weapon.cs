@@ -81,6 +81,7 @@ public class Weapon : MonoBehaviour {
     public void Unequipped(){
         user = null;
         transform.parent = null;
+        ReleaseTigger();
         SetRigibody(true);
     }
 
