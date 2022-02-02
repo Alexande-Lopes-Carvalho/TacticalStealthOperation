@@ -17,7 +17,7 @@ public class PathEditor : Editor {
         List<Vector3> list = new List<Vector3>();
         List<Quaternion> listQuat = new List<Quaternion>();
         float defaultUp = 1f, samePlaceUp = 1.35f, sqrRadius = 0.25f*0.25f;
-        list.Add(path.PathStates[0].Destination+new Vector3(0, defaultUp, 0));
+        list.Add(path.transform.right*path.PathStates[0].Destination.x+new Vector3(0, defaultUp, 0)+path.transform.forward*path.PathStates[0].Destination.z+path.transform.position);
         for(int i = 1; i < path.PathStates.Count; ++i){
             bool foundNear = false;
             float y = 0;
@@ -30,7 +30,7 @@ public class PathEditor : Editor {
             if(!foundNear){
                 y = path.PathStates[i].Destination.y+defaultUp;
             }
-            list.Add(new Vector3(path.PathStates[i].Destination.x, y, path.PathStates[i].Destination.z));
+            list.Add(path.transform.right*path.PathStates[i].Destination.x+new Vector3(0, y, 0)+path.transform.forward*path.PathStates[i].Destination.z+path.transform.position);
         }
 
         
@@ -64,23 +64,23 @@ public class PathEditor : Editor {
             
             Quaternion q = Quaternion.identity;
             if(!path.PathStates[i].NoRotation || path.PathStates.Count <= 1){
-                q = Quaternion.Euler(path.PathStates[i].FacingRotation);
+                q = Quaternion.Euler(path.PathStates[i].FacingRotation+new Vector3(0, path.transform.eulerAngles.y, 0));
             } else {
                 int k = (i == 0)? i+1 : i;
                 bool done = false;
                 for(int j = k; j > 0; --j){
                     if((path.PathStates[j].Destination-path.PathStates[j-1].Destination).sqrMagnitude > sqrRadius){
-                        q.SetLookRotation(path.PathStates[j].Destination-path.PathStates[j-1].Destination);
+                        q.SetLookRotation(list[j]-list[j-1]);
                         done = true;
                         break;
                     } else if(!path.PathStates[j-1].NoRotation){
-                        q = Quaternion.Euler(path.PathStates[j-1].FacingRotation);
+                        q = Quaternion.Euler(path.PathStates[j-1].FacingRotation+new Vector3(0, path.transform.eulerAngles.y, 0));
                         done = true;
                         break;
                     }
                 }
                 if(!done){
-                    q = Quaternion.Euler(path.PathStates[i].FacingRotation);
+                    q = Quaternion.Euler(path.PathStates[i].FacingRotation+new Vector3(0, path.transform.eulerAngles.y, 0));
                 }
             }
 
@@ -90,7 +90,7 @@ public class PathEditor : Editor {
             leftMouseDrag = (Event.current.type == EventType.MouseDown && Event.current.button == 0)? true : (Event.current.type == EventType.MouseUp && Event.current.button == 0)? false : leftMouseDrag;
 
             EditorGUI.BeginChangeCheck();
-            Vector3 newPosition = Handles.PositionHandle(list[i],Quaternion.identity/*q*/);
+            Vector3 newPosition = Handles.PositionHandle(list[i], Quaternion.identity);
             if(handleDrag == -1 || handleDrag == i){
                 if(GUI.changed){
                     if(handleDrag == -1){
@@ -110,16 +110,17 @@ public class PathEditor : Editor {
                 Undo.RegisterCompleteObjectUndo(path, "Move PathState n°" + i);
                 Vector3 computedPos = newPosition+offset;
                 //Debug.Log(Time.time + " " + computedPos + " " + newPosition + " " + (path.PathStates[i].destination-list[i]) + " " + (path.PathStates[i].destination-offset));
+
                 path.PathStates[i].destination =  new Vector3(SnapValue(computedPos.x, 0.01f), SnapValue(computedPos.y, 0.01f), SnapValue(computedPos.z, 0.01f));
                 EditorUtility.SetDirty(path);
             }
             Handles.color = Color.black;
             if(!path.PathStates[i].NoRotation){
                 EditorGUI.BeginChangeCheck();
-                Quaternion rot = Handles.Disc(Quaternion.Euler(path.PathStates[i].facingRotation), list[i]+q*new Vector3(0, 0.5f, 0), q*new Vector3(0, 1f, 0), 0.5f, false, 1);
+                Quaternion rot = Handles.Disc(Quaternion.Euler(path.PathStates[i].facingRotation+new Vector3(0, path.transform.eulerAngles.y, 0)), list[i]+q*new Vector3(0, 0.5f, 0), q*new Vector3(0, 1f, 0), 0.5f, false, 1);
                 if(EditorGUI.EndChangeCheck()){
                     Undo.RegisterCompleteObjectUndo(path, "Rotate PathState n°" + i);
-                    path.PathStates[i].facingRotation = new Vector3(SnapValue(rot.eulerAngles.x, 1f), SnapValue(rot.eulerAngles.y, 1f), SnapValue(rot.eulerAngles.z, 1f));
+                    path.PathStates[i].facingRotation = new Vector3(SnapValue(rot.eulerAngles.x, 1f), SnapValue(rot.eulerAngles.y-path.transform.eulerAngles.y, 1f), SnapValue(rot.eulerAngles.z, 1f));
                     EditorUtility.SetDirty(path);
                 }
             }
