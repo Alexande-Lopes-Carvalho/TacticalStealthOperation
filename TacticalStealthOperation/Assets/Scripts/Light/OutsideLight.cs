@@ -8,7 +8,7 @@ public class OutsideLight : MonoBehaviour {
     private List<GameLight> lightList;
     [SerializeField] private bool hasSun;
     // Start is called before the first frame update
-    private void Start() {
+    private void Awake() {
         if(instance != null){
             Destroy(instance.gameObject);
         }

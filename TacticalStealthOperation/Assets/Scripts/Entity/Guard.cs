@@ -206,7 +206,10 @@ public class Guard : Human, IPathComponent {
         base.Kill();
         Destroy(nvPathFollower);
         Destroy(agent);
-        Destroy(GetComponent<CapsuleCollider>());
+        CapsuleCollider[] capsules = GetComponents<CapsuleCollider>();
+        foreach(CapsuleCollider k in capsules){
+            Destroy(k);
+        }
         ItemSpawner.Instance.SpawnAt(dropOnKill, transform.position);
     }
 

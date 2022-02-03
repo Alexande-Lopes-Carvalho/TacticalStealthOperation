@@ -46,6 +46,8 @@ public class Weapon : MonoBehaviour {
     public float EarRange{get=> earRange; set => earRange = value;}
     private float sqrEarRange;
 
+    [SerializeField] private AudioSource shootSound;
+
     private void Awake(){
         coll = GetComponent<Collider>();
         rbody = GetComponent<Rigidbody>();
@@ -128,6 +130,7 @@ public class Weapon : MonoBehaviour {
             --bulletBuffer;
         }
         if(user != null){
+            shootSound.Play();
             SpawnCartridge();
             SpawnBullet();
             EarLinker.Instance.NoiseAt(transform.position, user.transform, sqrEarRange);
