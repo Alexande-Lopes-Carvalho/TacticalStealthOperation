@@ -214,15 +214,10 @@ public class Guard : Human, IPathComponent {
         if(target.IsDead()){
             return false;
         }
-        if((transform.position-target.transform.position).sqrMagnitude < sqrSurroundingAwarness){
-            //Debug.Log(Time.time + " pass");
-            transitionAttackSpeed = 3;
-            return true;
-        }
-
         Vector3 direction = target.Eyes.position-Eyes.position;
-        //Debug.Log(Time.time + " " + Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) + " " + (Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) < visualAngleRadians));
-        if(Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) > visualAngleRadians){
+        if((transform.position-target.transform.position).sqrMagnitude < sqrSurroundingAwarness){
+            transitionAttackSpeed = 3;
+        } else if(Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) > visualAngleRadians){
             return false;
         }
 
