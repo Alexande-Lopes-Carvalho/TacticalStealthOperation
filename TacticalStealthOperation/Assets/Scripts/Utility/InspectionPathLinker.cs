@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InspectionPathLinker : MonoBehaviour {
-    private static List<InspectionPath> inspectionPathList;
-    private static List<Path> currentPathList;
-    public static List<Path> CurrentPathList{get => currentPathList;}
+    private static InspectionPathLinker instance;
+    public static InspectionPathLinker Instance{get => instance;}
+    private List<InspectionPath> inspectionPathList;
+    private List<Path> currentPathList;
+    public List<Path> CurrentPathList{get => currentPathList;}
 
-    private static Path prefab;
-    private static Transform t;
-    private static Collider currentCollider;
+    private Path prefab;
+    private Transform t;
+    private Collider currentCollider;
 
-    private static Vector3 offset = new Vector3(0, 0.1f, 0), position;
-    public static Vector3 Position{get => position;}
+    private Vector3 offset = new Vector3(0, 0.1f, 0), position;
+    public Vector3 Position{get => position;}
     private void Awake(){
+        if(instance != null){
+            Destroy(instance.gameObject);
+        }
+        instance = this;
         inspectionPathList = new List<InspectionPath>();
         t = transform;
         prefab = transform.GetChild(0).GetComponent<Path>();
@@ -29,7 +35,7 @@ public class InspectionPathLinker : MonoBehaviour {
         
     }
 
-    public static void SetPath(Vector3 _position){
+    public void SetPath(Vector3 _position){
         currentCollider = null;
         currentPathList = null;
         position = _position;
@@ -44,7 +50,7 @@ public class InspectionPathLinker : MonoBehaviour {
         }
     }
 
-    public static Path GeneratePathTo(Vector3 position){
+    public Path GeneratePathTo(Vector3 position){
         Path res = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         Path.PathState a = new Path.PathState(position, false, new Vector3(0, -90, 0), 1);
         Path.PathState b = new Path.PathState(position, false, new Vector3(0, 90, 0), 1);
@@ -53,7 +59,7 @@ public class InspectionPathLinker : MonoBehaviour {
         return res;
     }
 
-    public static Path GenerateStayPath(Vector3 position, float euler){
+    public Path GenerateStayPath(Vector3 position, float euler){
         Path res = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         res.Type = Path.PathType.Loop;
         Path.PathState a = new Path.PathState(position, false, new Vector3(0, euler, 0), 3600);
@@ -61,15 +67,15 @@ public class InspectionPathLinker : MonoBehaviour {
         return res;
     }
 
-    public static Path GenerateDefaultPath(){
+    public Path GenerateDefaultPath(){
         return GeneratePathTo(position);
     }
 
-    public static bool IsInsideCurrent(Transform t){
+    public bool IsInsideCurrent(Transform t){
         return currentCollider.bounds.Contains(t.position+offset);
     }
 
-    public static void Add(InspectionPath p){
+    public void Add(InspectionPath p){
         //Debug.Log("InspectionPathLinker Add " + p);
         inspectionPathList.Add(p);
     }

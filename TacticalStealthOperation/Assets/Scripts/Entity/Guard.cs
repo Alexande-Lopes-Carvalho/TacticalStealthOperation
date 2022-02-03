@@ -47,7 +47,7 @@ public class Guard : Human, IPathComponent {
         currentState = GuardState.NO_STATE;
         agent.avoidancePriority = priorityCount++;
         if(patrolPath == null){
-            patrolPath = InspectionPathLinker.GenerateStayPath(transform.position, transform.eulerAngles.y);
+            patrolPath = InspectionPathLinker.Instance.GenerateStayPath(transform.position, transform.eulerAngles.y);
             patrolPath.transform.parent = transform;
         }
         Patrol();
@@ -111,9 +111,9 @@ public class Guard : Human, IPathComponent {
             if(IsDead()){
                 return;
             }
-            SetGeneratedPath(InspectionPathLinker.GeneratePathTo(origin.position));
+            SetGeneratedPath(InspectionPathLinker.Instance.GeneratePathTo(origin.position));
             if(!IsPathValid(origin.position)){
-                SetGeneratedPath(InspectionPathLinker.GeneratePathTo(transform.position));
+                SetGeneratedPath(InspectionPathLinker.Instance.GeneratePathTo(transform.position));
             }
             Inspect(generatedInspectionPath);
         }
@@ -175,7 +175,7 @@ public class Guard : Human, IPathComponent {
                 Debug.DrawLine(Eyes.position, target.Eyes.position, (canSeeTarget)? Color.red : Color.blue);
             }
         } else if((currentState == GuardState.PATROL || currentState == GuardState.INSPECT) && (Time.time-timeCheck >= 0.15)) {
-            foreach(Character k in HumanLinker.Characters){
+            foreach(Character k in HumanLinker.Instance.Characters){
                 canSeeTarget = CanSeeTarget(k);
                 if(canSeeTarget){
                     Attack(k);
@@ -243,16 +243,16 @@ public class Guard : Human, IPathComponent {
             }
         } else {
             Path inspect = null;
-            if(InspectionPathLinker.CurrentPathList == null || InspectionPathLinker.IsInsideCurrent(transform)){
-                SetGeneratedPath(InspectionPathLinker.GenerateDefaultPath());
-                if(IsPathValid(InspectionPathLinker.Position)){
+            if(InspectionPathLinker.Instance.CurrentPathList == null || InspectionPathLinker.Instance.IsInsideCurrent(transform)){
+                SetGeneratedPath(InspectionPathLinker.Instance.GenerateDefaultPath());
+                if(IsPathValid(InspectionPathLinker.Instance.Position)){
                     inspect = generatedInspectionPath;
                 }
             } else {
                 //Debug.Log(Time.time + " " + name + " eard " + t.gameObject.name);
                 
                 float dist = -1;
-                foreach(Path k in InspectionPathLinker.CurrentPathList){
+                foreach(Path k in InspectionPathLinker.Instance.CurrentPathList){
                     NavMeshPath path = new UnityEngine.AI.NavMeshPath();
                     agent.CalculatePath(k.PathStates[0].destination, path);
                     if(path.corners.Length > 0 && (k.PathStates[0].destination-path.corners[path.corners.Length-1]).sqrMagnitude < 0.1){

@@ -47,7 +47,7 @@ public class Human : Entity {
         turnSamplingTime = Time.time;
         turnBuffer = 0;
         EarTransform = eyes;
-        HumanLinker.Register(this);
+        HumanLinker.Instance.Register(this);
         lightShadowList = new List<LightShadow>();
         lightList = new List<GameLight>();
         ComputeIsInLight();
@@ -143,14 +143,14 @@ public class Human : Entity {
         
         animator.SetBool(isDead, true);
         if(w != null){
-            PoolLinker.GetDestroyer("WeaponPool").Add(w.gameObject);
+            PoolLinker.Instance.GetDestroyer("WeaponPool").Add(w.gameObject);
         }
         enabled = false;
-        PoolLinker.GetDestroyer("HumanPool").Add(this.gameObject);
+        PoolLinker.Instance.GetDestroyer("HumanPool").Add(this.gameObject);
     }
 
     public override void OnDestroy() {
-        HumanLinker.Remove(this);
+        HumanLinker.Instance.Remove(this);
         base.OnDestroy();
     }
 
@@ -219,15 +219,15 @@ public class Human : Entity {
     }
 
     protected void PickNearbyWeapon(){
-        foreach(GameObject o in PoolLinker.GetDestroyer("WeaponPool").Pool){
+        foreach(GameObject o in PoolLinker.Instance.GetDestroyer("WeaponPool").Pool){
             if((o.transform.position-transform.position).sqrMagnitude < 2.25){ // dist : 1.5
                 Weapon w = o.GetComponent<Weapon>();
                 if(w != null){
-                    PoolLinker.GetDestroyer("WeaponPool").Remove(o);
+                    PoolLinker.Instance.GetDestroyer("WeaponPool").Remove(o);
                     Weapon oldWeapon = weapon;
                     EquipWeapon(w);
                     if(oldWeapon != null){
-                        PoolLinker.GetDestroyer("WeaponPool").Add(oldWeapon.gameObject);
+                        PoolLinker.Instance.GetDestroyer("WeaponPool").Add(oldWeapon.gameObject);
                     }
                     break;
                 }
@@ -256,23 +256,31 @@ public class Human : Entity {
     */
     public void OnStartReloadingAnimation(){
         leftHand.SetActive(false);
-        weapon.Magazine.SetActive(true);
-        weapon.OnReloadAction();
+        if(weapon != null){
+            weapon.Magazine.SetActive(true);
+            weapon.OnReloadAction();
+        }
     }
     public void OnExtractEmptyMagazine(){
         leftHand.SetActive(true);
-        weapon.OnExtractEmptyMagazine();
+        if(weapon != null){
+            weapon.OnExtractEmptyMagazine();
+        }
     }
     public void OnDropEmptyMagazine(){
         leftHand.SetActive(false);
-        weapon.MagazinePool.SpawnAt(leftHand.transform.position, leftHand.transform.eulerAngles);
+        if(weapon != null){
+            weapon.MagazinePool.SpawnAt(leftHand.transform.position, leftHand.transform.eulerAngles);
+        }
     }
     public void OnGetNewMagazine(){
         leftHand.SetActive(true);
     } 
     public void OnPutNewMagazine(){
         leftHand.SetActive(false);
-        weapon.OnPutNewMagazine();
+        if(weapon != null){
+            weapon.OnPutNewMagazine();
+        }
     }
     public void OnReloadActionWeapon(){
         

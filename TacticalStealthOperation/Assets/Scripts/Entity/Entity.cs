@@ -18,7 +18,7 @@ public class Entity : MonoBehaviour {
             currentHealth = maxHealth;
         }
         if(IsAlive()){
-            EarLinker.Register(this);
+            EarLinker.Instance.Register(this);
         }
         //Debug.Log("Start health " + currentHealth + " "+ name);
         
@@ -63,7 +63,7 @@ public class Entity : MonoBehaviour {
     }
 
     public virtual void OnDestroy(){
-        EarLinker.Remove(this);
+        EarLinker.Instance.Remove(this);
     }
 
     public virtual void Ear(Transform t){
