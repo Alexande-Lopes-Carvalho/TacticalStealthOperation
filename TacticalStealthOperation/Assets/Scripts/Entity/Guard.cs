@@ -16,6 +16,9 @@ public class Guard : Human, IPathComponent {
     [SerializeField][Min(0)] private float visualAngle;
     private float visualAngleRadians;
     public float VisualAngle{get => visualAngle;}
+    [SerializeField][Min(0)] private float surroundingAwarness;
+    public float SurroundingAwarness{get => surroundingAwarness; set => surroundingAwarness = value;}
+    private float sqrSurroundingAwarness;
 
     [SerializeField] private float targetAcquiredDist = 1;
     public float TargetAcquiredDist{get => targetAcquiredDist; set => targetAcquiredDist = value;}
@@ -29,11 +32,13 @@ public class Guard : Human, IPathComponent {
     private Human target;
     private float lastPathToTarget; // time
     private bool canSeeTarget = false;
-    private Vector3 lastGuardPosition;
+    private Vector3 lastGuardPosition, lastGuardForward;
     private float transitionAttack = 0; // 0 : look where walking | 1 : look to target
+    private float transitionAttackSpeed = 1;
     private float timeCheck = 0;
 
     private Path generatedInspectionPath;
+    
 
     [SerializeField] private Item dropOnKill;
     public override void Start(){
@@ -42,7 +47,9 @@ public class Guard : Human, IPathComponent {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         sqrVisualAcuity = visualAcuity*visualAcuity;
         sqrTargetAcquiredDist = targetAcquiredDist*targetAcquiredDist;
+        sqrSurroundingAwarness = surroundingAwarness*surroundingAwarness;
         visualAngleRadians = Mathf.Deg2Rad*visualAngle;
+        lastGuardForward = transform.forward;
         lastGuardPosition = transform.position;
         currentState = GuardState.NO_STATE;
         agent.avoidancePriority = priorityCount++;
@@ -87,6 +94,8 @@ public class Guard : Human, IPathComponent {
         target = e;
         lastPathToTarget = -1;
         canSeeTarget = false;
+        lastGuardForward = transform.forward;
+        lastGuardPosition = transform.position;
     }
     
     public void OnPathEnd(){
@@ -124,15 +133,22 @@ public class Guard : Human, IPathComponent {
         base.FixedUpdate();
         if(currentState == GuardState.ATTACK){
             Vector3 toTarget = (target.transform.position-transform.position);
-            Vector3 toWalk = (transform.position-lastGuardPosition);
-            transitionAttack = (canSeeTarget)? Mathf.Min(transitionAttack+Time.deltaTime*1, 1) : Mathf.Max(transitionAttack-Time.deltaTime*1, 0);
+            Vector3 toWalk = (lastGuardForward);
+            transitionAttack = (canSeeTarget)? Mathf.Min(transitionAttack+Time.deltaTime*transitionAttackSpeed, 1) : Mathf.Max(transitionAttack-Time.deltaTime*transitionAttackSpeed, 0);
             //Debug.Log(Vector3.SignedAngle(toWalk, toTarget, transform.up) + " " + toWalk);
             transform.LookAt(transform.position+Quaternion.AngleAxis(transitionAttack*Vector3.SignedAngle(toWalk, toTarget, transform.up), transform.up)*toWalk);
+            //Debug.Log(Time.time + " " + toTarget + " " + toWalk + " " + transitionAttack);
         }
         RefreshTurnAnimation();
-        if((transform.position-lastGuardPosition).sqrMagnitude > 0.01f){
+        Vector3 v = (transform.position-lastGuardPosition);
+        if(v.sqrMagnitude > 0.01f){
+            //Debug.Log(Time.time + " Set last");
             lastGuardPosition = transform.position;
+            lastGuardForward = v.normalized;
         }
+        //Debug.Log(Time.time + " " + transitionAttackSpeed + " " + Mathf.Max(1, transitionAttackSpeed-Time.deltaTime*1));
+        transitionAttackSpeed = Mathf.Max(1, transitionAttackSpeed-Time.deltaTime*1);
+        
     }
 
     public override void Update(){
@@ -172,7 +188,7 @@ public class Guard : Human, IPathComponent {
                     ReleaseWeaponTrigger();
                 }
 
-                Debug.DrawLine(Eyes.position, target.Eyes.position, (canSeeTarget)? Color.red : Color.blue);
+                //Debug.DrawLine(Eyes.position, target.Eyes.position, (canSeeTarget)? Color.red : Color.blue);
             }
         } else if((currentState == GuardState.PATROL || currentState == GuardState.INSPECT) && (Time.time-timeCheck >= 0.15)) {
             foreach(Character k in HumanLinker.Instance.Characters){
@@ -195,6 +211,15 @@ public class Guard : Human, IPathComponent {
     }
 
     private bool CanSeeTarget(Human target){
+        if(target.IsDead()){
+            return false;
+        }
+        if((transform.position-target.transform.position).sqrMagnitude < sqrSurroundingAwarness){
+            //Debug.Log(Time.time + " pass");
+            transitionAttackSpeed = 3;
+            return true;
+        }
+
         Vector3 direction = target.Eyes.position-Eyes.position;
         //Debug.Log(Time.time + " " + Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) + " " + (Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) < visualAngleRadians));
         if(Mathf.Acos(Vector3.Dot(direction.normalized, transform.forward)) > visualAngleRadians){

@@ -690,6 +690,7 @@ MonoBehaviour:
   visualAcuity: 5.25
   visualAcuityInDarkness: 2
   visualAngle: 45
+  surroundingAwarness: 1.25
   targetAcquiredDist: 4
   dropOnKill: 0
 --- !u!195 &4039063910860916073
