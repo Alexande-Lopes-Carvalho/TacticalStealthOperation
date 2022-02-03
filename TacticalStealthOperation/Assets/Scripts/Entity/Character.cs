@@ -41,7 +41,7 @@ public class Character : Human {
             PickNearbyWeapon();
         }
 
-        //Debug.DrawLine(transform.position, transform.position+new Vector3(0, 5, 0), (IsInLight)? Color.blue : Color.red, 0);
+        Debug.DrawLine(transform.position, transform.position+new Vector3(0, 5, 0), (IsInLight)? Color.blue : Color.red, 0);
     }
 
     public override void Kill(){

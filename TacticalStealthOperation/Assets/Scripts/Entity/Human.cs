@@ -180,7 +180,7 @@ public class Human : Entity {
             }
         }
         if(lightShadowList.Count == 0){
-            isInLight = true;
+            isInLight = OutsideLight.Instance.Contains(lightList);
             return;
         }
         isInLight = false;
