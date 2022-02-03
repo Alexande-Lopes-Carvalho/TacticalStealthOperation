@@ -14,7 +14,7 @@ public class InspectionPath : MonoBehaviour {
             pathList.Add(k.GetComponent<Path>());
         }
         coll = GetComponent<Collider>();
-        InspectionPathLinker.Add(this);
+        InspectionPathLinker.Instance.Add(this);
         //Debug.Log(coll);
     }
 

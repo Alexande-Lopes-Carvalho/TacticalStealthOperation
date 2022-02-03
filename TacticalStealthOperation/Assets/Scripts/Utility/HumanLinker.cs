@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HumanLinker : MonoBehaviour {
-    private static List<Human> humans;
-    public static List<Human> Humans{get=> humans;}
-    private static List<Guard> guards;
-    public static List<Guard> Guards{get=> guards;}
-    private static List<Character> characters;
-    public static List<Character> Characters{get=> characters;}
+    private static HumanLinker instance;
+    public static HumanLinker Instance{get => instance;}
+    private List<Human> humans;
+    public List<Human> Humans{get=> humans;}
+    private List<Guard> guards;
+    public List<Guard> Guards{get=> guards;}
+    private List<Character> characters;
+    public List<Character> Characters{get=> characters;}
     //private float activationDist = 30f, activationSqrDist;
     private void Awake(){
+        if(instance != null){
+            Destroy(instance.gameObject);
+        }
+        instance = this;
         humans = new List<Human>();
         guards = new List<Guard>();
         characters = new List<Character>();
@@ -22,7 +28,7 @@ public class HumanLinker : MonoBehaviour {
 
     }
 
-    public static void Register(Human h){
+    public void Register(Human h){
         humans.Add(h);
         if(h is Guard){
             guards.Add((Guard)h);
@@ -32,7 +38,7 @@ public class HumanLinker : MonoBehaviour {
         }
     }
 
-    public static void Remove(Human h){
+    public void Remove(Human h){
         humans.Remove(h);
         if(h is Guard){
             guards.Remove((Guard)h);

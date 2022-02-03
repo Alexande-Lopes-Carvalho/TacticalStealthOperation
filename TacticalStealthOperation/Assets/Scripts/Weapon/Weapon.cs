@@ -65,9 +65,9 @@ public class Weapon : MonoBehaviour {
                 weaponAnimator.SetFloat(reloadSpeedAnimation, (clip.length*1000.0f)/reloadRate);
             }
         }
-        magazinePool = PoolLinker.Get(weaponName+"MagazinePool");
-        cartridgePool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"CartridgePool");
-        bulletPool = PoolLinker.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"BulletPool");
+        magazinePool = PoolLinker.Instance.Get(weaponName+"MagazinePool");
+        cartridgePool = PoolLinker.Instance.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"CartridgePool");
+        bulletPool = PoolLinker.Instance.Get(Enum.GetName(typeof(Ammunition), ((int)ammunitionType))+"BulletPool");
         sqrEarRange = earRange*earRange;
     }
 
@@ -130,7 +130,7 @@ public class Weapon : MonoBehaviour {
         if(user != null){
             SpawnCartridge();
             SpawnBullet();
-            EarLinker.NoiseAt(transform.position, user.transform, sqrEarRange);
+            EarLinker.Instance.NoiseAt(transform.position, user.transform, sqrEarRange);
         }
     }
     /*
