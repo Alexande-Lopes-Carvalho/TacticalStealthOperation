@@ -779,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d50ede80feb0f439d7b16828370273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 100
   currentHealth: -1
   leftHand: {fileID: 7319483925869027133}
   rightHand: {fileID: 428053230793445464}
@@ -789,6 +789,7 @@ MonoBehaviour:
   eyes: {fileID: 7532294805232702568}
   cam: {fileID: 0}
   speed: 300000
+  healthBar: {fileID: 0}
 --- !u!54 &7552217566508186887
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -818,6 +819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList: 
+  inventory: {fileID: 0}
 --- !u!1 &4994584005675990731
 GameObject:
   m_ObjectHideFlags: 0

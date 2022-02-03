@@ -234,7 +234,7 @@ MonoBehaviour:
   fireRate: 250
   reloadRate: 2900
   category: 1
-  damage: 4
+  damage: 40
   MaxBulletsInMagazine: 25
   bulletsInMagazine: 25
   magazine: {fileID: 6373978381740279757}

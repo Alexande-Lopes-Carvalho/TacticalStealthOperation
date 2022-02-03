@@ -183,6 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a76ec4a95f81c84dbe68ee89de657bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 0
+  key: 1
   rotForward: 1
   obs: {fileID: 616329542064480560}
