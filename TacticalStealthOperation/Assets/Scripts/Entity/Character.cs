@@ -6,13 +6,18 @@ public class Character : Human {
     [SerializeField] private Camera cam;
     private Rigidbody rb;
     [SerializeField] private float speed = 3f*100000f;
-    public DisplayHealth healthBar;
+    [SerializeField] private DisplayHealth healthBar;
+    [SerializeField] private int regenerationValue = 1;
+    [SerializeField] private float regenerationSpeed = 1.0f;
+    private IEnumerator coroutine;
 
     // Start is called before the first frame update
     public override void Start() {
         base.Start();
         rb = GetComponent<Rigidbody>();
         healthBar.SetMaxHealth(GetMaxHealth());
+        coroutine = Regen(regenerationSpeed);
+        StartCoroutine(coroutine);
     }
 
     // Update is called once per frame
@@ -74,6 +79,24 @@ public class Character : Human {
     public override void Heal(int heal, Transform origin){
         Heal(heal);
         healthBar.SetCurrentHealth(GetCurrentHealth());
+    }
+    
+    private IEnumerator Regen(float waitTime)
+    {
+        while (true)
+        {
+            if (GetCurrentHealth() < 1)
+            {
+                StopCoroutine(coroutine);
+            }
+
+            if (GetCurrentHealth() < GetMaxHealth())
+            {
+                Heal(regenerationValue, transform);
+            }
+            
+            yield return new WaitForSeconds(waitTime);
+        }
     }
 
     //  PERFECT DIRECTION TO SHOOT TOWARD MOUSE (CAUSE JITTER DUE TO ANIMATION)

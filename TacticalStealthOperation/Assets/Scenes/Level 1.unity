@@ -10054,16 +10054,16 @@ Transform:
   - {fileID: 1489961017}
   - {fileID: 2061073467}
   - {fileID: 2048223502}
-  - {fileID: 1313146238}
   - {fileID: 1699591307}
+  - {fileID: 1313146238}
   - {fileID: 498848968}
-  - {fileID: 1886332002}
   - {fileID: 958360149}
+  - {fileID: 1886332002}
   - {fileID: 1514538612}
   - {fileID: 2066831409}
   - {fileID: 170553742}
-  - {fileID: 981480450}
   - {fileID: 1833517662}
+  - {fileID: 981480450}
   - {fileID: 1744426909}
   - {fileID: 528210177}
   m_Father: {fileID: 623686641}
@@ -39703,6 +39703,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1572379300}
+    - target: {fileID: 4399861822103759371, guid: 522ffc43b95481044bcdd5b2c49ff9fe, type: 3}
+      propertyPath: regeneration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8469063320596771483, guid: 522ffc43b95481044bcdd5b2c49ff9fe, type: 3}
       propertyPath: inventory
       value: 
