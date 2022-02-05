@@ -55,7 +55,6 @@ public class Weapon : MonoBehaviour {
     // Start is called before the first frame update
     private void Start() {
         
-        
 
         weaponAnimator = GetComponent<Animator>();
         foreach (AnimationClip clip in weaponAnimator.runtimeAnimatorController.animationClips) {

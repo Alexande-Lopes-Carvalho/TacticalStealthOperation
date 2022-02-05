@@ -17,19 +17,21 @@ public class DisplayWeapon : MonoBehaviour
     public void Update()
     {
         Weapon weapon = player.GetWeapon();
-        nbBallText.SetText(weapon.GetNbBulletsInMagazine().ToString());
-        fireModeText.SetText(weapon.GetFireMode());
-        
-        String weaponName = weapon.GetWeaponName();
-        if (weaponName.Equals("FAL"))
-        {
-            weaponImage.texture = weaponTextureList[0];
-            ammunitionImage.texture = ammunitionTextureList[0];
-        }
-        else if (weaponName.Equals("M1911"))
-        {
-            weaponImage.texture = weaponTextureList[1];
-            ammunitionImage.texture = ammunitionTextureList[1];
+        if(weapon != null){
+            nbBallText.SetText(weapon.GetNbBulletsInMagazine().ToString());
+            fireModeText.SetText(weapon.GetFireMode());
+            
+            String weaponName = weapon.GetWeaponName();
+            if (weaponName.Equals("FAL"))
+            {
+                weaponImage.texture = weaponTextureList[0];
+                ammunitionImage.texture = ammunitionTextureList[0];
+            }
+            else if (weaponName.Equals("M1911"))
+            {
+                weaponImage.texture = weaponTextureList[1];
+                ammunitionImage.texture = ammunitionTextureList[1];
+            }
         }
     }
 }

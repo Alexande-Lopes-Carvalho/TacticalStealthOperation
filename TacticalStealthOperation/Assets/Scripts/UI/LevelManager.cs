@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour
             mainCamera.SetActive(false);
             mainCanvas.gameObject.SetActive(false);
             // Destroy(mainEventSystem);//.SetActive(false);
-            Instantiate(levelPrefabs[Index],levelParent);//.SetActive(false);
+            Instantiate(levelPrefabs[index],levelParent);//.SetActive(false);
             levelPrefabs[index].SetActive(true);
             Index = index;
         }
