@@ -52,7 +52,7 @@ public class Character : Human {
 
     public void SetDirection(){
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
+        Debug.Log(cam.transform.position);
         float div = Vector3.Dot(ray.direction, Vector3.up);
         if(div == 0.0f){
             return;

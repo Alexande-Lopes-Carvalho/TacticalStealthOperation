@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     public void SetLevel(int index){
         mainCamera.SetActive(false);
         mainCanvas.gameObject.SetActive(false);
-        Destroy(mainEventSystem);//.SetActive(false);
+        // Destroy(mainEventSystem);//.SetActive(false);
         Instantiate(levelPrefabs[Index],levelParent);//.SetActive(false);
         levelPrefabs[index].SetActive(true);
         Index = index;
@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
         DestroyLevels();
         mainCamera.SetActive(true);
         mainCanvas.gameObject.SetActive(true);
-        Instantiate(mainEventSystem);//.SetActive(true);
+     //   Instantiate(mainEventSystem);//.SetActive(true);
     }
 
     public void DestroyLevels(){
