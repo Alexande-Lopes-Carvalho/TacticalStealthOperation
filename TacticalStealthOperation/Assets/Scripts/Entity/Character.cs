@@ -10,6 +10,7 @@ public class Character : Human {
     [SerializeField] private int regenerationValue = 1;
     [SerializeField] private float regenerationSpeed = 1.0f;
     private IEnumerator coroutine;
+    private LevelManager levelManager {get;set;}
 
     // Start is called before the first frame update
     public override void Start() {
@@ -18,6 +19,7 @@ public class Character : Human {
         healthBar.SetMaxHealth(GetMaxHealth());
         coroutine = Regen(regenerationSpeed);
         StartCoroutine(coroutine);
+        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class Character : Human {
     public override void Kill(){
         Destroy(rb);
         Destroy(GetComponent<CapsuleCollider>());
+        levelManager.LoseUICanvas.gameObject.SetActive(true);
         base.Kill();
     }
 
