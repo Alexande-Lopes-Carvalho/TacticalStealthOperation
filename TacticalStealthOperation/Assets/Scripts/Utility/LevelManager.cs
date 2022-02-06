@@ -25,7 +25,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // TODO : check why there's a division by zero in the pools when a level is reset
     public void ResetLevel(){
         DestroyLevels();
         SetLevel(Index);

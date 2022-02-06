@@ -13,8 +13,6 @@ public class PoolLinker : MonoBehaviour {
     private void Awake() {
         if(instance != null){
             Destroy(instance.gameObject);
-            Destroy(pools.gameObject);
-            Destroy(poolsDestroyer.gameObject);
         }
         instance = this;
         dictonary = new Dictionary<string, ObjectPooler>();
