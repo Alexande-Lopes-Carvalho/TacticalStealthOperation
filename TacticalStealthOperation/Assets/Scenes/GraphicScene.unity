@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: e273bf5f629922c4388c98a364f188a0, type: 2}
+--- !u!114 &977996921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1492067199126089269, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
+  m_PrefabInstance: {fileID: 816733748338333345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7495ea61934a4c5f93e7b4bcfdbc23cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &1474256727 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 816733747068586486, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
@@ -135,6 +146,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1492067198349967516, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492067198349967516, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675313621523647687, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -179,6 +198,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7488022502849748155, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 977996921}
     - target: {fileID: 9212802994955631055, guid: fcf5bc7598c8aa445bb520454eace94b, type: 3}
       propertyPath: m_Name
       value: Level0

@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 7836074027215298067}
   m_Layer: 0
   m_Name: LowRangeCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -656,6 +656,8 @@ MonoBehaviour:
   cam: {fileID: 0}
   speed: 300000
   healthBar: {fileID: 0}
+  regenerationValue: 1
+  regenerationSpeed: 1
 --- !u!54 &273713141447022118
 Rigidbody:
   m_ObjectHideFlags: 0
