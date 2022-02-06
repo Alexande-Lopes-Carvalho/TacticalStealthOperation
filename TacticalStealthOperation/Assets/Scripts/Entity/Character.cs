@@ -34,6 +34,11 @@ public class Character : Human {
     }
 
     public override void Update() {
+        if (Time.timeScale == 0.0f)
+        {
+            return;
+        }
+        
         base.Update();
         SetDirection();
         RefreshTurnAnimation();
