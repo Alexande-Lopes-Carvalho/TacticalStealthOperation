@@ -3484,20 +3484,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32956237aced196459bf3654103f6b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 1
   lap: 0
   pathStates:
-  - destination: {x: 48, y: 0, z: 77.25}
-    noRotation: 0
-    facingRotation: {x: 0, y: 0, z: 0}
-    timeToWait: 2
   - destination: {x: 42.25, y: 0, z: 77.25}
     noRotation: 0
     facingRotation: {x: 0, y: 270, z: 0}
     timeToWait: 2
-  - destination: {x: 48, y: 0, z: 70.93}
+  - destination: {x: 50, y: 0, z: 77.25}
+    noRotation: 1
+    facingRotation: {x: 0, y: 0, z: 0}
+    timeToWait: 2
+  - destination: {x: 50, y: 0, z: 76.09}
     noRotation: 0
-    facingRotation: {x: 0, y: 270, z: 0}
+    facingRotation: {x: 0, y: 180, z: 0}
     timeToWait: 2
   offset: {x: 0, y: 0.1, z: 0}
 --- !u!1 &816733748650548445
