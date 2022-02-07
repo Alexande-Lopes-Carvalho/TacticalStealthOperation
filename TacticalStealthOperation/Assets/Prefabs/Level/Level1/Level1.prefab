@@ -618,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55689d41ceb94757b5cb2e6b84a4f385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endMessage: The ennemy base was succefully blown up
 --- !u!54 &762823419665542967
 Rigidbody:
   m_ObjectHideFlags: 0

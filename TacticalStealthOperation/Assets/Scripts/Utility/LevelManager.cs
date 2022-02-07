@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class LevelManager : MonoBehaviour
     public Canvas WinUICanvas{
         get => winUICanvas;
     }
+    [SerializeField] private TextMeshProUGUI winEndMessage;
+    public TextMeshProUGUI WinEndMessage{get => winEndMessage;}
     [SerializeField] private Canvas pausedUICanvas;
     [SerializeField] private Transform levelParent;
 

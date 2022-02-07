@@ -3746,6 +3746,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 9099734703733941974}
   loseUICanvas: {fileID: 8133610142012234791}
   winUICanvas: {fileID: 2788899938120869618}
+  winEndMessage: {fileID: 2739637096683830507}
   pausedUICanvas: {fileID: 1503805840694226926}
   levelParent: {fileID: 9099734704104957282}
 --- !u!1 &9099734704489179762

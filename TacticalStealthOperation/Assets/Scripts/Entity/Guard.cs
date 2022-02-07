@@ -153,6 +153,10 @@ public class Guard : Human, IPathComponent {
 
     public override void Update(){
         base.Update();
+        if(Time.timeScale == 0){
+            return;
+        }
+
         RefreshMoveAnimation();
         if(currentState == GuardState.ATTACK){
             if(target.IsDead()){
