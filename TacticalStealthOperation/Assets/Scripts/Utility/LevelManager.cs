@@ -44,6 +44,7 @@ public class LevelManager : MonoBehaviour
             Instantiate(levelPrefabs[index],levelParent);
             levelPrefabs[index].SetActive(true);
             Index = index;
+            Resume();
         }
     }
 
