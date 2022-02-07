@@ -220,7 +220,7 @@ public class Human : Entity {
 
     protected void PickNearbyWeapon(){
         foreach(GameObject o in PoolLinker.Instance.GetDestroyer("WeaponPool").Pool){
-            if((o.transform.position-transform.position).sqrMagnitude < 2.25){ // dist : 1.5
+            if((o.transform.position-transform.position).sqrMagnitude < 1){ // dist : 1
                 Weapon w = o.GetComponent<Weapon>();
                 if(w != null){
                     PoolLinker.Instance.GetDestroyer("WeaponPool").Remove(o);
