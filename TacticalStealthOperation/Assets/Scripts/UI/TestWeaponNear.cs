@@ -1,24 +1,20 @@
-﻿using System;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TestWeaponNear : MonoBehaviour
 {
     [SerializeField] private GameObject text;
     private GameObject player;
 
-    public void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
-
     public void FixedUpdate()
     {
+        Character character = HumanLinker.Instance.Characters[0];
+        
         // guard condition
-        if (player.GetComponent<Character>().IsDead())
+        if (character.IsDead())
         {
             return;
         }
+        player = character.gameObject;
         
         bool near = false;
         foreach (GameObject o in PoolLinker.Instance.GetDestroyer("WeaponPool").Pool)
